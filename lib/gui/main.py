@@ -17,17 +17,19 @@ except:
 
 import os.path
 
-# Get dictionary of data locations
-from lib.initialize import locations
+import lib.initialize as initialize
 
 
 class MainApp:
     """Create application based on a MainFrame class"""
 
     def __init__(self):
-		
+
+        initialize.locations(self)
+        initialize.i18n(self.locations['locale'])
+        
         # Set the Glade file
-        self.gladefile = os.path.join(locations['glade'], 'mainwindow.glade')  
+        self.gladefile = os.path.join(self.locations['glade'], 'mainwindow.glade')  
         self.xml = gtk.glade.XML(self.gladefile) 
 		
         signals = {}

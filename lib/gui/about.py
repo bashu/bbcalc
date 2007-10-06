@@ -17,14 +17,7 @@ class AboutDialog:
         dialog.set_version(version.pversion)
         dialog.set_copyright("Copyright © 2005-2007 Basil Shubin")
         dialog.set_website(version.pwebsite)
-        dialog.set_authors([
-            _("Author/Maintainer") + ':',
-            version.pauthor.replace(', ', '\n')
-            ])
-        dialog.set_translator_credits( \
-                _("Russian") + ":\n\t" + \
-                "Basil Shubin <bashu@users.sourceforge.net>\n\t" \
-                )
+        dialog.set_authors([version.pauthor.replace(', ', '\n')])
 
         if os.path.isfile('/usr/share/common-licenses/GPL-3'):
             dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
