@@ -1,0 +1,16 @@
+next version
+============
+* Port to PyGTK
+* Create Debian/Ubuntu package
+* Automated installation
+* Total source code refactoring
+* Documenting all source code
+
+near future
+===========
+* Add more new calculators :-)
+* Add application logo and icon
+
+far future
+==========
+* Any suggestions?
