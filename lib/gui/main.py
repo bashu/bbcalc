@@ -47,9 +47,18 @@ class MainApp:
         self.app_quit(args)
 
     def on_about1_activate(self, *args):
+        """Shows About dialog box"""
         from lib.gui.about import AboutDialog
         about_dialog = AboutDialog()
 
+    def on_ideal_body_activate(self, *args):
+        pass
+
+    def on_bodyfat_activate(self, *args):
+        pass
+
+    def on_onerep_max_activate(self, *args):
+        pass
 
 def main():
     app = MainApp()
