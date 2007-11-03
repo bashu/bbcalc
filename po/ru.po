@@ -7,13 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-06 17:58+0700\n"
+"POT-Creation-Date: 2007-11-03 17:55+0600\n"
 "PO-Revision-Date: 2007-02-03 15:42+0600\n"
 "Last-Translator: Basil Shubin <bashu@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../lib/gui/calculators/onerepmax.py:61
+msgid "lbs"
+msgstr "фунт"
+
+#: ../lib/gui/calculators/onerepmax.py:63
+msgid "kg"
+msgstr "кг"
 
 #: ../lib/version.py:10
 msgid "Put description here"
@@ -97,9 +105,6 @@ msgstr "Разместите описание тут"
 #~ msgid "Fat Weight:"
 #~ msgstr "Вес жира:"
 
-#~ msgid "lbs"
-#~ msgstr "фунт"
-
 #~ msgid "Lean Weight:"
 #~ msgstr "Чистый вес:"
 
@@ -108,9 +113,6 @@ msgstr "Разместите описание тут"
 
 #~ msgid "calories"
 #~ msgstr "калорий"
-
-#~ msgid "kg"
-#~ msgstr "кг"
 
 #~ msgid "Wrist Size:"
 #~ msgstr "Запястье:"
