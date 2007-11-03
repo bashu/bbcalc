@@ -19,10 +19,10 @@ class AboutDialog:
         dialog.set_website(version.pwebsite)
         dialog.set_authors([version.pauthor.replace(', ', '\n')])
 
-        if os.path.isfile('/usr/share/common-licenses/GPL-3'):
-            dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
-        else:
-            dialog.set_license(license_text)
+        # if os.path.isfile('/usr/share/common-licenses/GPL-3'):
+        #    dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
+        #else:
+        dialog.set_license(license_text)
         dialog.set_comments(version.pdescription)
         dialog.run()
         dialog.destroy()

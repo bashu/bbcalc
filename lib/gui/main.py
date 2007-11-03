@@ -30,7 +30,10 @@ class MainApp:
         
         # Set the Glade file
         self.gladefile = os.path.join(self.locations['glade'], 'mainwindow.glade')  
-        self.xml = gtk.glade.XML(self.gladefile) 
+        self.xml = gtk.glade.XML(self.gladefile)
+
+        # Get a box for a future calcs
+        self.calc_box = self.xml.get_widget('calc_box')
 		
         signals = {}
         for key in dir(self.__class__):
@@ -43,10 +46,10 @@ class MainApp:
     def on_main_window_destroy(self, *args):
         self.app_quit(args)
 
-    def on_quit1_activate(self, *args):
+    def on_quit_activate(self, *args):
         self.app_quit(args)
 
-    def on_about1_activate(self, *args):
+    def on_about_activate(self, *args):
         """Shows About dialog box"""
         from lib.gui.about import AboutDialog
         about_dialog = AboutDialog()
@@ -58,7 +61,9 @@ class MainApp:
         pass
 
     def on_onerep_max_activate(self, *args):
-        pass
+        from lib.gui.calculators.onerepmax import OneRepMax
+        OneRepMax(self)
+
 
 def main():
     app = MainApp()
