@@ -2,7 +2,7 @@
 
 """Miscellaneous unit convertors"""
 
-from lib.gui.utils import *
+from lib.utils import *
 
 def kg2lb(kg, precision=5):
     """Convert kilogramms to pounds"""
