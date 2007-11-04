@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.0 on Sun Nov  4 13:47:16 2007 -->
+<!--Generated with glade3 3.4.0 on Sun Nov  4 15:22:36 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="main_window">
     <property name="visible">True</property>
@@ -427,7 +427,7 @@ Kilogramms</property>
           <widget class="GtkComboBox" id="unit_combobox2">
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="items" translatable="yes">Inches
+            <property name="items" translatable="yes" context="yes">Inches
 Centimeters</property>
             <signal name="changed" handler="on_unit_combobox2_changed"/>
           </widget>
@@ -455,7 +455,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Neck Size:</property>
+            <property name="label" translatable="yes" context="yes">Neck Size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -469,7 +469,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Calve Size:</property>
+            <property name="label" translatable="yes" context="yes">Calve Size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -483,7 +483,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Thigh Size:</property>
+            <property name="label" translatable="yes" context="yes">Thigh Size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -497,7 +497,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Forearm Size:</property>
+            <property name="label" translatable="yes" context="yes">Forearm Size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -511,7 +511,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Bicep Size:</property>
+            <property name="label" translatable="yes" context="yes">Bicep Size:</property>
           </widget>
           <packing>
             <property name="top_attach">5</property>
@@ -523,7 +523,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Hip Size:</property>
+            <property name="label" translatable="yes" context="yes">Hip Size:</property>
           </widget>
           <packing>
             <property name="top_attach">4</property>
@@ -535,7 +535,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Waist Size:</property>
+            <property name="label" translatable="yes" context="yes">Waist Size:</property>
           </widget>
           <packing>
             <property name="top_attach">3</property>
@@ -547,7 +547,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Chest Size:</property>
+            <property name="label" translatable="yes" context="yes">Chest Size:</property>
           </widget>
           <packing>
             <property name="top_attach">2</property>
@@ -559,7 +559,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes">Wrist Size:</property>
+            <property name="label" translatable="yes" context="yes">Wrist Size:</property>
             <property name="width_chars">0</property>
           </widget>
         </child>
@@ -572,6 +572,7 @@ Centimeters</property>
             <property name="right_attach">4</property>
             <property name="top_attach">1</property>
             <property name="bottom_attach">2</property>
+            <property name="y_padding">10</property>
           </packing>
         </child>
       </widget>

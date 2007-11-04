@@ -38,12 +38,13 @@ class MainApp:
         # Get a box for a future calcs
         self.calc_box = self.xml.get_widget('calc_box')
 
-        # Create calcs tables
+        # Create calculators tables
         self.onerepmax = OneRepMax(self)
         self.idealbody = IdealBody(self)
 
         self.set_panel(self.idealbody)
 
+        # Connect event handlers
         signals = {}
         for key in dir(self.__class__):
             signals[key] = getattr(self, key)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-04 13:52+0600\n"
+"POT-Creation-Date: 2007-11-04 15:19+0600\n"
 "PO-Revision-Date: 2007-02-03 15:42+0600\n"
 "Last-Translator: Basil Shubin <bashu@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "lbs"
 msgstr "фунт"
 
-#: ../lib/gui/calculators/onerepmax.py:63 ../glade/mainwindow.glade:224
+#: ../lib/gui/calculators/onerepmax.py:63 ../glade/mainwindow.glade:236
 msgid "kg"
 msgstr "кг"
 
@@ -32,109 +32,104 @@ msgid "BBCalc"
 msgstr ""
 
 #: ../glade/mainwindow.glade:24
-#, fuzzy
 msgid "_File"
-msgstr "&Файл"
+msgstr "_Файл"
 
 #: ../glade/mainwindow.glade:35
 msgid "gtk-quit"
 msgstr ""
 
 #: ../glade/mainwindow.glade:49
-#, fuzzy
 msgid "_Calculators"
-msgstr "&Калькуляторы"
+msgstr "_Калькуляторы"
 
 #: ../glade/mainwindow.glade:59
-#, fuzzy
 msgid "_Body Building"
-msgstr "&Бодибилдинг"
+msgstr "_Бодибилдинг"
 
 #: ../glade/mainwindow.glade:69
-#, fuzzy
 msgid "Body_fat Estimator"
-msgstr "Оценщик телесного &жира"
+msgstr "Оценщик телесного _жира"
 
 #: ../glade/mainwindow.glade:79
-#, fuzzy
 msgid "_Ideal Body Measurements"
-msgstr "&Идеальные размеры тела"
+msgstr "_Идеальные размеры тела"
 
 #: ../glade/mainwindow.glade:91
-#, fuzzy
 msgid "_One-Rep Max"
-msgstr "&Одноповторный максимум"
+msgstr "_Одноповторный максимум"
 
 #: ../glade/mainwindow.glade:110
-#, fuzzy
 msgid "_Help"
-msgstr "&Справка"
+msgstr "_Справка"
 
 #: ../glade/mainwindow.glade:120
 msgid "gtk-about"
 msgstr ""
 
-#: ../glade/mainwindow.glade:192
-msgid "Weight Lifted:"
-msgstr "Поднятый вес:"
-
-#: ../glade/mainwindow.glade:200
-msgid "Number of Reps:"
-msgstr "Число повторений:"
-
-#: ../glade/mainwindow.glade:212
-msgid "Predicted One-Rep Max:"
-msgstr "Одноповторный максимум:"
-
-#: ../glade/mainwindow.glade:280
-#, fuzzy
+#: ../glade/mainwindow.glade:179
 msgid ""
 "Pounds\n"
 "Kilogramms"
-msgstr "Килограммы"
+msgstr ""
+"Фунты\n"
+"Килограммы"
 
-#: ../glade/mainwindow.glade:430
-#, fuzzy
-msgid ""
-"Inches\n"
-"Centimeters"
-msgstr "Сантиметры"
+#: ../glade/mainwindow.glade:250
+msgid "Predicted One-Rep Max:"
+msgstr "Одноповторный максимум:"
 
-#: ../glade/mainwindow.glade:458
-msgid "Neck Size:"
-msgstr "Шея:"
+#: ../glade/mainwindow.glade:262
+msgid "Number of Reps:"
+msgstr "Число повторений:"
 
-#: ../glade/mainwindow.glade:472
-msgid "Calve Size:"
-msgstr "Голень:"
+#: ../glade/mainwindow.glade:274
+msgid "Weight Lifted:"
+msgstr "Поднятый вес:"
 
-#: ../glade/mainwindow.glade:486
-msgid "Thigh Size:"
-msgstr "Бедро:"
+#: ../glade/mainwindow.glade:322
+msgid "Wrist Size:"
+msgstr "Запястье:"
 
-#: ../glade/mainwindow.glade:500
-msgid "Forearm Size:"
-msgstr "Предплечье:"
-
-#: ../glade/mainwindow.glade:514
-msgid "Bicep Size:"
-msgstr "Бицепс:"
-
-#: ../glade/mainwindow.glade:526
-msgid "Hip Size:"
-msgstr "Бёдра:"
-
-#: ../glade/mainwindow.glade:538
-msgid "Waist Size:"
-msgstr "Талия:"
-
-#: ../glade/mainwindow.glade:550
+#: ../glade/mainwindow.glade:331
 msgid "Chest Size:"
 msgstr "Грудь:"
 
-#: ../glade/mainwindow.glade:562
-msgid "Wrist Size:"
-msgstr "Запястье:"
+#: ../glade/mainwindow.glade:343
+msgid "Waist Size:"
+msgstr "Талия:"
+
+#: ../glade/mainwindow.glade:355
+msgid "Hip Size:"
+msgstr "Бёдра:"
+
+#: ../glade/mainwindow.glade:367
+msgid "Bicep Size:"
+msgstr "Бицепс:"
+
+#: ../glade/mainwindow.glade:379
+msgid "Forearm Size:"
+msgstr "Предплечье:"
+
+#: ../glade/mainwindow.glade:393
+msgid "Thigh Size:"
+msgstr "Бедро:"
+
+#: ../glade/mainwindow.glade:407
+msgid "Calve Size:"
+msgstr "Голень:"
+
+#: ../glade/mainwindow.glade:421
+msgid "Neck Size:"
+msgstr "Шея:"
+
+#: ../glade/mainwindow.glade:448
+msgid ""
+"Inches\n"
+"Centimeters"
+msgstr ""
+"Дюймы\n"
+"Сантиметры"
 
 #~ msgid "&Quit\tCtrl+Q"
 #~ msgstr "&Выйти\tCtrl+Q"
