@@ -17,25 +17,25 @@ class OneRepMax:
 
         # Get a 'table' with calculator from the XML file
         self.calc_table = self.parent.xml.get_widget('one_rep_max_table')
-        # and make it a part of parent window
-        self.calc_table.reparent(self.parent.calc_box)
+        self.old_parent = self.calc_table.get_parent()
 
         # Get several widgets, that will be used later
-        self.unit_combobox = self.parent.xml.get_widget('unit_combobox')
-        self.weight_spinbutton = self.parent.xml.get_widget('weight_spinbutton')
-        self.reps_spinbutton = self.parent.xml.get_widget('reps_spinbutton')
-        self.onerep_max_entry = self.parent.xml.get_widget('onerep_max_entry')
+        self.unit_combobox = self.parent.xml.get_widget('unit_combobox1')
+        self.weight_spinbutton = self.parent.xml.get_widget('weight_spinbutton1')
+        self.reps_spinbutton = self.parent.xml.get_widget('reps_spinbutton1')
+        
+        self.onerep_max_entry = self.parent.xml.get_widget('onerep_max_entry1')
 
         # Set active item for unit selection box
         self.unit = 1
         self.unit_combobox.set_active(self.unit)
 
         # Connect event handlers
-        signals = {'on_onerep_max_combobox_changed' : self.on_onerep_max_combobox_changed,
-                   'on_calc' : self.on_calc}
+        signals = {'on_unit_combobox1_changed' : self.on_unit_combobox1_changed,
+                   'on_onerep_max_calc' : self.on_onerep_max_calc}
         self.parent.xml.signal_autoconnect(signals)
 
-    def on_calc(self, *args):
+    def on_onerep_max_calc(self, *args):
         """
         This formula comes from 'A Practical Approach to Strength Training' by
         Matt Brzycki
@@ -44,9 +44,9 @@ class OneRepMax:
         max_single = weight / REPCOEF[int(self.reps_spinbutton.get_value())]
         self.onerep_max_entry.set_text(str(round(max_single, 2)))
 
-    def on_onerep_max_combobox_changed(self, *args):
+    def on_unit_combobox1_changed(self, *args):
         """Handle unit conversion"""
-        result_unit_label = self.parent.xml.get_widget('result_unit')
+        result_unit_label = self.parent.xml.get_widget('result_unit1')
 
         if self.unit != self.unit_combobox.get_active():
             self.unit = self.unit_combobox.get_active()
