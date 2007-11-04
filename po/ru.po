@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-03 17:55+0600\n"
+"POT-Creation-Date: 2007-11-04 13:52+0600\n"
 "PO-Revision-Date: 2007-02-03 15:42+0600\n"
 "Last-Translator: Basil Shubin <bashu@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "lbs"
 msgstr "фунт"
 
-#: ../lib/gui/calculators/onerepmax.py:63
+#: ../lib/gui/calculators/onerepmax.py:63 ../glade/mainwindow.glade:224
 msgid "kg"
 msgstr "кг"
 
@@ -27,38 +27,129 @@ msgstr "кг"
 msgid "Put description here"
 msgstr "Разместите описание тут"
 
+#: ../glade/mainwindow.glade:8
+msgid "BBCalc"
+msgstr ""
+
+#: ../glade/mainwindow.glade:24
+#, fuzzy
+msgid "_File"
+msgstr "&Файл"
+
+#: ../glade/mainwindow.glade:35
+msgid "gtk-quit"
+msgstr ""
+
+#: ../glade/mainwindow.glade:49
+#, fuzzy
+msgid "_Calculators"
+msgstr "&Калькуляторы"
+
+#: ../glade/mainwindow.glade:59
+#, fuzzy
+msgid "_Body Building"
+msgstr "&Бодибилдинг"
+
+#: ../glade/mainwindow.glade:69
+#, fuzzy
+msgid "Body_fat Estimator"
+msgstr "Оценщик телесного &жира"
+
+#: ../glade/mainwindow.glade:79
+#, fuzzy
+msgid "_Ideal Body Measurements"
+msgstr "&Идеальные размеры тела"
+
+#: ../glade/mainwindow.glade:91
+#, fuzzy
+msgid "_One-Rep Max"
+msgstr "&Одноповторный максимум"
+
+#: ../glade/mainwindow.glade:110
+#, fuzzy
+msgid "_Help"
+msgstr "&Справка"
+
+#: ../glade/mainwindow.glade:120
+msgid "gtk-about"
+msgstr ""
+
+#: ../glade/mainwindow.glade:192
+msgid "Weight Lifted:"
+msgstr "Поднятый вес:"
+
+#: ../glade/mainwindow.glade:200
+msgid "Number of Reps:"
+msgstr "Число повторений:"
+
+#: ../glade/mainwindow.glade:212
+msgid "Predicted One-Rep Max:"
+msgstr "Одноповторный максимум:"
+
+#: ../glade/mainwindow.glade:280
+#, fuzzy
+msgid ""
+"Pounds\n"
+"Kilogramms"
+msgstr "Килограммы"
+
+#: ../glade/mainwindow.glade:430
+#, fuzzy
+msgid ""
+"Inches\n"
+"Centimeters"
+msgstr "Сантиметры"
+
+#: ../glade/mainwindow.glade:458
+msgid "Neck Size:"
+msgstr "Шея:"
+
+#: ../glade/mainwindow.glade:472
+msgid "Calve Size:"
+msgstr "Голень:"
+
+#: ../glade/mainwindow.glade:486
+msgid "Thigh Size:"
+msgstr "Бедро:"
+
+#: ../glade/mainwindow.glade:500
+msgid "Forearm Size:"
+msgstr "Предплечье:"
+
+#: ../glade/mainwindow.glade:514
+msgid "Bicep Size:"
+msgstr "Бицепс:"
+
+#: ../glade/mainwindow.glade:526
+msgid "Hip Size:"
+msgstr "Бёдра:"
+
+#: ../glade/mainwindow.glade:538
+msgid "Waist Size:"
+msgstr "Талия:"
+
+#: ../glade/mainwindow.glade:550
+msgid "Chest Size:"
+msgstr "Грудь:"
+
+#: ../glade/mainwindow.glade:562
+msgid "Wrist Size:"
+msgstr "Запястье:"
+
 #~ msgid "&Quit\tCtrl+Q"
 #~ msgstr "&Выйти\tCtrl+Q"
 
 #~ msgid "Quits the program"
 #~ msgstr "Выйти из программы"
 
-#~ msgid "&File"
-#~ msgstr "&Файл"
-
-#~ msgid "Body&fat Estimator"
-#~ msgstr "Оценщик телесного &жира"
-
 #~ msgid "Bodyfat Calculator"
 #~ msgstr "Калькулятор оценки количества телесного жира"
-
-#~ msgid "&Ideal Body Measurements"
-#~ msgstr "&Идеальные размеры тела"
 
 #~ msgid "Ideal Body Measurements Calculator for men"
 #~ msgstr "Калькулятор идеальных размеров тела для мужчин"
 
-#~ msgid "&One-Rep Max"
-#~ msgstr "&Одноповторный максимум"
-
 #~ msgid "One-Rep Max Calculator"
 #~ msgstr "Калькулятор одноповторного максимума"
-
-#~ msgid "&Bodybuilding"
-#~ msgstr "&Бодибилдинг"
-
-#~ msgid "&Calculators"
-#~ msgstr "&Калькуляторы"
 
 #~ msgid "&About"
 #~ msgstr "&О программе"
@@ -66,29 +157,17 @@ msgstr "Разместите описание тут"
 #~ msgid "About the program"
 #~ msgstr "О программе BBCalc"
 
-#~ msgid "&Help"
-#~ msgstr "&Справка"
-
 #~ msgid "Welcome to BBCalc!"
 #~ msgstr "Добро пожаловать в программу BBCalc!"
 
-#~ msgid "Waist Size:"
-#~ msgstr "Талия:"
-
 #~ msgid "Inches"
 #~ msgstr "Дюймы"
-
-#~ msgid "Centimeters"
-#~ msgstr "Сантиметры"
 
 #~ msgid "Weight:"
 #~ msgstr "Вес:"
 
 #~ msgid "Pounds"
 #~ msgstr "Фунты"
-
-#~ msgid "Kilogramms"
-#~ msgstr "Килограммы"
 
 #~ msgid "Gender:"
 #~ msgstr "Пол:"
@@ -113,36 +192,3 @@ msgstr "Разместите описание тут"
 
 #~ msgid "calories"
 #~ msgstr "калорий"
-
-#~ msgid "Wrist Size:"
-#~ msgstr "Запястье:"
-
-#~ msgid "Chest Size:"
-#~ msgstr "Грудь:"
-
-#~ msgid "Hip Size:"
-#~ msgstr "Бёдра:"
-
-#~ msgid "Bicep Size:"
-#~ msgstr "Бицепс:"
-
-#~ msgid "Forearm Size:"
-#~ msgstr "Предплечье:"
-
-#~ msgid "Thigh Size:"
-#~ msgstr "Бедро:"
-
-#~ msgid "Calve Size:"
-#~ msgstr "Голень:"
-
-#~ msgid "Neck Size:"
-#~ msgstr "Шея:"
-
-#~ msgid "Weight Lifted:"
-#~ msgstr "Поднятый вес:"
-
-#~ msgid "Number of Reps:"
-#~ msgstr "Число повторений:"
-
-#~ msgid "Predicted One-Rep Max:"
-#~ msgstr "Одноповторный максимум:"

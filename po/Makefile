@@ -1,5 +1,6 @@
 INSTALL ?= install
 PYFILES = ../bbcalc $(shell find ../lib -name "*.py" -print) 
+GLADEFILES = $(shell find ../glade -name "*.glade" -print) 
 POFILES = $(wildcard *.po)
 
 help:
@@ -11,6 +12,7 @@ help:
 
 messages.pot:
 	xgettext -k_ -kN_ --language=Python -o messages.pot $(PYFILES) --from-code=utf-8
+	xgettext -j -k_ -kN_ --language=Glade -o messages.pot $(GLADEFILES) --from-code=utf-8
 
 %.po: messages.pot
 	@if test -f $@; then \
