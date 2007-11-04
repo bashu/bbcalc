@@ -19,6 +19,9 @@ import os.path
 
 import lib.initialize as initialize
 
+from lib.gui.calculators.idealbody import IdealBody
+from lib.gui.calculators.onerepmax import OneRepMax
+
 
 class MainApp:
     """Create application based on a MainFrame class"""
@@ -34,7 +37,13 @@ class MainApp:
 
         # Get a box for a future calcs
         self.calc_box = self.xml.get_widget('calc_box')
-		
+
+        # Create calcs tables
+        self.onerepmax = OneRepMax(self)
+        self.idealbody = IdealBody(self)
+
+        self.set_panel(self.idealbody)
+
         signals = {}
         for key in dir(self.__class__):
             signals[key] = getattr(self, key)
@@ -42,6 +51,12 @@ class MainApp:
 
     def app_quit(self, *args):
         gtk.main_quit()
+
+    def set_panel(self, panel):
+        if hasattr(self, 'panel'):
+            self.panel.calc_table.reparent(self.panel.old_parent)
+        self.panel = panel
+        self.panel.calc_table.reparent(self.calc_box)
 
     def on_main_window_destroy(self, *args):
         self.app_quit(args)
@@ -54,15 +69,16 @@ class MainApp:
         from lib.gui.about import AboutDialog
         about_dialog = AboutDialog()
 
-    def on_ideal_body_activate(self, *args):
-        pass
-
+    def on_ideal_body_activate(self, widget):
+        if widget.get_active() == True:
+            self.set_panel(self.idealbody)
+        
     def on_bodyfat_activate(self, *args):
         pass
 
-    def on_onerep_max_activate(self, *args):
-        from lib.gui.calculators.onerepmax import OneRepMax
-        OneRepMax(self)
+    def on_onerep_max_activate(self, widget):
+        if widget.get_active() == True:
+            self.set_panel(self.onerepmax)
 
 
 def main():
