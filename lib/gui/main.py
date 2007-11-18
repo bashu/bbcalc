@@ -21,6 +21,7 @@ import lib.initialize as initialize
 
 from lib.gui.calculators.idealbody import IdealBody
 from lib.gui.calculators.onerepmax import OneRepMax
+from lib.gui.calculators.bodyfat import Bodyfat
 
 
 class MainApp:
@@ -41,6 +42,7 @@ class MainApp:
         # Create calculators tables
         self.onerepmax = OneRepMax(self)
         self.idealbody = IdealBody(self)
+        self.bodyfat = Bodyfat(self)
 
         self.set_panel(self.idealbody)
 
@@ -74,8 +76,9 @@ class MainApp:
         if widget.get_active() == True:
             self.set_panel(self.idealbody)
         
-    def on_bodyfat_activate(self, *args):
-        pass
+    def on_bodyfat_activate(self, widget):
+        if widget.get_active() == True:
+            self.set_panel(self.bodyfat)
 
     def on_onerep_max_activate(self, widget):
         if widget.get_active() == True:
