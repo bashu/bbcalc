@@ -19,17 +19,17 @@ class IdealBody:
         self.old_parent = self.calc_table.get_parent()
 
         # Get several widgets, that will be used later
-        self.unit_combobox = self.parent.xml.get_widget('unit_combobox2')
-        self.wrist_spinbutton = self.parent.xml.get_widget('wrist_spinbutton1')
+        self.unit_combobox = self.parent.xml.get_widget('unit_combobox_ideal')
+        self.wrist_spinbutton = self.parent.xml.get_widget('wrist_spinbutton_ideal')
 
-        self.chest_entry = self.parent.xml.get_widget('chest_entry1')
-        self.waist_entry = self.parent.xml.get_widget('waist_entry1')
-        self.hip_entry = self.parent.xml.get_widget('hip_entry1')
-        self.bicep_entry = self.parent.xml.get_widget('bicep_entry1')
-        self.forearm_entry = self.parent.xml.get_widget('forearm_entry1')
-        self.thigh_entry = self.parent.xml.get_widget('thigh_entry1')
-        self.calve_entry = self.parent.xml.get_widget('calve_entry1')
-        self.neck_entry = self.parent.xml.get_widget('neck_entry1')
+        self.chest_entry = self.parent.xml.get_widget('chest_entry_ideal')
+        self.waist_entry = self.parent.xml.get_widget('waist_entry_ideal')
+        self.hip_entry = self.parent.xml.get_widget('hip_entry_ideal')
+        self.bicep_entry = self.parent.xml.get_widget('bicep_entry_ideal')
+        self.forearm_entry = self.parent.xml.get_widget('forearm_entry_ideal')
+        self.thigh_entry = self.parent.xml.get_widget('thigh_entry_ideal')
+        self.calve_entry = self.parent.xml.get_widget('calve_entry_ideal')
+        self.neck_entry = self.parent.xml.get_widget('neck_entry_ideal')
 
         self.results = [self.wrist_spinbutton, self.chest_entry, self.hip_entry,
                         self.waist_entry, self.thigh_entry, self.neck_entry,
@@ -40,7 +40,7 @@ class IdealBody:
         self.unit_combobox.set_active(self.unit)
         
         # Connect event handlers
-        signals = {'on_unit_combobox2_changed' : self.on_unit_combobox2_changed,
+        signals = {'on_unit_combobox_ideal_changed' : self.on_unit_combobox_ideal_changed,
                    'on_ideal_body_calc' : self.on_ideal_body_calc}
         self.parent.xml.signal_autoconnect(signals)
 
@@ -58,7 +58,7 @@ class IdealBody:
         for idx in xrange(1, 9):
             self.results[idx].set_text(str(array[idx]))
 
-    def on_unit_combobox2_changed(self, *args):
+    def on_unit_combobox_ideal_changed(self, *args):
         """Handle unit conversion"""
         if self.unit != self.unit_combobox.get_active():
             self.unit = self.unit_combobox.get_active()
