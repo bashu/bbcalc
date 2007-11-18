@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-04 15:19+0600\n"
-"PO-Revision-Date: 2007-02-03 15:42+0600\n"
+"POT-Creation-Date: 2007-11-18 17:33+0600\n"
+"PO-Revision-Date: 2007-11-18 17:25+0600\n"
 "Last-Translator: Basil Shubin <bashu@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../lib/gui/calculators/onerepmax.py:61
+#: ../lib/gui/calculators/bodyfat.py:106 ../lib/gui/calculators/bodyfat.py:107
 msgid "lbs"
 msgstr "фунт"
 
-#: ../lib/gui/calculators/onerepmax.py:63 ../glade/mainwindow.glade:236
+#: ../lib/gui/calculators/onerepmax.py:63
+#: ../lib/gui/calculators/bodyfat.py:109 ../lib/gui/calculators/bodyfat.py:110
+#: ../glade/mainwindow.glade:238 ../glade/mainwindow.glade:632
+#: ../glade/mainwindow.glade:647
 msgid "kg"
 msgstr "кг"
 
 #: ../lib/version.py:10
-msgid "Put description here"
-msgstr "Разместите описание тут"
+msgid ""
+"BBCalc (Body Building Calculators) is a set of calculators\n"
+"related to body building and fitness topics.\")\n"
+msgstr ""
 
 #: ../glade/mainwindow.glade:8
 msgid "BBCalc"
@@ -67,7 +73,7 @@ msgstr "_Справка"
 msgid "gtk-about"
 msgstr ""
 
-#: ../glade/mainwindow.glade:179
+#: ../glade/mainwindow.glade:181 ../glade/mainwindow.glade:811
 msgid ""
 "Pounds\n"
 "Kilogramms"
@@ -75,61 +81,100 @@ msgstr ""
 "Фунты\n"
 "Килограммы"
 
-#: ../glade/mainwindow.glade:250
+#: ../glade/mainwindow.glade:252
 msgid "Predicted One-Rep Max:"
 msgstr "Одноповторный максимум:"
 
-#: ../glade/mainwindow.glade:262
+#: ../glade/mainwindow.glade:264
 msgid "Number of Reps:"
 msgstr "Число повторений:"
 
-#: ../glade/mainwindow.glade:274
+#: ../glade/mainwindow.glade:276
 msgid "Weight Lifted:"
 msgstr "Поднятый вес:"
 
-#: ../glade/mainwindow.glade:322
+#: ../glade/mainwindow.glade:325
 msgid "Wrist Size:"
 msgstr "Запястье:"
 
-#: ../glade/mainwindow.glade:331
+#: ../glade/mainwindow.glade:334
 msgid "Chest Size:"
 msgstr "Грудь:"
 
-#: ../glade/mainwindow.glade:343
+#: ../glade/mainwindow.glade:346 ../glade/mainwindow.glade:748
 msgid "Waist Size:"
 msgstr "Талия:"
 
-#: ../glade/mainwindow.glade:355
+#: ../glade/mainwindow.glade:358
 msgid "Hip Size:"
 msgstr "Бёдра:"
 
-#: ../glade/mainwindow.glade:367
+#: ../glade/mainwindow.glade:370
 msgid "Bicep Size:"
 msgstr "Бицепс:"
 
-#: ../glade/mainwindow.glade:379
+#: ../glade/mainwindow.glade:382
 msgid "Forearm Size:"
 msgstr "Предплечье:"
 
-#: ../glade/mainwindow.glade:393
+#: ../glade/mainwindow.glade:396
 msgid "Thigh Size:"
 msgstr "Бедро:"
 
-#: ../glade/mainwindow.glade:407
+#: ../glade/mainwindow.glade:410
 msgid "Calve Size:"
 msgstr "Голень:"
 
-#: ../glade/mainwindow.glade:421
+#: ../glade/mainwindow.glade:424
 msgid "Neck Size:"
 msgstr "Шея:"
 
-#: ../glade/mainwindow.glade:448
+#: ../glade/mainwindow.glade:451 ../glade/mainwindow.glade:826
 msgid ""
 "Inches\n"
 "Centimeters"
 msgstr ""
 "Дюймы\n"
 "Сантиметры"
+
+#: ../glade/mainwindow.glade:618
+msgid "calories"
+msgstr "калорий"
+
+#: ../glade/mainwindow.glade:676
+msgid "Resting Metabolic Rate:"
+msgstr "Метаболический темп:"
+
+#: ../glade/mainwindow.glade:688
+msgid "Lean Weight:"
+msgstr "Чистый вес:"
+
+#: ../glade/mainwindow.glade:700
+msgid "Fat Weight:"
+msgstr "Вес жира:"
+
+#: ../glade/mainwindow.glade:712
+msgid "Percent Bodyfat:"
+msgstr "Процент жира:"
+
+#: ../glade/mainwindow.glade:724
+msgid "Gender:"
+msgstr "Пол:"
+
+#: ../glade/mainwindow.glade:736
+msgid "Weight:"
+msgstr "Вес:"
+
+#: ../glade/mainwindow.glade:839
+msgid ""
+"Male\n"
+"Female"
+msgstr ""
+"Мужчина\n"
+"Женщина"
+
+#~ msgid "Put description here"
+#~ msgstr "Разместите описание тут"
 
 #~ msgid "&Quit\tCtrl+Q"
 #~ msgstr "&Выйти\tCtrl+Q"
@@ -158,32 +203,8 @@ msgstr ""
 #~ msgid "Inches"
 #~ msgstr "Дюймы"
 
-#~ msgid "Weight:"
-#~ msgstr "Вес:"
-
 #~ msgid "Pounds"
 #~ msgstr "Фунты"
 
-#~ msgid "Gender:"
-#~ msgstr "Пол:"
-
 #~ msgid "Male"
 #~ msgstr "Мужчина"
-
-#~ msgid "Female"
-#~ msgstr "Женщина"
-
-#~ msgid "Percent Bodyfat:"
-#~ msgstr "Процент жира:"
-
-#~ msgid "Fat Weight:"
-#~ msgstr "Вес жира:"
-
-#~ msgid "Lean Weight:"
-#~ msgstr "Чистый вес:"
-
-#~ msgid "Resting Metabolic Rate:"
-#~ msgstr "Метаболический темп:"
-
-#~ msgid "calories"
-#~ msgstr "калорий"
