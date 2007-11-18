@@ -7,4 +7,5 @@ pversion     = "0.7"
 pauthor      = "Basil Shubin <bashu@users.sourceforge.net>"
 pyear        = "2005-2007"
 pwebsite     = "http://bbcalc.sf.net/"
-pdescription = _("Put description here")
+pdescription = _("""BBCalc (Body Building Calculators) is a set of calculators
+related to body building and fitness topics.""")
