@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BBCalc
+Comment=Body Building Calculators
+Exec=bbcalc
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Application;Utility;
