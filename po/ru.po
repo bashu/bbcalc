@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-18 17:33+0600\n"
+"POT-Creation-Date: 2007-11-19 20:46+0600\n"
 "PO-Revision-Date: 2007-11-18 17:25+0600\n"
 "Last-Translator: Basil Shubin <bashu@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "кг"
 #: ../lib/version.py:10
 msgid ""
 "BBCalc (Body Building Calculators) is a set of calculators\n"
-"related to body building and fitness topics.\")\n"
+"related to body building and fitness topics."
 msgstr ""
 
 #: ../glade/mainwindow.glade:8

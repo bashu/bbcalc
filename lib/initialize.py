@@ -16,6 +16,7 @@ def locations(self):
     # for Posix-like systems
     if os.name == 'posix':
         locations['bbcalc'] = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        locations['share'] = os.path.abspath(os.path.join(locations['bbcalc'], '..'))
         locations['glade'] = os.path.join(locations['bbcalc'], 'glade')
         if os.path.isdir(os.path.join(locations['bbcalc'], 'i18n')):
             locations['locale'] = os.path.join(locations['bbcalc'], 'i18n')
