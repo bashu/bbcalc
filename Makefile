@@ -20,7 +20,7 @@ XGETTEXT ?= xgettext
 FIND ?= find
 DOC2MAN ?= docbook2x-man
 
-PREFIX = /usr
+PREFIX = $(DESTDIR)/usr
 BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share/bbcalc
 LIBDIR = $(DATADIR)/lib
