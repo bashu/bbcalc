@@ -1,27 +1,27 @@
-BBCalc - BodyBuilding Calculators
-=================================
+BBCalc - Body Building Calculators
+==================================
 
 Description:
 
-	BBCalc (BodyBuilding Calculators) is a set of calculators related 
-	to bodybuilding and fitness topics.
+	BBCalc (Body Building Calculators) is a set of calculators related to
+	bodybuilding and fitness topics.
 
 Dependencies:
 
-	* Python 2.4 and above
-	* wxPython 2.8 and above
+	* Python 2.3 or above
+	* PyGTK 2.4 or above
 	
-	Application was tested to work in Ubuntu Dapper and Windows 2000.
+	Application was tested to work on Ubuntu 7.10.
 	
-	Note: Please, give me a note if it's working in other environment
-	and with dependencies versions other than above.
+	Note: Please, write me a note if it's working in other environment and
+	with the other dependencies than above.
 
 Installation:
 
 	TODO: Write installation instruction
 	
-	Just unzip and than execute command 'make install' in BBCalc directory.
+	Just unzip and than run command 'make install' inside bbcalc directory.
 	
 Feedback:
 
-	Have an idea or suggestion, just give me a note: bashu@yandex.ru
+	Have an idea or suggestion, just give me a note: basil.shubin@gmail.com
