@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5), python-central (>= 0.5.8), python (>= 2.3), pyt
 Standards-Version: 3.7.2
 
 Package: bbcalc
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: body building calculators
  BBCalc (Body Building Calculators) is a set of calculators related to
