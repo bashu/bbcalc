@@ -1,27 +1,62 @@
-BBCalc - Body Building Calculators
-==================================
+BBCalc 0.7 README
+=================
 
-Description:
+This document was last updated on Sat Nov 24 2007.
+Please see the file COPYING for licensing and warranty information.
+The latest version of this software is available at the following URL:
+http://bbcalc.sf.net/
 
-	BBCalc (Body Building Calculators) is a set of calculators related to
-	bodybuilding and fitness topics.
 
-Dependencies:
+Table of Contents
+=================
 
-	* Python 2.3 or above
-	* PyGTK 2.4 or above
+* Introduction
+* System Requirements
+* Installation
+* Reporting Bugs
+* TODO list
+* About the Authors
+
+
+Introduction
+============
+
+BBCalc (Body Building Calculators) is a set of calculators related to body
+building and fitness topics, released under the GNU/GPL License.
+
+
+System Requirements
+===================
+
+  Name			Minimum version		URL						NOTE
+  ----			---------------		---						----
+  * Python		2.3 or higher		http://www.python.org/
+  * GTK+		tested on 2.6.4		http://www.gtk.org/
+  * PyGTK       tested on 2.6.1		http://www.pygtk.org/   with Glade2 support
+
+
+Installation
+============
+
+See INSTALL file
+
+
+Reporting Bugs                                        
+==============
 	
-	Application was tested to work on Ubuntu 7.10.
-	
-	Note: Please, write me a note if it's working in other environment and
-	with the other dependencies than above.
+If you want to help or report any bugs founded please visit:
+  http://bbcalc.sf.net/
+or
+  https://bugs.launchpad.net/bbcalc/
 
-Installation:
 
-	TODO: Write installation instruction
-	
-	Just unzip and than run command 'make install' inside bbcalc directory.
-	
-Feedback:
+TODO
+====
 
-	Have an idea or suggestion, just give me a note: basil.shubin@gmail.com
+See TODO file
+
+
+About the Authors
+=================
+
+See AUTHORS file
