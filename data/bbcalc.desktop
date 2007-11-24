@@ -1,8 +1,11 @@
 [Desktop Entry]
+Version=0.7
 Encoding=UTF-8
 Name=BBCalc
+GenericName=BBCalc - Body Building Calculators
 Comment=Body Building Calculators
 Exec=bbcalc
+Icon=bbcalc.png
 Terminal=false
 Type=Application
 StartupNotify=true

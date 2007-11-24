@@ -60,7 +60,7 @@ install: locales
 	(cd glade; for file in `$(FIND) . -name "*.glade"`; do \
 		$(INSTALL) -m 644 $$file $(GLADEDIR)/$$file ; \
 	done)
-#	$(INSTALL) -m 644 src/images/bbcalc.png $(ICONDIR)
+	$(INSTALL) -m 644 data/bbcalc.png $(ICONDIR)
 #	$(INSTALL) -m 644 src/images/bbcalc.xpm $(ICONDIR)
 	$(INSTALL) -m 644 data/bbcalc.desktop $(APPLICATIONSDIR)
 	
@@ -82,7 +82,7 @@ uninstall:
 	${RM} -r $(LIBDIR)
 	${RM} -r $(GLADEDIR)
 	${RM} -r $(DATADIR)
-#	${RM} -r $(ICONDIR)/bbcalc.png
+	${RM} -r $(ICONDIR)/bbcalc.png
 #	${RM} -r $(ICONDIR)/bbcalc.xpm
 	${RM} -r $(APPLICATIONSDIR)/bbcalc.desktop
 	for lang in $(LANGUAGES); do \
