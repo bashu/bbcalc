@@ -43,7 +43,6 @@ class MainApp:
         icon = gtk.gdk.pixbuf_new_from_file(icon_file)
         main_window.set_icon(icon)
 
-
         # Get a box for a future calcs
         self.calc_box = self.xml.get_widget('calc_box')
 
