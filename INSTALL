@@ -1,0 +1,52 @@
+1. UNIX systems
+===============
+
+1.1 Installing on some Linux distributions
+
+	1.1.1 Debian GNU/Linux and Ubuntu
+
+		# aptitude install bbcalc
+	
+1.2 Installing from source
+
+	Unpack the BBCalc tarball using these commands:
+
+		$ tar -zxf bbcalc-<version>.tar.gz
+
+	Switch to the newly created directory and type as root:
+	
+		# make install
+
+	The Makefile will copy the files to the correct location in your
+	system. You do not need to configure or compile BBCalc as it is
+	written in interpreted Python code.
+
+1.3 Installing from downloaded package
+
+	If you have downloaded BBCalc package, just do as root:
+
+	* deb packages (Debian, Ubuntu, ...)
+
+		# dpkg -i bbcalc_<version>_all.deb
+
+1.4 Making Debian package
+
+	If you want to make your own Debian package, follow these steps:
+
+	* change your working directory to bbcalc source
+	* edit debian/changelog file, f.e. like this:
+
+		$ dch -v <version> -D UNRELEASED -i NOT RELEASED YET
+
+	* type `debuild` or `dpkg-buildpackage -rfakeroot` to build package
+	* install new package (`dpkg -i ../bbcalc_<version>_all.deb`)
+
+2. Microsoft Windows systems
+============================
+
+    Not yet.
+
+3. Apple MacOSX
+===============
+
+	Not yet.
