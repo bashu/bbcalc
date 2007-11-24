@@ -36,6 +36,14 @@ class MainApp:
         self.gladefile = os.path.join(self.locations['glade'], 'mainwindow.glade')  
         self.xml = gtk.glade.XML(self.gladefile)
 
+        # Set App icon
+        # Get a box for a future calcs
+        main_window = self.xml.get_widget('main_window')
+        icon_file = os.path.abspath(os.path.join(self.locations['images'], 'bbcalc.png'))
+        icon = gtk.gdk.pixbuf_new_from_file(icon_file)
+        main_window.set_icon(icon)
+
+
         # Get a box for a future calcs
         self.calc_box = self.xml.get_widget('calc_box')
 
