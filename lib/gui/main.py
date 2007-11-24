@@ -70,7 +70,7 @@ class MainApp:
     def on_about_activate(self, *args):
         """Shows About dialog box"""
         from lib.gui.about import AboutDialog
-        about_dialog = AboutDialog()
+        about_dialog = AboutDialog(self.locations['images'])
 
     def on_ideal_body_activate(self, widget):
         if widget.get_active() == True:

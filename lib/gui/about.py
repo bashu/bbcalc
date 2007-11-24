@@ -11,7 +11,7 @@ import lib.version as version
 class AboutDialog:
     """Shows a gtk about dialog"""
 
-    def __init__(self):
+    def __init__(self, images_dir):
         dialog = gtk.AboutDialog()
         dialog.set_name(version.pname)
         dialog.set_version(version.pversion)
@@ -19,6 +19,9 @@ class AboutDialog:
         dialog.set_website(version.pwebsite)
         dialog.set_authors([version.pauthor.replace(', ', '\n')])
 
+        logo_file = os.path.abspath(os.path.join(images_dir, 'bbcalc.png'))
+        logo = gtk.gdk.pixbuf_new_from_file(logo_file)
+        dialog.set_logo(logo)
         # if os.path.isfile('/usr/share/common-licenses/GPL-3'):
         #    dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
         #else:
