@@ -18,6 +18,7 @@ def locations(self):
         locations['bbcalc'] = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         locations['share'] = os.path.abspath(os.path.join(locations['bbcalc'], '..'))
         locations['glade'] = os.path.join(locations['bbcalc'], 'glade')
+        locations['images'] = os.path.join(locations['bbcalc'], 'images')
         if os.path.isdir(os.path.join(locations['bbcalc'], 'i18n')):
             locations['locale'] = os.path.join(locations['bbcalc'], 'i18n')
         else:
