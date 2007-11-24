@@ -25,6 +25,7 @@ BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share/bbcalc
 LIBDIR = $(DATADIR)/lib
 GLADEDIR = $(DATADIR)/glade
+IMGDIR = $(DATADIR)/images
 APPLICATIONSDIR = $(PREFIX)/share/applications
 ICONDIR = $(PREFIX)/share/pixmaps
 LOCALEDIR = $(PREFIX)/share/locale
@@ -60,6 +61,12 @@ install: locales
 	(cd glade; for file in `$(FIND) . -name "*.glade"`; do \
 		$(INSTALL) -m 644 $$file $(GLADEDIR)/$$file ; \
 	done)
+	# install image files
+	$(INSTALL) -m 755 -d $(IMGDIR)
+	(cd glade; for file in `$(FIND) . -name "*.png"`; do \
+		$(INSTALL) -m 644 $$file $(IMGDIR)/$$file ; \
+	done)
+	# application's data file and icons
 	$(INSTALL) -m 644 data/bbcalc.png $(ICONDIR)
 #	$(INSTALL) -m 644 src/images/bbcalc.xpm $(ICONDIR)
 	$(INSTALL) -m 644 data/bbcalc.desktop $(APPLICATIONSDIR)
