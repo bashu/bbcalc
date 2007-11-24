@@ -22,7 +22,7 @@ class AboutDialog:
         logo_file = os.path.abspath(os.path.join(images_dir, 'bbcalc.png'))
         logo = gtk.gdk.pixbuf_new_from_file(logo_file)
         dialog.set_logo(logo)
-        # if os.path.isfile('/usr/share/common-licenses/GPL-3'):
+        #if os.path.isfile('/usr/share/common-licenses/GPL-3'):
         #    dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
         #else:
         dialog.set_license(license_text)
