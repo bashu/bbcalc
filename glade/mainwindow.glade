@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.0 on Sun Nov 18 17:27:58 2007 -->
+<!--Generated with glade3 3.4.0 on Sat Nov 24 12:41:53 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="main_window">
     <property name="visible">True</property>
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
     <property name="title" translatable="yes" context="yes">BBCalc</property>
     <property name="resizable">False</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon">bbcalc.png</property>
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
     <signal name="destroy" handler="on_main_window_destroy"/>
     <child>
@@ -175,57 +177,45 @@
           <placeholder/>
         </child>
         <child>
-          <widget class="GtkComboBox" id="unit_combobox_onerep">
+          <widget class="GtkHSeparator" id="hseparator1">
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="items" translatable="yes" context="yes">Pounds
-Kilogramms</property>
-            <signal name="changed" handler="on_unit_combobox_onerep_changed"/>
           </widget>
           <packing>
-            <property name="left_attach">2</property>
             <property name="right_attach">3</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+            <property name="y_padding">10</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkSpinButton" id="reps_spinbutton_onerep">
+          <widget class="GtkLabel" id="label1">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">8 2 15 1 10 10</property>
-            <signal name="value_changed" handler="on_onerep_max_calc"/>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Weight Lifted:</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label2">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Number of Reps:</property>
           </widget>
           <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">1</property>
             <property name="bottom_attach">2</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkSpinButton" id="weight_spinbutton_onerep">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">50 1 10000 1 10 10</property>
-            <property name="digits">2</property>
-            <signal name="value_changed" handler="on_onerep_max_calc"/>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="result_entry_onerep">
-            <property name="width_request">75</property>
+          <widget class="GtkLabel" id="label3">
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Predicted One-Rep Max:</property>
           </widget>
           <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">3</property>
             <property name="bottom_attach">4</property>
           </packing>
@@ -245,47 +235,59 @@ Kilogramms</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label3">
+          <widget class="GtkEntry" id="result_entry_onerep">
+            <property name="width_request">75</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Predicted One-Rep Max:</property>
+            <property name="editable">False</property>
           </widget>
           <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
             <property name="top_attach">3</property>
             <property name="bottom_attach">4</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label2">
+          <widget class="GtkSpinButton" id="weight_spinbutton_onerep">
             <property name="visible">True</property>
+            <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Number of Reps:</property>
+            <property name="adjustment">50 1 10000 1 10 10</property>
+            <property name="digits">2</property>
+            <signal name="value_changed" handler="on_onerep_max_calc"/>
           </widget>
           <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkSpinButton" id="reps_spinbutton_onerep">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="adjustment">8 2 15 1 10 10</property>
+            <signal name="value_changed" handler="on_onerep_max_calc"/>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
             <property name="top_attach">1</property>
             <property name="bottom_attach">2</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="label1">
+          <widget class="GtkComboBox" id="unit_combobox_onerep">
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Weight Lifted:</property>
-          </widget>
-        </child>
-        <child>
-          <widget class="GtkHSeparator" id="hseparator1">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="items" translatable="yes" context="yes">Pounds
+Kilogramms</property>
+            <signal name="changed" handler="on_unit_combobox_onerep_changed"/>
           </widget>
           <packing>
+            <property name="left_attach">2</property>
             <property name="right_attach">3</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-            <property name="y_padding">10</property>
           </packing>
         </child>
       </widget>
@@ -306,219 +308,7 @@ Kilogramms</property>
           <placeholder/>
         </child>
         <child>
-          <widget class="GtkHSeparator" id="hseparator2">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-          </widget>
-          <packing>
-            <property name="right_attach">4</property>
-            <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-            <property name="y_padding">10</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label4">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Wrist Size:</property>
-            <property name="width_chars">0</property>
-          </widget>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label5">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Chest Size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label6">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Waist Size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label7">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Hip Size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label8">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Bicep Size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label9">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Forearm Size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label10">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Thigh Size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label11">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Calve Size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label12">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Neck Size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkSpinButton" id="wrist_spinbutton_ideal">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">17 1 100 1 10 10</property>
-            <property name="digits">1</property>
-            <signal name="value_changed" handler="on_ideal_body_calc"/>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkComboBox" id="unit_combobox_ideal">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="items" translatable="yes" context="yes">Inches
-Centimeters</property>
-            <signal name="changed" handler="on_unit_combobox_ideal_changed"/>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="chest_entry_ideal">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="waist_entry_ideal">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="hip_entry_ideal">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="bicep_entry_ideal">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="forearm_entry_ideal">
+          <widget class="GtkEntry" id="neck_entry_ideal">
             <property name="width_request">75</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -528,23 +318,8 @@ Centimeters</property>
           <packing>
             <property name="left_attach">3</property>
             <property name="right_attach">4</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="thigh_entry_ideal">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">3</property>
-            <property name="right_attach">4</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
           </packing>
         </child>
         <child>
@@ -563,7 +338,7 @@ Centimeters</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkEntry" id="neck_entry_ideal">
+          <widget class="GtkEntry" id="thigh_entry_ideal">
             <property name="width_request">75</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -573,8 +348,235 @@ Centimeters</property>
           <packing>
             <property name="left_attach">3</property>
             <property name="right_attach">4</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="forearm_entry_ideal">
+            <property name="width_request">75</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="bicep_entry_ideal">
+            <property name="width_request">75</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
             <property name="top_attach">5</property>
             <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="hip_entry_ideal">
+            <property name="width_request">75</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="waist_entry_ideal">
+            <property name="width_request">75</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="chest_entry_ideal">
+            <property name="width_request">75</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkComboBox" id="unit_combobox_ideal">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="items" translatable="yes" context="yes">Inches
+Centimeters</property>
+            <signal name="changed" handler="on_unit_combobox_ideal_changed"/>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkSpinButton" id="wrist_spinbutton_ideal">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="adjustment">17 1 100 1 10 10</property>
+            <property name="digits">1</property>
+            <signal name="value_changed" handler="on_ideal_body_calc"/>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label12">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Neck Size:</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label11">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Calve Size:</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label10">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Thigh Size:</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label9">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Forearm Size:</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label8">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Bicep Size:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label7">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Hip Size:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label6">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Waist Size:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label5">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Chest Size:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label4">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Wrist Size:</property>
+            <property name="width_chars">0</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator2">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+          </widget>
+          <packing>
+            <property name="right_attach">4</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+            <property name="y_padding">10</property>
           </packing>
         </child>
       </widget>
@@ -595,241 +597,29 @@ Centimeters</property>
           <placeholder/>
         </child>
         <child>
-          <widget class="GtkSpinButton" id="weight_spinbutton_bodyfat">
+          <widget class="GtkHSeparator" id="hseparator3">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+          </widget>
+          <packing>
+            <property name="right_attach">3</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+            <property name="y_padding">10</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkSpinButton" id="waist_spinbutton_bodyfat">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">70 1 10000 1 10 10</property>
-            <property name="digits">2</property>
+            <property name="adjustment">75 1 100 1 10 10</property>
+            <property name="digits">1</property>
             <signal name="value_changed" handler="on_bodyfat_calc"/>
           </widget>
           <packing>
             <property name="left_attach">1</property>
             <property name="right_attach">2</property>
-            <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label23">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">0</property>
-            <property name="label" translatable="yes" context="yes">calories</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">7</property>
-            <property name="bottom_attach">8</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="result1_label_bodyfat">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">0</property>
-            <property name="label" translatable="yes" context="yes">kg</property>
-            <property name="width_chars">1</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">6</property>
-            <property name="bottom_attach">7</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="result2_label_bodyfat">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">0</property>
-            <property name="label" translatable="yes" context="yes">kg</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label20">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">0</property>
-            <property name="label" context="yes">%</property>
-            <property name="width_chars">3</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label19">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Resting Metabolic Rate:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">7</property>
-            <property name="bottom_attach">8</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label18">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Lean Weight:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">6</property>
-            <property name="bottom_attach">7</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label17">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Fat Weight:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label16">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Percent Bodyfat:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label15">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Gender:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label14">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Weight:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label13">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes">Waist Size:</property>
-          </widget>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="calories_entry_bodyfat">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">7</property>
-            <property name="bottom_attach">8</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="lean_entry_bodyfat">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">6</property>
-            <property name="bottom_attach">7</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="fat_entry_bodyfat">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="percent_entry_bodyfat">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkComboBox" id="unit2_combobox_bodyfat">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="items" translatable="yes" context="yes">Pounds
-Kilogramms</property>
-            <signal name="changed" handler="on_unit2_combobox_bodyfat_changed"/>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkComboBox" id="unit1_combobox_bodyfat">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="items" translatable="yes" context="yes">Inches
-Centimeters</property>
-            <signal name="changed" handler="on_unit1_combobox_bodyfat_changed"/>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
           </packing>
         </child>
         <child>
@@ -848,29 +638,241 @@ Female</property>
           </packing>
         </child>
         <child>
-          <widget class="GtkSpinButton" id="waist_spinbutton_bodyfat">
+          <widget class="GtkComboBox" id="unit1_combobox_bodyfat">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="items" translatable="yes" context="yes">Inches
+Centimeters</property>
+            <signal name="changed" handler="on_unit1_combobox_bodyfat_changed"/>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkComboBox" id="unit2_combobox_bodyfat">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="items" translatable="yes" context="yes">Pounds
+Kilogramms</property>
+            <signal name="changed" handler="on_unit2_combobox_bodyfat_changed"/>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="percent_entry_bodyfat">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">75 1 100 1 10 10</property>
-            <property name="digits">1</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="fat_entry_bodyfat">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="lean_entry_bodyfat">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="calories_entry_bodyfat">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="editable">False</property>
+          </widget>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label13">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Waist Size:</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label14">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Weight:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label15">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Gender:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label16">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Percent Bodyfat:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label17">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Fat Weight:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label18">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Lean Weight:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label19">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes" context="yes">Resting Metabolic Rate:</property>
+          </widget>
+          <packing>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label20">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">0</property>
+            <property name="label" context="yes">%</property>
+            <property name="width_chars">3</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="result2_label_bodyfat">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes" context="yes">kg</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="result1_label_bodyfat">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes" context="yes">kg</property>
+            <property name="width_chars">1</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="label23">
+            <property name="visible">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes" context="yes">calories</property>
+          </widget>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkSpinButton" id="weight_spinbutton_bodyfat">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="adjustment">70 1 10000 1 10 10</property>
+            <property name="digits">2</property>
             <signal name="value_changed" handler="on_bodyfat_calc"/>
           </widget>
           <packing>
             <property name="left_attach">1</property>
             <property name="right_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkHSeparator" id="hseparator3">
-            <property name="visible">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-          </widget>
-          <packing>
-            <property name="right_attach">3</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-            <property name="y_padding">10</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
           </packing>
         </child>
       </widget>
