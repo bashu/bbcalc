@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.0 on Sat Nov 24 12:41:53 2007 -->
+<!--Generated with glade3 3.4.0 on Sat Dec  8 16:01:15 2007 -->
 <glade-interface>
   <widget class="GtkWindow" id="main_window">
     <property name="visible">True</property>
     <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-    <property name="title" translatable="yes" context="yes">BBCalc</property>
+    <property name="title" translatable="yes" context="yes">Body Building Calculators</property>
     <property name="resizable">False</property>
     <property name="destroy_with_parent">True</property>
     <property name="icon">bbcalc.png</property>
@@ -168,11 +168,11 @@
       <widget class="GtkTable" id="one_rep_max_table">
         <property name="visible">True</property>
         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-        <property name="border_width">10</property>
+        <property name="border_width">6</property>
         <property name="n_rows">4</property>
         <property name="n_columns">3</property>
-        <property name="column_spacing">3</property>
-        <property name="row_spacing">3</property>
+        <property name="column_spacing">6</property>
+        <property name="row_spacing">6</property>
         <child>
           <placeholder/>
         </child>
@@ -185,7 +185,7 @@
             <property name="right_attach">3</property>
             <property name="top_attach">2</property>
             <property name="bottom_attach">3</property>
-            <property name="y_padding">10</property>
+            <property name="y_padding">6</property>
           </packing>
         </child>
         <child>
@@ -193,7 +193,7 @@
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Weight Lifted:</property>
+            <property name="label" translatable="yes" context="yes">Weight lifted:</property>
           </widget>
         </child>
         <child>
@@ -201,7 +201,7 @@
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Number of Reps:</property>
+            <property name="label" translatable="yes" context="yes">Number of reps:</property>
           </widget>
           <packing>
             <property name="top_attach">1</property>
@@ -213,7 +213,7 @@
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Predicted One-Rep Max:</property>
+            <property name="label" translatable="yes" context="yes">Predicted one-rep max:</property>
           </widget>
           <packing>
             <property name="top_attach">3</property>
@@ -240,6 +240,9 @@
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">8</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -253,8 +256,12 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="max_length">8</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
             <property name="adjustment">50 1 10000 1 10 10</property>
             <property name="digits">2</property>
+            <property name="numeric">True</property>
             <signal name="value_changed" handler="on_onerep_max_calc"/>
           </widget>
           <packing>
@@ -267,7 +274,11 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="max_length">2</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
             <property name="adjustment">8 2 15 1 10 10</property>
+            <property name="numeric">True</property>
             <signal name="value_changed" handler="on_onerep_max_calc"/>
           </widget>
           <packing>
@@ -288,6 +299,7 @@ Kilogramms</property>
           <packing>
             <property name="left_attach">2</property>
             <property name="right_attach">3</property>
+            <property name="y_options">GTK_EXPAND</property>
           </packing>
         </child>
       </widget>
@@ -299,11 +311,11 @@ Kilogramms</property>
       <widget class="GtkTable" id="ideal_body_table">
         <property name="visible">True</property>
         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-        <property name="border_width">10</property>
+        <property name="border_width">6</property>
         <property name="n_rows">6</property>
         <property name="n_columns">4</property>
-        <property name="column_spacing">3</property>
-        <property name="row_spacing">3</property>
+        <property name="column_spacing">6</property>
+        <property name="row_spacing">6</property>
         <child>
           <placeholder/>
         </child>
@@ -314,6 +326,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">3</property>
@@ -329,6 +344,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">3</property>
@@ -344,6 +362,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">3</property>
@@ -359,6 +380,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">3</property>
@@ -374,6 +398,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">7</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -389,6 +416,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">7</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -404,6 +434,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">7</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -419,6 +452,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">7</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -438,6 +474,7 @@ Centimeters</property>
           <packing>
             <property name="left_attach">2</property>
             <property name="right_attach">3</property>
+            <property name="y_options">GTK_EXPAND</property>
           </packing>
         </child>
         <child>
@@ -445,8 +482,12 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">7</property>
+            <property name="xalign">1</property>
             <property name="adjustment">17 1 100 1 10 10</property>
-            <property name="digits">1</property>
+            <property name="digits">2</property>
+            <property name="numeric">True</property>
             <signal name="value_changed" handler="on_ideal_body_calc"/>
           </widget>
           <packing>
@@ -459,7 +500,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Neck Size:</property>
+            <property name="label" translatable="yes" context="yes">Neck size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -473,7 +514,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Calve Size:</property>
+            <property name="label" translatable="yes" context="yes">Calve size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -487,7 +528,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Thigh Size:</property>
+            <property name="label" translatable="yes" context="yes">Thigh size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -501,7 +542,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Forearm Size:</property>
+            <property name="label" translatable="yes" context="yes">Forearm size:</property>
           </widget>
           <packing>
             <property name="left_attach">2</property>
@@ -515,7 +556,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Bicep Size:</property>
+            <property name="label" translatable="yes" context="yes">Bicep size:</property>
           </widget>
           <packing>
             <property name="top_attach">5</property>
@@ -527,7 +568,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Hip Size:</property>
+            <property name="label" translatable="yes" context="yes">Hip size:</property>
           </widget>
           <packing>
             <property name="top_attach">4</property>
@@ -539,7 +580,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Waist Size:</property>
+            <property name="label" translatable="yes" context="yes">Waist size:</property>
           </widget>
           <packing>
             <property name="top_attach">3</property>
@@ -551,7 +592,7 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Chest Size:</property>
+            <property name="label" translatable="yes" context="yes">Chest size:</property>
           </widget>
           <packing>
             <property name="top_attach">2</property>
@@ -563,7 +604,8 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Wrist Size:</property>
+            <property name="label" translatable="yes" context="yes">Wrist size:</property>
+            <property name="use_underline">True</property>
             <property name="width_chars">0</property>
           </widget>
         </child>
@@ -576,7 +618,7 @@ Centimeters</property>
             <property name="right_attach">4</property>
             <property name="top_attach">1</property>
             <property name="bottom_attach">2</property>
-            <property name="y_padding">10</property>
+            <property name="y_padding">6</property>
           </packing>
         </child>
       </widget>
@@ -588,11 +630,11 @@ Centimeters</property>
       <widget class="GtkTable" id="bodyfat_table">
         <property name="visible">True</property>
         <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-        <property name="border_width">10</property>
+        <property name="border_width">6</property>
         <property name="n_rows">8</property>
         <property name="n_columns">3</property>
-        <property name="column_spacing">3</property>
-        <property name="row_spacing">3</property>
+        <property name="column_spacing">6</property>
+        <property name="row_spacing">6</property>
         <child>
           <placeholder/>
         </child>
@@ -605,7 +647,7 @@ Centimeters</property>
             <property name="right_attach">3</property>
             <property name="top_attach">3</property>
             <property name="bottom_attach">4</property>
-            <property name="y_padding">10</property>
+            <property name="y_padding">6</property>
           </packing>
         </child>
         <child>
@@ -613,8 +655,12 @@ Centimeters</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">75 1 100 1 10 10</property>
-            <property name="digits">1</property>
+            <property name="max_length">6</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
+            <property name="adjustment">75 1 250 1 10 10</property>
+            <property name="digits">2</property>
+            <property name="numeric">True</property>
             <signal name="value_changed" handler="on_bodyfat_calc"/>
           </widget>
           <packing>
@@ -635,6 +681,7 @@ Female</property>
             <property name="right_attach">2</property>
             <property name="top_attach">2</property>
             <property name="bottom_attach">3</property>
+            <property name="y_options">GTK_EXPAND</property>
           </packing>
         </child>
         <child>
@@ -648,6 +695,7 @@ Centimeters</property>
           <packing>
             <property name="left_attach">2</property>
             <property name="right_attach">3</property>
+            <property name="y_options">GTK_EXPAND</property>
           </packing>
         </child>
         <child>
@@ -663,6 +711,7 @@ Kilogramms</property>
             <property name="right_attach">3</property>
             <property name="top_attach">1</property>
             <property name="bottom_attach">2</property>
+            <property name="y_options">GTK_EXPAND</property>
           </packing>
         </child>
         <child>
@@ -671,6 +720,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">8</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -685,6 +737,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">8</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -699,6 +754,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">8</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -713,6 +771,9 @@ Kilogramms</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="editable">False</property>
+            <property name="max_length">8</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
           </widget>
           <packing>
             <property name="left_attach">1</property>
@@ -726,7 +787,7 @@ Kilogramms</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Waist Size:</property>
+            <property name="label" translatable="yes" context="yes">Waist size:</property>
           </widget>
         </child>
         <child>
@@ -758,7 +819,7 @@ Kilogramms</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Percent Bodyfat:</property>
+            <property name="label" translatable="yes" context="yes">Percent bodyfat:</property>
           </widget>
           <packing>
             <property name="top_attach">4</property>
@@ -770,7 +831,7 @@ Kilogramms</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Fat Weight:</property>
+            <property name="label" translatable="yes" context="yes">Fat weight:</property>
           </widget>
           <packing>
             <property name="top_attach">5</property>
@@ -782,7 +843,7 @@ Kilogramms</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Lean Weight:</property>
+            <property name="label" translatable="yes" context="yes">Lean weight:</property>
           </widget>
           <packing>
             <property name="top_attach">6</property>
@@ -794,7 +855,7 @@ Kilogramms</property>
             <property name="visible">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
             <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Resting Metabolic Rate:</property>
+            <property name="label" translatable="yes" context="yes">Resting metabolic rate:</property>
           </widget>
           <packing>
             <property name="top_attach">7</property>
@@ -864,8 +925,12 @@ Kilogramms</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">70 1 10000 1 10 10</property>
+            <property name="max_length">7</property>
+            <property name="width_chars">8</property>
+            <property name="xalign">1</property>
+            <property name="adjustment">70 1 1000 1 10 10</property>
             <property name="digits">2</property>
+            <property name="numeric">True</property>
             <signal name="value_changed" handler="on_bodyfat_calc"/>
           </widget>
           <packing>
