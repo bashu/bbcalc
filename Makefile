@@ -58,7 +58,7 @@ install: locales
 	done)
 	# install glade files
 	$(INSTALL) -m 755 -d $(GLADEDIR)
-	(cd glade; for file in `$(FIND) . -name "*.glade"`; do \
+	(cd glade; for file in `$(FIND) . \( -iname "*.glade" -or -name "*.png" \)`; do \
 		$(INSTALL) -m 644 $$file $(GLADEDIR)/$$file ; \
 	done)
 	# install image files
@@ -68,7 +68,6 @@ install: locales
 	done)
 	# application's data file and icons
 	$(INSTALL) -m 644 data/bbcalc.png $(ICONDIR)
-#	$(INSTALL) -m 644 src/images/bbcalc.xpm $(ICONDIR)
 	$(INSTALL) -m 644 data/bbcalc.desktop $(APPLICATIONSDIR)
 	
 	# installing language files
@@ -90,7 +89,6 @@ uninstall:
 	${RM} -r $(GLADEDIR)
 	${RM} -r $(DATADIR)
 	${RM} -r $(ICONDIR)/bbcalc.png
-#	${RM} -r $(ICONDIR)/bbcalc.xpm
 	${RM} -r $(APPLICATIONSDIR)/bbcalc.desktop
 	for lang in $(LANGUAGES); do \
 		${RM} -r $(LOCALEDIR)/$$lang/LC_MESSAGES/bbcalc.mo; \
