@@ -1,4 +1,6 @@
 INSTALL ?= install
+DOMAIN = bbcalc
+DESTDIR = ../i18n
 PYFILES = ../bbcalc $(shell find ../lib -name "*.py" -print) 
 GLADEFILES = $(shell find ../glade -name "*.glade" -print) 
 POFILES = $(wildcard *.po)
@@ -11,13 +13,13 @@ help:
 	@echo "              (replace 'pl' with your language code)"
 
 messages.pot:
-	xgettext -k_ -kN_ --language=Python -o messages.pot $(PYFILES) --from-code=utf-8
-	xgettext -j -k_ -kN_ --language=Glade -o messages.pot $(GLADEFILES) --from-code=utf-8
+	xgettext -k_ -kN_ --language=Python -o $(DOMAIN).pot $(PYFILES) --from-code=utf-8
+	xgettext -j -k_ -kN_ --language=Glade -o $(DOMAIN).pot $(GLADEFILES) --from-code=utf-8
 
 %.po: messages.pot
 	@if test -f $@; then \
 		echo -n "Updating '$*' language ";\
-		msgmerge -U $@ messages.pot;\
+		msgmerge -U $@ $(DOMAIN).pot;\
 	else \
 		msginit -l $*.UTF8 -o $@; \
 	fi
