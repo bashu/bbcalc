@@ -1,0 +1,6 @@
+bbcalc
+	command=bbcalc
+	name=BBCalc
+	can_open_multiple_files=false
+	expects_uris=false
+	requires_terminal=false
