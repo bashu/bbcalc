@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-12-08 17:20+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lib/gui/calculators/onerepmax.py:61
+#: ../lib/gui/calculators/bodyfat.py:106 ../lib/gui/calculators/bodyfat.py:107
+msgid "lbs"
+msgstr ""
+
+#: ../lib/gui/calculators/onerepmax.py:63
+#: ../lib/gui/calculators/bodyfat.py:109 ../lib/gui/calculators/bodyfat.py:110
+#: ../glade/bbcalc.glade:228 ../glade/bbcalc.glade:885
+#: ../glade/bbcalc.glade:899
+msgid "kg"
+msgstr ""
+
+#: ../lib/version.py:10
+msgid ""
+"BBCalc (Body Building Calculators) is a set of calculators\n"
+"related to body building and fitness topics."
+msgstr ""
+
+#: ../glade/bbcalc.glade:8
+msgid "Body Building Calculators"
+msgstr ""
+
+#: ../glade/bbcalc.glade:26
+msgid "_File"
+msgstr ""
+
+#: ../glade/bbcalc.glade:37
+msgid "gtk-quit"
+msgstr ""
+
+#: ../glade/bbcalc.glade:51
+msgid "_Calculators"
+msgstr ""
+
+#: ../glade/bbcalc.glade:61
+msgid "_Body Building"
+msgstr ""
+
+#: ../glade/bbcalc.glade:71
+msgid "Body_fat Estimator"
+msgstr ""
+
+#: ../glade/bbcalc.glade:81
+msgid "_Ideal Body Measurements"
+msgstr ""
+
+#: ../glade/bbcalc.glade:93
+msgid "_One-Rep Max"
+msgstr ""
+
+#: ../glade/bbcalc.glade:112
+msgid "_Help"
+msgstr ""
+
+#: ../glade/bbcalc.glade:122
+msgid "gtk-about"
+msgstr ""
+
+#: ../glade/bbcalc.glade:196
+msgid "Weight lifted:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:204
+msgid "Number of reps:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:216
+msgid "Predicted one-rep max:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:295 ../glade/bbcalc.glade:705
+msgid ""
+"Pounds\n"
+"Kilogramms"
+msgstr ""
+
+#: ../glade/bbcalc.glade:470 ../glade/bbcalc.glade:691
+msgid ""
+"Inches\n"
+"Centimeters"
+msgstr ""
+
+#: ../glade/bbcalc.glade:503
+msgid "Neck size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:517
+msgid "Calve size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:531
+msgid "Thigh size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:545
+msgid "Forearm size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:559
+msgid "Bicep size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:571
+msgid "Hip size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:583 ../glade/bbcalc.glade:790
+msgid "Waist size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:595
+msgid "Chest size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:607
+msgid "Wrist size:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:675
+msgid ""
+"Male\n"
+"Female"
+msgstr ""
+
+#: ../glade/bbcalc.glade:798
+msgid "Weight:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:810
+msgid "Gender:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:822
+msgid "Percent bodyfat:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:834
+msgid "Fat weight:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:846
+msgid "Lean weight:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:858
+msgid "Resting metabolic rate:"
+msgstr ""
+
+#: ../glade/bbcalc.glade:914
+msgid "calories"
+msgstr ""
