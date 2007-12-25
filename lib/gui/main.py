@@ -33,7 +33,7 @@ class MainApp:
         initialize.i18n(self.locations['locale'])
         
         # Set the Glade file
-        self.gladefile = os.path.join(self.locations['glade'], 'mainwindow.glade')  
+        self.gladefile = os.path.join(self.locations['glade'], 'bbcalc.glade')  
         self.xml = gtk.glade.XML(self.gladefile)
 
         # Get main window and hide it, until all we create all widgets
