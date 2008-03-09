@@ -13,7 +13,9 @@ def lb2kg(lb, precision=5):
     return round(lb / POUNDS, precision)
 
 def cm2in(cm, precision=5):
+    """Convert centimeters to inches"""
     return round(cm / INCHES, precision)
 
 def in2cm(inches, precision=5):
+    """Convert inches to centimeters"""
     return round(inches * INCHES, precision)
