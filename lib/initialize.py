@@ -8,7 +8,7 @@ import gettext
 
 
 def locations(self):
-    """This function setup data locations"""
+    """This function set up data locations"""
     # initialize all locations
     locations = {}
     locations['exec'] = sys.argv[0]
