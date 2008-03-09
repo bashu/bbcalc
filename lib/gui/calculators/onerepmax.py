@@ -6,6 +6,7 @@ from gettext import gettext as _
 from lib.utils import *
 from lib.utils.unitconvertor import kg2lb, lb2kg
 
+# General constants
 REPCOEF = [0, 1, 0.955, 0.917, 0.885, 0.857, 0.832, 0.809, 
            0.788, 0.769, 0.752, 0.736, 0.721, 0.706, 0.692, 0.678]
 

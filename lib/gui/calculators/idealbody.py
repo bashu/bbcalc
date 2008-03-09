@@ -6,6 +6,7 @@ from gettext import gettext as _
 from lib.utils import *
 from lib.utils.unitconvertor import in2cm, cm2in
 
+# General constants
 WRISTCOEF = [6.5, 0.85, 0.70, 0.53, 0.37, 0.36, 0.34, 0.29]
 
 
@@ -31,6 +32,7 @@ class IdealBody:
         self.calve_entry = self.parent.xml.get_widget('calve_entry_ideal')
         self.neck_entry = self.parent.xml.get_widget('neck_entry_ideal')
 
+        # List of results
         self.results = [self.wrist_spinbutton, self.chest_entry, self.hip_entry,
                         self.waist_entry, self.thigh_entry, self.neck_entry,
                         self.bicep_entry, self.calve_entry, self.forearm_entry]
