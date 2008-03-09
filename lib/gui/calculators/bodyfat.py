@@ -6,6 +6,7 @@ from gettext import gettext as _
 from lib.utils import *
 from lib.utils.unitconvertor import kg2lb, lb2kg, in2cm, cm2in
 
+# General constants
 MALECOEF = 98.42
 FEMALECOEF = 76.76
 
@@ -72,11 +73,38 @@ class Bodyfat:
             factor = POUNDS
         else:
             factor = KILOGRAMMS
-                
+        
+        # Set results        
         self.percent_entry.set_text(str(round(bodyfat, 2)))
         self.fat_entry.set_text(str(round(fatweight / factor, 2)))
         self.lean_entry.set_text(str(round(lbm / factor, 2)))
         self.calories_entry.set_text(str(round(lbm * CALORIESCOEF, 0)))
+        
+        # Set classification
+        result3_unit_label = self.parent.xml.get_widget('result3_label_bodyfat')
+        if self.gender_combobox.get_active() == FEMALE:
+            if bodyfat <= 5:
+                result3_unit_label.set_text(_('Essential Fat'))
+            if bodyfat >= 6 and bodyfat <= 13.0:
+                result3_unit_label.set_text(_('Athletes'))
+            if bodyfat >= 14.0 and bodyfat <= 17.0:
+                result3_unit_label.set_text(_('Fitness'))
+            if bodyfat >= 18.0 and bodyfat <= 25.0:
+                result3_unit_label.set_text(_('Acceptable'))
+            if bodyfat >= 25.0:
+                result3_unit_label.set_text(_('Obese'))
+        else:
+            if bodyfat <= 13.0:
+                result3_unit_label.set_text(_('Essential Fat'))
+            if bodyfat >= 14.0 and bodyfat <= 20.0:
+                result3_unit_label.set_text(_('Athletes'))
+            if bodyfat >= 21.0 and bodyfat <= 24.0:
+                result3_unit_label.set_text(_('Fitness'))
+            if bodyfat >= 25.0 and bodyfat <= 31.0:
+                result3_unit_label.set_text(_('Acceptable'))
+            if bodyfat >= 32.0:
+                result3_unit_label.set_text(_('Obese'))
+                
 
     def on_unit1_combobox_bodyfat_changed(self, *args):
         """Handle unit conversion"""
