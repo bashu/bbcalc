@@ -29,7 +29,9 @@ class MainApp:
 
     def __init__(self):
 
+        # Initialise data locations, e.g. path to images directory and etc
         initialize.locations(self)
+        # Initialise locale and i18n
         initialize.i18n(self.locations['locale'])
         
         # Set the Glade file
@@ -60,9 +62,11 @@ class MainApp:
         self.main_window.show()
 
     def app_quit(self, *args):
+        """Quits application"""
         gtk.main_quit()
 
     def set_panel(self, panel):
+        """Set working panel"""
         if hasattr(self, 'panel'):
             self.panel.calc_table.reparent(self.panel.old_parent)
         self.panel = panel
@@ -80,14 +84,17 @@ class MainApp:
         about_dialog = AboutDialog(self.locations['images'])
 
     def on_ideal_body_activate(self, widget):
+        """Shows Ideal Body Measurements"""
         if widget.get_active() == True:
             self.set_panel(self.idealbody)
         
     def on_bodyfat_activate(self, widget):
+        """Shows Bodyfat Estimator"""
         if widget.get_active() == True:
             self.set_panel(self.bodyfat)
 
     def on_onerep_max_activate(self, widget):
+        """Shows One Rep Max calculator"""
         if widget.get_active() == True:
             self.set_panel(self.onerepmax)
 
