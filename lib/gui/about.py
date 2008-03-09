@@ -2,8 +2,7 @@
 
 from gettext import gettext as _
 import gtk
-import os
-import sys
+import os, sys
 
 import lib.version as version
 
@@ -13,15 +12,19 @@ class AboutDialog:
 
     def __init__(self, images_dir):
         dialog = gtk.AboutDialog()
+        # Set general info: version, authors and etc
         dialog.set_name(version.pname)
         dialog.set_version(version.pversion)
-        dialog.set_copyright("Copyright © 2005-2007 Basil Shubin")
+        dialog.set_copyright("Copyright © %s Basil Shubin" % (version.pyear))
         dialog.set_website(version.pwebsite)
         dialog.set_authors([version.pauthor.replace(', ', '\n')])
-
+        
+        # Loading app logo
         logo_file = os.path.abspath(os.path.join(images_dir, 'bbcalc.png'))
         logo = gtk.gdk.pixbuf_new_from_file(logo_file)
         dialog.set_logo(logo)
+        
+        # Set app license text
         #if os.path.isfile('/usr/share/common-licenses/GPL-3'):
         #    dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
         #else:
