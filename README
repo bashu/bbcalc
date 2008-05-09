@@ -32,7 +32,7 @@ System Requirements
   ----			---------------		---						----
   * Python		2.3 or higher		http://www.python.org/
   * GTK+		tested on 2.6.4		http://www.gtk.org/
-  * PyGTK       	tested on 2.6.1		http://www.pygtk.org/   			with Glade2 support
+  * PyGTK       tested on 2.6.1		http://www.pygtk.org/   with Glade2 support
 
 
 Installation
