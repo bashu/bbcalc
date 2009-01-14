@@ -1,3 +1,5 @@
+# This file is necessary to make this directory a package.
+
 CENTIMETERS = 1
 INCHES = 2.54
 

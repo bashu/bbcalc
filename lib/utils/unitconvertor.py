@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
-"""Miscellaneous unit convertors"""
+"""
+Miscellaneous unit converters
 
-from lib.utils import *
+$Id$
+"""
+
+from lib.utils import POUNDS, INCHES
 
 def kg2lb(kg, precision=5):
     """Convert kilogramms to pounds"""
