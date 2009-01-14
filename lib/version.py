@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+"""
+$Id$
+"""
+
 from gettext import gettext as _
 
 pname        = "BBCalc"
