@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
 
-"""Application class"""
+"""
+Main Application class
+
+$Id
+"""
 
 # GTK stuff
 try:
- 	import pygtk
-  	pygtk.require("2.0")
+    import pygtk
+    pygtk.require("2.0")
 except:
-  	pass
+    pass
 try:
-	import gtk
-  	import gtk.glade
+    import gtk
+    import gtk.glade
 except:
-	import sys
-	sys.exit(1)
+    import sys
+    sys.exit(1)
 
 import os.path
 
@@ -29,20 +33,20 @@ class MainApp:
 
     def __init__(self):
 
-        # Initialise data locations, e.g. path to images directory and etc
-        initialize.locations(self)
-        # Initialise locale and i18n
-        initialize.i18n(self.locations['locale'])
+        # Initialize data directories, e.g. path to images and etc
+        self.directories = initialize.init_dir()
+        # Initialize locale and i18n
+        initialize.init_i18n(self.directories['locale'])
         
         # Set the Glade file
-        self.gladefile = os.path.join(self.locations['glade'], 'bbcalc.glade')  
+        self.gladefile = os.path.join(self.directories['glade'], 'bbcalc.glade')  
         self.xml = gtk.glade.XML(self.gladefile)
 
         # Get main window and hide it, until all we create all widgets
         self.main_window = self.xml.get_widget('main_window')
         self.main_window.hide()
 
-        # Get a box for a future calcs
+        # Get a box for a future calculators
         self.calc_box = self.xml.get_widget('calc_box')
 
         # Create calculators tables
@@ -81,7 +85,7 @@ class MainApp:
     def on_about_activate(self, *args):
         """Shows About dialog box"""
         from lib.gui.about import AboutDialog
-        about_dialog = AboutDialog(self.locations['images'])
+        about_dialog = AboutDialog(self.directories['images'])
 
     def on_ideal_body_activate(self, widget):
         """Shows Ideal Body Measurements"""

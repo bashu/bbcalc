@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 
+"""
+About Dialog Box
+
+$Id
+"""
+
 from gettext import gettext as _
 import gtk
-import os, sys
+import os
 
 import lib.version as version
 
@@ -15,7 +21,7 @@ class AboutDialog:
         # Set general info: version, authors and etc
         dialog.set_name(version.pname)
         dialog.set_version(version.pversion)
-        dialog.set_copyright("Copyright © %s Basil Shubin" % (version.pyear))
+        dialog.set_copyright(_("Copyright © %s Basil Shubin") % (version.pyear))
         dialog.set_website(version.pwebsite)
         dialog.set_authors([version.pauthor.replace(', ', '\n')])
         
@@ -25,15 +31,15 @@ class AboutDialog:
         dialog.set_logo(logo)
         
         # Set app license text
-        #if os.path.isfile('/usr/share/common-licenses/GPL-3'):
-        #    dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
-        #else:
-        dialog.set_license(license_text)
+        if os.path.isfile('/usr/share/common-licenses/GPL-3'):
+            dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
+        else:
+            dialog.set_license(license_text)
         dialog.set_comments(version.pdescription)
         dialog.run()
         dialog.destroy()
 
-# license text of this appp    
+# license text of this application    
 license_text = """BBCalc is free software; you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
 the Free Software Foundation; either version 3 of the License, or 

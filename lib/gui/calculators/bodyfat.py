@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
-""" Bodyfat calculator """
+"""
+Bodyfat calculator
+
+$Id$
+"""
 
 from gettext import gettext as _
-from lib.utils import *
+from lib.utils import KILOGRAMMS, POUNDS, CENTIMETERS, FEMALE
 from lib.utils.unitconvertor import kg2lb, lb2kg, in2cm, cm2in
 
 # General constants
@@ -38,10 +42,10 @@ class Bodyfat:
         self.calories_entry = self.parent.xml.get_widget('calories_entry_bodyfat')
 
         # Set active item for unit selection box
-        self.unit1 = self.unit2 = 1
+        self.unit1 = self.unit2 = 1 # 1 - Centimeters / Kilogramms, 0 - Inches / Pounds
         self.unit1_combobox.set_active(self.unit1)
         self.unit2_combobox.set_active(self.unit2)
-        self.gender = 0
+        self.gender = 0 # 0 - Male, 1 - Female
         self.gender_combobox.set_active(self.gender)
 
         # Connect event handlers
@@ -129,7 +133,7 @@ class Bodyfat:
                 self.weight_spinbutton.set_value(lb2kg(weight, 2))
             else:
                 self.weight_spinbutton.set_value(kg2lb(weight, 2))
-            # Change lable for the resulting unit type
+            # Change label for the resulting unit type
             if self.unit2_combobox.get_active() != KILOGRAMMS:
                 result1_unit_label.set_text(_('lbs'))
                 result2_unit_label.set_text(_('lbs'))

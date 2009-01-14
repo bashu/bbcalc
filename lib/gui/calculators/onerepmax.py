@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
-""" One-Rep Maximum calculator """
+"""
+One-Rep Maximum calculator
+
+$Id$
+"""
 
 from gettext import gettext as _
-from lib.utils import *
+from lib.utils import KILOGRAMMS
 from lib.utils.unitconvertor import kg2lb, lb2kg
 
 # General constants
@@ -28,7 +32,7 @@ class OneRepMax:
         self.onerep_max_entry = self.parent.xml.get_widget('result_entry_onerep')
 
         # Set active item for unit selection box
-        self.unit = 1
+        self.unit = 1   # 1 - Kilogramms, 0 - Pounds
         self.unit_combobox.set_active(self.unit)
 
         # Connect event handlers
@@ -57,7 +61,7 @@ class OneRepMax:
                 self.weight_spinbutton.set_value(lb2kg(weight, 2))
             else:
                 self.weight_spinbutton.set_value(kg2lb(weight, 2))
-            # Change lable for the resulting unit type
+            # Change label for the resulting unit type
             if self.unit_combobox.get_active() != KILOGRAMMS:
                 result_unit_label.set_text(_('lbs'))
             else:

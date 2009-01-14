@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
-""" Ideal Body Measurements calculator """
+"""
+Ideal Body Measurements calculator
 
-from gettext import gettext as _
-from lib.utils import *
+$Id$
+"""
+
+from lib.utils import CENTIMETERS
 from lib.utils.unitconvertor import in2cm, cm2in
 
 # General constants
@@ -38,7 +41,7 @@ class IdealBody:
                         self.bicep_entry, self.calve_entry, self.forearm_entry]
         
         # Set active item for unit selection box
-        self.unit = 1
+        self.unit = 1   # 1 - Centimeters, 0 - Inches
         self.unit_combobox.set_active(self.unit)
         
         # Connect event handlers
@@ -65,7 +68,7 @@ class IdealBody:
         if self.unit != self.unit_combobox.get_active():
             self.unit = self.unit_combobox.get_active()
             wrist = self.wrist_spinbutton.get_value()
-            # Perform conversion for the weight value
+            # Perform conversion for the wrist value
             if self.unit == CENTIMETERS:
                 self.wrist_spinbutton.set_value(in2cm(wrist, 2))
             else:
