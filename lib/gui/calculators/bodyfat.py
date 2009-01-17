@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 """
-Bodyfat calculator
+Body Fat calculator
 
 $Id$
 """
 
 from gettext import gettext as _
+
 from lib.utils import KILOGRAMMS, POUNDS, CENTIMETERS, FEMALE
 from lib.utils.unitconvertor import kg2lb, lb2kg, in2cm, cm2in
 
@@ -21,6 +22,8 @@ CALORIESCOEF = 13.83
 
 
 class Bodyfat:
+
+    description = _("Body Fat Estimator")
 
     def __init__(self, parent):
         self.parent = parent

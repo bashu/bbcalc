@@ -6,6 +6,8 @@ Ideal Body Measurements calculator
 $Id$
 """
 
+from gettext import gettext as _
+
 from lib.utils import CENTIMETERS
 from lib.utils.unitconvertor import in2cm, cm2in
 
@@ -14,6 +16,8 @@ WRISTCOEF = [6.5, 0.85, 0.70, 0.53, 0.37, 0.36, 0.34, 0.29]
 
 
 class IdealBody:
+    
+    description = _("Ideal Body Measurements Calculator")
 
     def __init__(self, parent):
         self.parent = parent

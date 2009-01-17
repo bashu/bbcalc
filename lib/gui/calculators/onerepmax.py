@@ -7,6 +7,7 @@ $Id$
 """
 
 from gettext import gettext as _
+
 from lib.utils import KILOGRAMMS
 from lib.utils.unitconvertor import kg2lb, lb2kg
 
@@ -16,6 +17,8 @@ REPCOEF = [0, 1, 0.955, 0.917, 0.885, 0.857, 0.832, 0.809,
 
 
 class OneRepMax:
+    
+    description = _("One-Rep Max Calculator")
 
     def __init__(self, parent):
         self.parent = parent
