@@ -49,6 +49,7 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="quit1">
 		      <property name="visible">True</property>
+		      <property name="tooltip" translatable="yes">Quit application</property>
 		      <property name="label">gtk-quit</property>
 		      <property name="use_stock">True</property>
 		      <signal name="activate" handler="on_quit_activate"/>
@@ -84,7 +85,8 @@
 			  <child>
 			    <widget class="GtkRadioMenuItem" id="bodyfat">
 			      <property name="visible">True</property>
-			      <property name="label" translatable="yes" context="yes">Body_fat Estimator</property>
+			      <property name="tooltip" translatable="yes">Estimate Body Fat Percentage</property>
+			      <property name="label" translatable="yes" context="yes">Body _Fat Estimator</property>
 			      <property name="use_underline">True</property>
 			      <property name="active">False</property>
 			      <signal name="activate" handler="on_bodyfat_activate"/>
@@ -94,6 +96,7 @@
 			  <child>
 			    <widget class="GtkRadioMenuItem" id="ideal_body">
 			      <property name="visible">True</property>
+			      <property name="tooltip" translatable="yes">Calculate your Ideal body measurements</property>
 			      <property name="label" translatable="yes" context="yes">_Ideal Body Measurements</property>
 			      <property name="use_underline">True</property>
 			      <property name="active">True</property>
@@ -135,6 +138,7 @@
 		  <child>
 		    <widget class="GtkImageMenuItem" id="about1">
 		      <property name="visible">True</property>
+		      <property name="tooltip" translatable="yes">About application</property>
 		      <property name="label">gtk-about</property>
 		      <property name="use_stock">True</property>
 		      <signal name="activate" handler="on_about_activate"/>
