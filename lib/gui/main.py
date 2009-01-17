@@ -49,6 +49,9 @@ class MainApp:
         # Get a box for a future calculators
         self.calc_box = self.xml.get_widget('calc_box')
 
+        # Get statusbar
+        self.statusbar = self.xml.get_widget('statusbar1')
+
         # Create calculators tables
         self.onerepmax = OneRepMax(self)
         self.idealbody = IdealBody(self)
@@ -75,6 +78,8 @@ class MainApp:
             self.panel.calc_table.reparent(self.panel.old_parent)
         self.panel = panel
         self.panel.calc_table.reparent(self.calc_box)
+        # Set statusbar text for selected calculator
+        self.statusbar.push(-1, panel.description)
 
     def on_main_window_destroy(self, *args):
         self.app_quit(args)
