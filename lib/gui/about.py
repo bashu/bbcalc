@@ -11,12 +11,13 @@ import gtk
 import os
 
 import lib.version as version
+from lib.paths import images_dir
 
 
 class AboutDialog:
     """Shows a gtk about dialog"""
 
-    def __init__(self, images_dir):
+    def __init__(self):
         dialog = gtk.AboutDialog()
         # Set general info: version, authors and etc
         dialog.set_name(version.pname)
