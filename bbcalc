@@ -3,7 +3,13 @@
 
 """Main executable"""
 
+from lib.initialize import init_i18n
+from lib.paths import locale_dir
+
 from lib.gui.main import main
 
 if __name__ == '__main__':
+	# Initialize locale and i18n
+    init_i18n(locale_dir)
+    
     main()
