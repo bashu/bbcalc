@@ -20,52 +20,31 @@ except:
     sys.exit(1)
 
 import os.path
+from lib.paths import glade_dir
 
-import lib.initialize as initialize
+GLADE_FILE = os.path.join(glade_dir, 'bbcalc.glade')
+
+from lib.gui.glade import Component
 
 from lib.gui.calculators.idealbody import IdealBody
 from lib.gui.calculators.onerepmax import OneRepMax
 from lib.gui.calculators.bodyfat import Bodyfat
 
 
-class MainApp:
+class MainApp(Component):
     """Create application based on a MainFrame class"""
 
     def __init__(self):
-
-        # Initialize data directories, e.g. path to images and etc
-        self.directories = initialize.init_dir()
-        # Initialize locale and i18n
-        initialize.init_i18n(self.directories['locale'])
-        
-        # Set the Glade file
-        self.gladefile = os.path.join(self.directories['glade'], 'bbcalc.glade')  
-        self.xml = gtk.glade.XML(self.gladefile)
-
-        # Get main window and hide it, until all we create all widgets
-        self.main_window = self.xml.get_widget('main_window')
-        self.main_window.hide()
-
-        # Get a box for a future calculators
-        self.calc_box = self.xml.get_widget('calc_box')
-
-        # Get statusbar
-        self.statusbar = self.xml.get_widget('statusbar1')
+        Component.__init__(self, GLADE_FILE, 'main_window')
 
         # Create calculators tables
-        self.onerepmax = OneRepMax(self)
-        self.idealbody = IdealBody(self)
-        self.bodyfat = Bodyfat(self)
+        self.onerepmax = OneRepMax()
+        self.idealbody = IdealBody()
+        self.bodyfat = Bodyfat()
         # Set default panel
         self.set_panel(self.idealbody)
 
-        # Connect event handlers
-        signals = {}
-        for key in dir(self.__class__):
-            signals[key] = getattr(self, key)
-        self.xml.signal_autoconnect(signals)
-
-        # Show main window and goes to main loop
+        # Show main window and goes to main loop (it's hidden by default)
         self.main_window.show()
 
     def app_quit(self, *args):
@@ -75,9 +54,9 @@ class MainApp:
     def set_panel(self, panel):
         """Set working panel"""
         if hasattr(self, 'panel'):
-            self.panel.calc_table.reparent(self.panel.old_parent)
+            self.calc_box.remove(self.panel.widget)
         self.panel = panel
-        self.panel.calc_table.reparent(self.calc_box)
+        self.calc_box.add(panel.widget)
         # Set statusbar text for selected calculator
         self.statusbar.push(-1, panel.description)
 
@@ -90,7 +69,7 @@ class MainApp:
     def on_about_activate(self, *args):
         """Shows About dialog box"""
         from lib.gui.about import AboutDialog
-        about_dialog = AboutDialog(self.directories['images'])
+        about_dialog = AboutDialog()
 
     def on_ideal_body_activate(self, widget):
         """Shows Ideal Body Measurements"""
