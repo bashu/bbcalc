@@ -20,9 +20,9 @@ except:
     sys.exit(1)
 
 import os.path
-from lib.paths import glade_dir
+from lib import GLADE_DIR
 
-GLADE_FILE = os.path.join(glade_dir, 'bbcalc.glade')
+GLADE_FILE = os.path.join(GLADE_DIR, 'bbcalc.glade')
 
 from lib.gui.glade import Component
 
@@ -65,6 +65,11 @@ class MainApp(Component):
 
     def on_quit_activate(self, *args):
         self.app_quit(args)
+
+    def on_preferences_activate(self, *args):
+        """Shows Preferences dialog box"""
+        from lib.gui.preferences import PreferencesDialog
+        prefs_dialog = PreferencesDialog()
 
     def on_about_activate(self, *args):
         """Shows About dialog box"""
