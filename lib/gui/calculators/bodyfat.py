@@ -7,9 +7,9 @@ $Id$
 """
 
 import os.path
-from lib.paths import glade_dir
+from lib import GLADE_DIR
 
-GLADE_FILE = os.path.join(glade_dir, 'bodyfat.glade')
+GLADE_FILE = os.path.join(GLADE_DIR, 'bodyfat.glade')
 
 from gettext import gettext as _
 
