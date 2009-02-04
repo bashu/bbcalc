@@ -11,7 +11,7 @@ import gtk
 import os
 
 import lib.version as version
-from lib.paths import images_dir
+from lib import IMAGES_DIR
 
 
 class AboutDialog:
@@ -27,7 +27,7 @@ class AboutDialog:
         dialog.set_authors([version.pauthor.replace(', ', '\n')])
         
         # Loading app logo
-        logo_file = os.path.abspath(os.path.join(images_dir, 'bbcalc.png'))
+        logo_file = os.path.abspath(os.path.join(IMAGES_DIR, 'bbcalc.png'))
         logo = gtk.gdk.pixbuf_new_from_file(logo_file)
         dialog.set_logo(logo)
         
