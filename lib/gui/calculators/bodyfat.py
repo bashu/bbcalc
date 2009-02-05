@@ -11,11 +11,16 @@ from lib import GLADE_DIR
 
 GLADE_FILE = os.path.join(GLADE_DIR, 'bodyfat.glade')
 
+import gconf
 from gettext import gettext as _
 
 from lib.gui.glade import Component
 
-from lib.utils import KILOGRAMMS, POUNDS, CENTIMETERS, FEMALE
+from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, GCONF_DEFAULT_GENDER
+from lib import DEFAULT_MEASUREMENT_SYSTEM, DEFAULT_GENDER
+from lib import GCONF_SYSTEM_IMPERIAL, GCONF_GENDER_MALE
+from lib.utils import METRIC, IMPERIAL
+from lib.utils import KILOGRAMMS, POUNDS, MALE, FEMALE
 from lib.utils.unitconvertor import kg2lb, lb2kg, in2cm, cm2in
 
 # General constants
@@ -31,25 +36,66 @@ CALORIESCOEF = 13.83
 class Bodyfat(Component):
 
     description = _("Body Fat Estimator")
+    unit1 = unit2 = None
+    gender = None
 
     def __init__(self):
         Component.__init__(self, GLADE_FILE, 'bodyfat_table')
 
         # Set active item for unit selection box
-        self.unit1 = self.unit2 = 1 # 1 - Centimeters / Kilogramms, 0 - Inches / Pounds
-        self.unit1_combobox.set_active(self.unit1)
-        self.unit2_combobox.set_active(self.unit2)
-        self.gender = 0 # 0 - Male, 1 - Female
-        self.gender_combobox.set_active(self.gender)
+        if DEFAULT_MEASUREMENT_SYSTEM == GCONF_SYSTEM_IMPERIAL:
+            self.unit1_combobox.set_active(IMPERIAL)
+            self.unit2_combobox.set_active(IMPERIAL)
+        else:
+            self.unit1_combobox.set_active(METRIC)
+            self.unit2_combobox.set_active(METRIC)   
+
+        if DEFAULT_GENDER == GCONF_GENDER_MALE:
+            self.gender_combobox.set_active(MALE)
+        else:
+            self.gender_combobox.set_active(FEMALE)
+
+        self.unit1_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
+            lambda x, y, z, a: self.on_unit1_combobox_changed(z.value))
+        self.unit2_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
+            lambda x, y, z, a: self.on_unit2_combobox_changed(z.value))
+        self.gender_notify = GCONF_CLIENT.notify_add(GCONF_DEFAULT_GENDER, \
+            lambda x, y, z, a: self.on_gender_combobox_changed(z.value))
 
     def on_bodyfat_calc(self, *args):
         """This formula comes from 'The Bodyfat Guide' by Ron Brown"""
+        # Unit conversion for waist size
+        if self.unit1 != self.unit1_combobox.get_active():
+            self.unit1 = self.unit1_combobox.get_active()
+            waist = self.waist_spinbutton.get_value()
+            if self.unit1 == METRIC:
+                self.waist_spinbutton.set_value(in2cm(waist, 2))
+            else:
+                self.waist_spinbutton.set_value(cm2in(waist, 2))
+        # Unit conversion for weight
+        if self.unit2 != self.unit2_combobox.get_active():
+            self.unit2 = self.unit2_combobox.get_active()
+            weight = self.weight_spinbutton.get_value()
+            # Perform conversion for the weight value
+            if self.unit2 == METRIC:
+                self.weight_spinbutton.set_value(lb2kg(weight, 2))
+            else:
+                self.weight_spinbutton.set_value(kg2lb(weight, 2))
+            # Change label for the resulting unit type
+            if self.unit2_combobox.get_active() != METRIC:
+                self.result1_label.set_text(_('lbs'))
+                self.result2_label.set_text(_('lbs'))
+            else:
+                self.result1_label.set_text(_('kg'))
+                self.result2_label.set_text(_('kg'))
+
+        # Results calculation
         waist = self.waist_spinbutton.get_value()        
         weight = self.weight_spinbutton.get_value()
 
-        if self.unit1_combobox.get_active() == CENTIMETERS:
+        if self.unit1_combobox.get_active() == METRIC:
             waist = cm2in(float(waist))
-        if self.unit2_combobox.get_active() == KILOGRAMMS:
+        if self.unit2_combobox.get_active() == METRIC:
             weight = kg2lb(float(weight))
         tmp_waist = float(waist) * WAISTCOEF
         tmp_weight = float(weight) * WEIGHTCOEF
@@ -60,7 +106,7 @@ class Bodyfat(Component):
             lbm = diff + MALECOEF;
         fatweight = float(weight) - lbm;
         bodyfat = fatweight / float(weight) * 100.0;
-        if self.unit2_combobox.get_active() == KILOGRAMMS:
+        if self.unit2_combobox.get_active() == METRIC:
             factor = POUNDS
         else:
             factor = KILOGRAMMS
@@ -95,34 +141,29 @@ class Bodyfat(Component):
             if bodyfat > 32.0:
                 self.result3_label.set_text(_('Obese'))              
 
-    def on_unit1_combobox_bodyfat_changed(self, *args):
+    def on_unit1_combobox_changed(self, value):
         """Handle unit conversion"""
-        if self.unit1 != self.unit1_combobox.get_active():
-            self.unit1 = self.unit1_combobox.get_active()
-            waist = self.waist_spinbutton.get_value()
-            if self.unit1 == CENTIMETERS:
-                self.waist_spinbutton.set_value(in2cm(waist, 2))
-            else:
-                self.waist_spinbutton.set_value(cm2in(waist, 2))
+        if value is None or value.type != gconf.VALUE_STRING:
+            return
+        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+            self.unit1_combobox.set_active(IMPERIAL)
+        else:
+            self.unit1_combobox.set_active(METRIC)
 
-    def on_unit2_combobox_bodyfat_changed(self, *args):
+    def on_unit2_combobox_changed(self, value):
         """Handle unit conversion"""
-        if self.unit2 != self.unit2_combobox.get_active():
-            self.unit2 = self.unit2_combobox.get_active()
-            weight = self.weight_spinbutton.get_value()
-            # Perform conversion for the weight value
-            if self.unit2 == KILOGRAMMS:
-                self.weight_spinbutton.set_value(lb2kg(weight, 2))
-            else:
-                self.weight_spinbutton.set_value(kg2lb(weight, 2))
-            # Change label for the resulting unit type
-            if self.unit2_combobox.get_active() != KILOGRAMMS:
-                self.result1_label.set_text(_('lbs'))
-                self.result2_label.set_text(_('lbs'))
-            else:
-                self.result1_label.set_text(_('kg'))
-                self.result2_label.set_text(_('kg'))
+        if value is None or value.type != gconf.VALUE_STRING:
+            return
+        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+            self.unit2_combobox.set_active(IMPERIAL)
+        else:
+            self.unit2_combobox.set_active(METRIC)
 
-    def on_gender_combobox_bodyfat_changed(self, *args):
-        """Handle unit conversion"""
-        pass
+    def on_gender_combobox_changed(self, value):
+        """Handle gender changing"""
+        if value is None or value.type != gconf.VALUE_STRING:
+            return
+        if GCONF_CLIENT.get_string(GCONF_DEFAULT_GENDER) == GCONF_GENDER_MALE:
+            self.gender_combobox.set_active(MALE)
+        else:
+            self.gender_combobox.set_active(FEMALE)
