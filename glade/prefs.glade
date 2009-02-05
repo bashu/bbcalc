@@ -10,6 +10,7 @@
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
     <property name="skip_taskbar_hint">True</property>
     <property name="has_separator">False</property>
+    <signal name="response" handler="on_prefs_dialog_response"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox1">
         <property name="visible">True</property>
@@ -146,6 +147,7 @@
             <property name="visible">True</property>
             <child>
               <widget class="GtkButton" id="helpbutton1">
+                <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="label" context="yes">gtk-help</property>
