@@ -70,6 +70,7 @@ class MainApp(Component):
         """Shows Preferences dialog box"""
         from lib.gui.preferences import PreferencesDialog
         prefs_dialog = PreferencesDialog()
+        prefs_dialog.run()
 
     def on_about_activate(self, *args):
         """Shows About dialog box"""

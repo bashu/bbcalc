@@ -12,7 +12,7 @@ from lib import GLADE_DIR
 
 GLADE_FILE = os.path.join(GLADE_DIR, 'prefs.glade')
 
-import gconf
+import gtk, gconf
 
 from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, GCONF_DEFAULT_GENDER
 from lib import GCONF_GENDER_MALE, GCONF_GENDER_FEMALE
@@ -47,8 +47,8 @@ class PreferencesDialog(Component):
         self.gender2_notify = GCONF_CLIENT.notify_add(GCONF_DEFAULT_GENDER, \
             lambda x, y, z, a: self.on_gender2_radiobutton_changed(z.value))
 
+    def run(self):
         self.widget.run()
-        self.widget.destroy()
 
     def on_unit1_radiobutton_changed(self, value):
         if value is None or value.type != gconf.VALUE_STRING:
@@ -85,3 +85,11 @@ class PreferencesDialog(Component):
         
     def on_gender2_radiobutton_toggled(self, toggle):
         GCONF_CLIENT.set_string(GCONF_DEFAULT_GENDER, GCONF_GENDER_FEMALE) # Female
+
+    def on_prefs_dialog_response(self, dialog, response):
+        if response == gtk.RESPONSE_DELETE_EVENT or response == gtk.RESPONSE_CLOSE:
+            dialog.destroy()
+            GCONF_CLIENT.notify_remove(self.unit1_notify)
+            GCONF_CLIENT.notify_remove(self.unit2_notify)
+            GCONF_CLIENT.notify_remove(self.gender1_notify)
+            GCONF_CLIENT.notify_remove(self.gender2_notify)
