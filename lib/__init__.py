@@ -47,3 +47,9 @@ GCONF_SYSTEM_IMPERIAL = 'Imperial'
 
 # Preload gconf directories
 GCONF_CLIENT.add_dir(GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
+
+# Set up default system of measurements
+DEFAULT_MEASUREMENT_SYSTEM = GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM)
+
+# Set up default gender
+DEFAULT_GENDER = GCONF_CLIENT.get_string(GCONF_DEFAULT_GENDER)
