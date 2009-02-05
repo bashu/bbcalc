@@ -1,7 +1,7 @@
-BBCalc 0.7 README
+BBCalc 0.8 README
 =================
 
-This document was last updated on Sat Nov 24 2007.
+This document was last updated on Tue Feb 03 2009.
 Please see the file COPYING for licensing and warranty information.
 The latest version of this software is available at the following URL:
 http://bbcalc.sf.net/
@@ -13,6 +13,7 @@ Table of Contents
 * Introduction
 * System Requirements
 * Installation
+* Known Issues
 * Reporting Bugs
 * TODO list
 * About the Authors
@@ -41,12 +42,20 @@ Installation
 See INSTALL file
 
 
+Known Issues
+============
+
+* None known
+
 Reporting Bugs                                        
 ==============
 	
 If you want to help or report any bugs founded please visit:
+
   http://bbcalc.sf.net/
+  
 or
+
   https://bugs.launchpad.net/bbcalc/
 
 
