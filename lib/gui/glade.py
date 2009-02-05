@@ -8,7 +8,6 @@ Copyright (c) 2002-2008 Stephen Kennedy <stevek@gnome.org>
 $Id$
 """
 
-import gtk
 import gtk.glade
 
 
