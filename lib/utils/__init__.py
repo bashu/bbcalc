@@ -8,3 +8,6 @@ POUNDS = 2.2
 
 MALE = 0
 FEMALE = 1
+
+IMPERIAL = 0
+METRIC = 1
