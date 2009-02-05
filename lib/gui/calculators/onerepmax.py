@@ -47,6 +47,7 @@ class OneRepMax(Component):
         This formula comes from 'A Practical Approach to Strength Training' by
         Matt Brzycki
         """
+        # Unit conversion
         if self.unit != self.unit_combobox.get_active():
             self.unit = self.unit_combobox.get_active()
             weight = self.weight_spinbutton.get_value()
@@ -60,6 +61,7 @@ class OneRepMax(Component):
                 self.result_label.set_text(_('lbs'))
             else:
                 self.result_label.set_text(_('kg'))
+        # Result calculation
         weight = self.weight_spinbutton.get_value()
         max_single = weight / REPCOEF[int(self.reps_spinbutton.get_value())]
         self.result_entry.set_text(str(round(max_single, 2)))
