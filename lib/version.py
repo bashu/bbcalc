@@ -6,10 +6,10 @@ $Id$
 
 from gettext import gettext as _
 
-pname        = "BBCalc"
-pversion     = "0.8"
-pauthor      = "Basil Shubin <bashu@users.sourceforge.net>"
-pyear        = "2005-2009"
-pwebsite     = "http://bbcalc.sf.net/"
-pdescription = _("""BBCalc (Body Building Calculators) is a set of calculators
+pname        = u"BBCalc"
+pversion     = u"0.8"
+pauthor      = u"Basil Shubin <bashu@users.sourceforge.net>"
+pyear        = u"2005-2009"
+pwebsite     = u"http://bbcalc.sf.net/"
+pdescription = _(u"""BBCalc (Body Building Calculators) is a set of calculators
 related to body building and fitness topics.""")
