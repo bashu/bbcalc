@@ -22,7 +22,7 @@ class AboutDialog:
         # Set general info: version, authors and etc
         dialog.set_name(version.pname)
         dialog.set_version(version.pversion)
-        dialog.set_copyright(_("Copyright © %s Basil Shubin") % (version.pyear))
+        dialog.set_copyright(_(u"Copyright © %s Basil Shubin") % (version.pyear))
         dialog.set_website(version.pwebsite)
         dialog.set_authors([version.pauthor.replace(', ', '\n')])
         
@@ -41,7 +41,7 @@ class AboutDialog:
         dialog.destroy()
 
 # license text of this application    
-license_text = """BBCalc is free software; you can redistribute it and/or modify 
+license_text = u"""BBCalc is free software; you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
 the Free Software Foundation; either version 3 of the License, or 
 (at your option) any later version. 
