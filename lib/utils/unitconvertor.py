@@ -8,18 +8,18 @@ $Id$
 
 from lib.utils import POUNDS, INCHES
 
-def kg2lb(kg, precision=5):
+def kg2lb(kg, precision=2):
     """Convert kilogramms to pounds"""
     return round(kg * POUNDS, precision)
 
-def lb2kg(lb, precision=5):
+def lb2kg(lb, precision=2):
     """Convert pounds to kilogramms"""
     return round(lb / POUNDS, precision)
 
-def cm2in(cm, precision=5):
+def cm2in(cm, precision=2):
     """Convert centimeters to inches"""
     return round(cm / INCHES, precision)
 
-def in2cm(inches, precision=5):
+def in2cm(inches, precision=2):
     """Convert inches to centimeters"""
     return round(inches * INCHES, precision)
