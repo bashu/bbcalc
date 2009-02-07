@@ -12,6 +12,9 @@ POUNDS = 2.2
 STR_KG = _(u'kg')
 STR_LBS = _(u'lbs')
 
+STR_CM = _(u'cm')
+STR_IN = _(u'in')
+
 MALE = 0
 FEMALE = 1
 
