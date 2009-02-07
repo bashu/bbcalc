@@ -27,6 +27,13 @@ class PreferencesDialog(Component):
     def __init__(self):
         Component.__init__(self, GLADE_FILE, 'prefs_dialog')
 
+        # Loading default values from GConf
+        self.load_gconf_defaults()
+        # Binding GConf notification handlers
+        self.bind_gconf_handlers()
+
+    def load_gconf_defaults(self):
+        """Load GConf defaults"""
         if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_METRIC:
             self.unit1_radiobutton.set_active(True)
         else:
@@ -37,6 +44,8 @@ class PreferencesDialog(Component):
         else:
             self.gender2_radiobutton.set_active(True)
 
+    def bind_gconf_handlers(self):
+        """Bind GConf notification handlers"""
         self.unit1_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
             lambda x, y, z, a: self.on_unit1_radiobutton_changed(z.value))
         self.unit2_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
@@ -88,8 +97,8 @@ class PreferencesDialog(Component):
 
     def on_prefs_dialog_response(self, dialog, response):
         if response == gtk.RESPONSE_DELETE_EVENT or response == gtk.RESPONSE_CLOSE:
-            dialog.destroy()
             GCONF_CLIENT.notify_remove(self.unit1_notify)
             GCONF_CLIENT.notify_remove(self.unit2_notify)
             GCONF_CLIENT.notify_remove(self.gender1_notify)
             GCONF_CLIENT.notify_remove(self.gender2_notify)
+            dialog.destroy()
