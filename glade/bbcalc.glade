@@ -27,10 +27,12 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="quit1">
                         <property name="visible">True</property>
-                        <property name="tooltip" translatable="yes" context="yes">Quit application</property>
+                        <property name="tooltip" translatable="yes" context="yes">Quit the application</property>
                         <property name="label" context="yes">gtk-quit</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="select" handler="on_menuitem_select"/>
+                        <signal name="deselect" handler="on_menuitem_deselect"/>
                         <signal name="activate" handler="on_quit_activate"/>
                       </widget>
                     </child>
@@ -48,9 +50,12 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="preferences">
                         <property name="visible">True</property>
+                        <property name="tooltip" translatable="yes" context="yes">Edit application preferences</property>
                         <property name="label" context="yes">gtk-preferences</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="select" handler="on_menuitem_select"/>
+                        <signal name="deselect" handler="on_menuitem_deselect"/>
                         <signal name="activate" handler="on_preferences_activate"/>
                       </widget>
                     </child>
@@ -75,30 +80,37 @@
                             <child>
                               <widget class="GtkRadioMenuItem" id="bodyfat">
                                 <property name="visible">True</property>
-                                <property name="tooltip" translatable="yes" context="yes">Estimate body fat percentage</property>
+                                <property name="tooltip" translatable="yes" context="yes">Estimate your body fat percentage</property>
                                 <property name="label" translatable="yes" context="yes">Body _Fat Estimator</property>
                                 <property name="use_underline">True</property>
-                                <signal name="activate" handler="on_bodyfat_activate"/>
+                                <signal name="select" handler="on_menuitem_select"/>
+                                <signal name="deselect" handler="on_menuitem_deselect"/>
+                                <signal name="activate" handler="on_calculator_activate"/>
                               </widget>
                             </child>
                             <child>
                               <widget class="GtkRadioMenuItem" id="ideal_body">
                                 <property name="visible">True</property>
-                                <property name="tooltip" translatable="yes" context="yes">Calculate your Ideal body measurements</property>
+                                <property name="tooltip" translatable="yes" context="yes">Calculate your ideal body measurements (for men)</property>
                                 <property name="label" translatable="yes" context="yes">_Ideal Body Measurements</property>
                                 <property name="use_underline">True</property>
                                 <property name="active">True</property>
                                 <property name="group">bodyfat</property>
-                                <signal name="activate" handler="on_ideal_body_activate"/>
+                                <signal name="select" handler="on_menuitem_select"/>
+                                <signal name="deselect" handler="on_menuitem_deselect"/>
+                                <signal name="activate" handler="on_calculator_activate"/>
                               </widget>
                             </child>
                             <child>
                               <widget class="GtkRadioMenuItem" id="onerep_max">
                                 <property name="visible">True</property>
+                                <property name="tooltip" translatable="yes" context="yes">Predict your one-rep maximum weight</property>
                                 <property name="label" translatable="yes" context="yes">_One-Rep Max</property>
                                 <property name="use_underline">True</property>
                                 <property name="group">bodyfat</property>
-                                <signal name="activate" handler="on_onerep_max_activate"/>
+                                <signal name="select" handler="on_menuitem_select"/>
+                                <signal name="deselect" handler="on_menuitem_deselect"/>
+                                <signal name="activate" handler="on_calculator_activate"/>
                               </widget>
                             </child>
                           </widget>
@@ -119,10 +131,12 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="about1">
                         <property name="visible">True</property>
-                        <property name="tooltip" translatable="yes" context="yes">About application</property>
+                        <property name="tooltip" translatable="yes" context="yes">Show information about the application</property>
                         <property name="label" context="yes">gtk-about</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="select" handler="on_menuitem_select"/>
+                        <signal name="deselect" handler="on_menuitem_deselect"/>
                         <signal name="activate" handler="on_about_activate"/>
                       </widget>
                     </child>

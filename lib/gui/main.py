@@ -9,7 +9,7 @@ $Id
 # GTK stuff
 try:
     import pygtk
-    pygtk.require("2.0")
+    pygtk.require('2.0')
 except:
     pass
 try:
@@ -33,20 +33,19 @@ from lib.gui.calculators.bodyfat import Bodyfat
 
 class MainApp(Component):
     """Create application based on a MainFrame class"""
+    
+    # Defaults
+    _menu_cix = -1
 
     def __init__(self):
         Component.__init__(self, GLADE_FILE, 'main_window')
 
         # Create calculators tables
-        self.onerepmax = OneRepMax()
-        self.idealbody = IdealBody()
-        self.bodyfat = Bodyfat()
-        # Set default panel
-        self.set_panel(self.idealbody)
+        self.create_tables()
 
         # Show main window and goes to main loop (it's hidden by default)
         self.main_window.show()
-
+        
     def app_quit(self, *args):
         """Quits application"""
         gtk.main_quit()
@@ -57,9 +56,25 @@ class MainApp(Component):
             self.calc_box.remove(self.panel.widget)
         self.panel = panel
         self.calc_box.add(panel.widget)
-        # Set statusbar text for selected calculator
-        self.statusbar.push(-1, panel.description)
 
+    def create_tables(self):
+        """Create calculators tables and set default panel"""
+        # Create dictionary of calculators
+        self.calculators = {'onerep_max' : OneRepMax(),
+                            'ideal_body' : IdealBody(),
+                            'bodyfat' : Bodyfat()}
+        # Set default panel
+        self.set_panel(self.calculators['ideal_body'])
+
+    def on_menuitem_select(self, item, *args):
+        """Set statusbar text for selected menu item"""
+        if item.get_tooltip_text() is not None:
+            self.statusbar.push(self._menu_cix, item.get_tooltip_text())
+
+    def on_menuitem_deselect(self, item, *args):
+        if item.get_tooltip_text() is not None:
+            self.statusbar.pop(self._menu_cix)
+        
     def on_main_window_destroy(self, *args):
         self.app_quit(args)
 
@@ -77,21 +92,11 @@ class MainApp(Component):
         from lib.gui.about import AboutDialog
         about_dialog = AboutDialog()
 
-    def on_ideal_body_activate(self, widget):
-        """Shows Ideal Body Measurements"""
+    def on_calculator_activate(self, widget):
+        """Activate selected calculator"""
         if widget.get_active() == True:
-            self.set_panel(self.idealbody)
-        
-    def on_bodyfat_activate(self, widget):
-        """Shows Bodyfat Estimator"""
-        if widget.get_active() == True:
-            self.set_panel(self.bodyfat)
-
-    def on_onerep_max_activate(self, widget):
-        """Shows One Rep Max calculator"""
-        if widget.get_active() == True:
-            self.set_panel(self.onerepmax)
-
+            # widget.name is short name of selected calculator
+            self.set_panel(self.calculators[widget.name])
 
 def main():
     app = MainApp()
