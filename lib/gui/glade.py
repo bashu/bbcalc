@@ -30,7 +30,7 @@ class Component(object):
         self.xml = gtk.glade.XML(filename, root, typedict=override)
         self.xml.signal_autoconnect(self)
         self.widget = getattr(self, root)
-        self.widget.set_data("pyobject", self)
+        self.widget.set_data('pyobject', self)
 
     def __getattr__(self, key):
         """Allow glade widgets to be accessed as self.widgetname"""
