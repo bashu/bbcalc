@@ -85,12 +85,13 @@ class MainApp(Component):
         """Shows Preferences dialog box"""
         from lib.gui.preferences import PreferencesDialog
         prefs_dialog = PreferencesDialog()
-        prefs_dialog.run()
+        prefs_dialog.show()
 
     def on_about_activate(self, *args):
         """Shows About dialog box"""
         from lib.gui.about import AboutDialog
         about_dialog = AboutDialog()
+        about_dialog.show()
 
     def on_calculator_activate(self, widget):
         """Activate selected calculator"""

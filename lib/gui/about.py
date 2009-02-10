@@ -18,27 +18,35 @@ class AboutDialog:
     """Shows a gtk about dialog"""
 
     def __init__(self):
-        dialog = gtk.AboutDialog()
+        self.dialog = gtk.AboutDialog()
         # Set general info: version, authors and etc
-        dialog.set_name(version.pname)
-        dialog.set_version(version.pversion)
-        dialog.set_copyright(_(u"Copyright © %s Basil Shubin") % (version.pyear))
-        dialog.set_website(version.pwebsite)
-        dialog.set_authors([version.pauthor.replace(', ', '\n')])
+        self.dialog.set_name(version.pname)
+        self.dialog.set_version(version.pversion)
+        self.dialog.set_copyright(_(u"Copyright © %s Basil Shubin") % (version.pyear))
+        self.dialog.set_website(version.pwebsite)
+        self.dialog.set_authors([version.pauthor.replace(', ', '\n')])
         
         # Loading app logo
         logo_file = os.path.abspath(os.path.join(IMAGES_DIR, 'bbcalc.png'))
         logo = gtk.gdk.pixbuf_new_from_file(logo_file)
-        dialog.set_logo(logo)
+        self.dialog.set_logo(logo)
         
         # Set app license text
         if os.path.isfile('/usr/share/common-licenses/GPL-3'):
-            dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
+            self.dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
         else:
-            dialog.set_license(license_text)
-        dialog.set_comments(version.pdescription)
-        dialog.run()
-        dialog.destroy()
+            self.dialog.set_license(license_text)
+        self.dialog.set_comments(version.pdescription)
+
+        # Hook up individual signals and events.
+        self.dialog.connect('response', self.on_about_dialog_response)       
+
+    def show(self):
+        self.dialog.run()
+        
+    def on_about_dialog_response(self, dialog, response):
+        if response == gtk.RESPONSE_DELETE_EVENT or response == gtk.RESPONSE_CLOSE or gtk.RESPONSE_CANCEL:
+            self.dialog.destroy()
 
 # license text of this application    
 license_text = u"""BBCalc is free software; you can redistribute it and/or modify 

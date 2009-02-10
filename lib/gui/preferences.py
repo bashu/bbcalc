@@ -57,7 +57,7 @@ class PreferencesDialog(Component):
         self.gender2_notify = GCONF_CLIENT.notify_add(GCONF_DEFAULT_GENDER, \
             lambda x, y, z, a: self.on_gender2_radiobutton_changed(z.value))
 
-    def run(self):
+    def show(self):
         self.widget.run()
 
     def on_unit1_radiobutton_changed(self, value):
