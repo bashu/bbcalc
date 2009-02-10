@@ -8,6 +8,8 @@ This formula comes from 'The Bodyfat Guide' by Ron Brown
 $Id$
 """
 
+from gettext import gettext as _
+
 from lib.utils import KILOGRAMMS, POUNDS, MALE, FEMALE
 from lib.utils import METRIC
 
@@ -46,6 +48,29 @@ def bodyfat_calc(waist, weight, waist_unit=METRIC, weight_unit=METRIC, gender=MA
     lbm = round(lbm / factor, precision)
     calories = round(lbm * CALORIESCOEF, 0)
 
-    return {'bodyfat' : bodyfat, 'fatweight' : fatweight, 'lbm' : lbm, 
-            'calories' : calories}
+    # TODO: Code refactoring
+    if gender == MALE:
+        if bodyfat < 5.0:
+            classification = (_('Essential Fat'))
+        if bodyfat > 5.0 and bodyfat < 14.0:
+            classification = (_('Athletes'))
+        if bodyfat > 14.0 and bodyfat < 18.0:
+            classification = (_('Fitness'))
+        if bodyfat > 18.0 and bodyfat < 25.0:
+            classification = (_('Acceptable'))
+        if bodyfat > 25.0:
+            classification = (_('Obese'))
+    else:
+        if bodyfat < 14.0:
+            classification = (_('Essential Fat'))
+        if bodyfat > 14.0 and bodyfat < 21.0:
+            classification = (_('Athletes'))
+        if bodyfat > 21.0 and bodyfat < 25.0:
+            classification = (_('Fitness'))
+        if bodyfat > 25.0 and bodyfat < 32.0:
+            classification = (_('Acceptable'))
+        if bodyfat > 32.0:
+            classification = (_('Obese'))              
 
+    return {'bodyfat' : bodyfat, 'fatweight' : fatweight, 'lbm' : lbm, 
+            'calories' : calories, 'classification' : classification}
