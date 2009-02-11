@@ -20,11 +20,11 @@ class AboutDialog:
     def __init__(self):
         self.dialog = gtk.AboutDialog()
         # Set general info: version, authors and etc
-        self.dialog.set_name(version.pname)
-        self.dialog.set_version(version.pversion)
-        self.dialog.set_copyright(_(u"Copyright © %s Basil Shubin") % (version.pyear))
-        self.dialog.set_website(version.pwebsite)
-        self.dialog.set_authors([version.pauthor.replace(', ', '\n')])
+        self.dialog.set_name(version.APP_NAME)
+        self.dialog.set_version(version.APP_VERSION)
+        self.dialog.set_copyright(_(u"Copyright © %s Basil Shubin") % (version.APP_YEAR))
+        self.dialog.set_website(version.APP_WEBSITE)
+        self.dialog.set_authors([version.APP_AUTHOR.replace(', ', '\n')])
         
         # Loading app logo
         logo_file = os.path.abspath(os.path.join(IMAGES_DIR, 'bbcalc.png'))
@@ -36,7 +36,7 @@ class AboutDialog:
             self.dialog.set_license(open('/usr/share/common-licenses/GPL-3').read())
         else:
             self.dialog.set_license(license_text)
-        self.dialog.set_comments(version.pdescription)
+        self.dialog.set_comments(version.APP_DESCRIPTION)
 
         # Hook up individual signals and events.
         self.dialog.connect('response', self.on_about_dialog_response)       

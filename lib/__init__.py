@@ -53,3 +53,7 @@ DEFAULT_MEASUREMENT_SYSTEM = GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM)
 
 # Set up default gender
 DEFAULT_GENDER = GCONF_CLIENT.get_string(GCONF_DEFAULT_GENDER)
+
+# BBCalc help file
+HELP_CONTENTS = 'bbcalc.xml'
+

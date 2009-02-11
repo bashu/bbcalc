@@ -3,7 +3,13 @@
 
 """Main executable"""
 
+import gnome
+
+from lib import APP_DIR
+from lib.version import APP_NAME, APP_VERSION
 from lib.gui.main import main
 
+
 if __name__ == '__main__':
-    main()
+    gnome.program_init(APP_NAME.lower(), APP_VERSION, properties = { gnome.PARAM_APP_DATADIR : APP_DIR })
+    main(APP_NAME, APP_VERSION)

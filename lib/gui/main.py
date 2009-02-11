@@ -6,7 +6,7 @@ Main Application class
 $Id
 """
 
-# GTK stuff
+# GTK/Gnome stuff
 try:
     import pygtk
     pygtk.require('2.0')
@@ -15,12 +15,13 @@ except:
 try:
     import gtk
     import gtk.glade
+    import gnome
 except:
     import sys
     sys.exit(1)
 
 import os.path
-from lib import GLADE_DIR
+from lib import GLADE_DIR, HELP_CONTENTS
 
 GLADE_FILE = os.path.join(GLADE_DIR, 'bbcalc.glade')
 
@@ -87,6 +88,10 @@ class MainApp(Component):
         prefs_dialog = PreferencesDialog()
         prefs_dialog.show()
 
+    def on_help_activate(self, *args):
+        """Shows help browser"""
+        gnome.help_display(HELP_CONTENTS)
+
     def on_about_activate(self, *args):
         """Shows About dialog box"""
         from lib.gui.about import AboutDialog
@@ -99,6 +104,8 @@ class MainApp(Component):
             # widget.name is short name of selected calculator
             self.set_panel(self.calculators[widget.name])
 
-def main():
+def main(name, version):
+    gnome.init(name, version)
+
     app = MainApp()
     gtk.main()
