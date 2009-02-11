@@ -8,11 +8,11 @@ $Id
 
 import os.path
 
-from lib import GLADE_DIR
+from lib import GLADE_DIR, HELP_CONTENTS
 
 GLADE_FILE = os.path.join(GLADE_DIR, 'prefs.glade')
 
-import gtk, gconf
+import gtk, gnome, gconf
 
 from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, GCONF_DEFAULT_GENDER
 from lib import GCONF_GENDER_MALE, GCONF_GENDER_FEMALE
@@ -59,6 +59,10 @@ class PreferencesDialog(Component):
 
     def show(self):
         self.widget.run()
+
+    def on_helpbutton_clicked(self, *args):
+        """Shows help browser"""
+        gnome.help_display(HELP_CONTENTS, 'preferences')
 
     def on_unit1_radiobutton_changed(self, value):
         if value is None or value.type != gconf.VALUE_STRING:

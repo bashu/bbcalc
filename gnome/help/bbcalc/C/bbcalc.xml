@@ -58,6 +58,26 @@
 
  <!-- ============= Document Body ============================= -->
 
+ <!-- ============= Introduction ============================== -->
+ <sect1 id="intro">
+  <title>Introduction</title>
+
+ </sect1>
+
+
+ <!-- ================ Usage ================================ -->
+ <!-- This section should describe basic usage of the application. -->
+
+  <sect1 id="usage">
+    <title>Usage</title>
+
+  </sect1>
+
+  <sect1 id="preferences">
+    <title>Preferences</title>
+
+  </sect1>
+
   <sect1 id="legalm">
     <title>Legal</title>
 

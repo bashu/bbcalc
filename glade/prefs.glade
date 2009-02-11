@@ -146,17 +146,18 @@
           <widget class="GtkHButtonBox" id="dialog-action_area1">
             <property name="visible">True</property>
             <child>
-              <widget class="GtkButton" id="helpbutton1">
+              <widget class="GtkButton" id="helpbutton">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="label" context="yes">gtk-help</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">-11</property>
+                <signal name="clicked" handler="on_helpbutton_clicked"/>
               </widget>
             </child>
             <child>
-              <widget class="GtkButton" id="closebutton1">
+              <widget class="GtkButton" id="closebutton">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
