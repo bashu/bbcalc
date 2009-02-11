@@ -83,6 +83,7 @@
                                 <property name="tooltip" translatable="yes" context="yes">Estimate your body fat percentage</property>
                                 <property name="label" translatable="yes" context="yes">Body _Fat Estimator</property>
                                 <property name="use_underline">True</property>
+                                <property name="active">True</property>
                                 <signal name="select" handler="on_menuitem_select"/>
                                 <signal name="deselect" handler="on_menuitem_deselect"/>
                                 <signal name="activate" handler="on_calculator_activate"/>
@@ -94,7 +95,6 @@
                                 <property name="tooltip" translatable="yes" context="yes">Calculate your ideal body measurements (for men)</property>
                                 <property name="label" translatable="yes" context="yes">_Ideal Body Measurements</property>
                                 <property name="use_underline">True</property>
-                                <property name="active">True</property>
                                 <property name="group">bodyfat</property>
                                 <signal name="select" handler="on_menuitem_select"/>
                                 <signal name="deselect" handler="on_menuitem_deselect"/>
@@ -131,7 +131,7 @@
                     <child>
                       <widget class="GtkImageMenuItem" id="help">
                         <property name="visible">True</property>
-                        <property name="tooltip" translatable="yes">Display BBCalc help</property>
+                        <property name="tooltip" translatable="yes" context="yes">Display BBCalc help</property>
                         <property name="label" translatable="yes" context="yes">gtk-help</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>

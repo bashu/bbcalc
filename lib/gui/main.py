@@ -65,7 +65,7 @@ class MainApp(Component):
                             'ideal_body' : IdealBody(),
                             'bodyfat' : Bodyfat()}
         # Set default panel
-        self.set_panel(self.calculators['ideal_body'])
+        self.set_panel(self.calculators['bodyfat'])
 
     def on_menuitem_select(self, item, *args):
         """Set statusbar text for selected menu item"""
