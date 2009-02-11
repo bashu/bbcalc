@@ -25,7 +25,7 @@
                 <child>
                   <widget class="GtkMenu" id="menuitem1_menu">
                     <child>
-                      <widget class="GtkImageMenuItem" id="quit1">
+                      <widget class="GtkImageMenuItem" id="quit">
                         <property name="visible">True</property>
                         <property name="tooltip" translatable="yes" context="yes">Quit the application</property>
                         <property name="label" context="yes">gtk-quit</property>
@@ -129,7 +129,19 @@
                 <child>
                   <widget class="GtkMenu" id="menuitem3_menu">
                     <child>
-                      <widget class="GtkImageMenuItem" id="about1">
+                      <widget class="GtkImageMenuItem" id="help">
+                        <property name="visible">True</property>
+                        <property name="tooltip" translatable="yes">Display BBCalc help</property>
+                        <property name="label" translatable="yes" context="yes">gtk-help</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="select" handler="on_menuitem_select"/>
+                        <signal name="deselect" handler="on_menuitem_deselect"/>
+                        <signal name="activate" handler="on_help_activate"/>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkImageMenuItem" id="about">
                         <property name="visible">True</property>
                         <property name="tooltip" translatable="yes" context="yes">Show information about the application</property>
                         <property name="label" context="yes">gtk-about</property>
