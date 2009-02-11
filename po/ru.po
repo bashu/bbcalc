@@ -7,89 +7,87 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-08 17:20+0600\n"
-"PO-Revision-Date: 2007-11-18 17:25+0600\n"
+"POT-Creation-Date: 2009-02-11 15:01+0600\n"
+"PO-Revision-Date: 2009-02-11 15:15+0600\n"
 "Last-Translator: Basil Shubin <bashu@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
-#: ../lib/gui/calculators/onerepmax.py:61
-#: ../lib/gui/calculators/bodyfat.py:106 ../lib/gui/calculators/bodyfat.py:107
-msgid "lbs"
-msgstr "фунт"
+#: ../lib/calculators/bodyfat.py:54 ../lib/calculators/bodyfat.py:65
+msgid "Essential Fat"
+msgstr ""
 
-#: ../lib/gui/calculators/onerepmax.py:63
-#: ../lib/gui/calculators/bodyfat.py:109 ../lib/gui/calculators/bodyfat.py:110
-#: ../glade/bbcalc.glade:228 ../glade/bbcalc.glade:885
-#: ../glade/bbcalc.glade:899
-msgid "kg"
-msgstr "кг"
+#: ../lib/calculators/bodyfat.py:56 ../lib/calculators/bodyfat.py:67
+msgid "Athletes"
+msgstr ""
 
-#: ../lib/version.py:10
+#: ../lib/calculators/bodyfat.py:58 ../lib/calculators/bodyfat.py:69
+msgid "Fitness"
+msgstr ""
+
+#: ../lib/calculators/bodyfat.py:60 ../lib/calculators/bodyfat.py:71
+msgid "Acceptable"
+msgstr ""
+
+#: ../lib/calculators/bodyfat.py:62 ../lib/calculators/bodyfat.py:73
+msgid "Obese"
+msgstr ""
+
+#: ../lib/gui/calculators/onerepmax.py:28
+msgid "One-Rep Max Calculator"
+msgstr "Калькулятор одноповторного максимума"
+
+#: ../lib/gui/calculators/idealbody.py:28
+msgid "Ideal Body Measurements Calculator"
+msgstr "Калькулятор идеальных размеров тела для мужчин"
+
+#: ../lib/gui/calculators/bodyfat.py:31
+msgid "Body Fat Estimator"
+msgstr "Оценщик телесного _жира"
+
+#: ../lib/gui/about.py:25
+#, python-format
+msgid "Copyright © %s Basil Shubin"
+msgstr ""
+
+#: ../lib/version.py:14
 msgid ""
 "BBCalc (Body Building Calculators) is a set of calculators\n"
 "related to body building and fitness topics."
 msgstr ""
 
-#: ../glade/bbcalc.glade:8
-#, fuzzy
-msgid "Body Building Calculators"
-msgstr "Калькулятор оценки количества телесного жира"
+#: ../lib/utils/__init__.py:12 ../glade/bodyfat.glade:89
+#: ../glade/bodyfat.glade:103
+msgid "kg"
+msgstr "кг"
 
-#: ../glade/bbcalc.glade:26
-msgid "_File"
-msgstr "_Файл"
+#: ../lib/utils/__init__.py:13 ../glade/one_rep_max.glade:62
+msgid "lbs"
+msgstr "фунт"
 
-#: ../glade/bbcalc.glade:37
-msgid "gtk-quit"
-msgstr ""
+#: ../lib/utils/__init__.py:15
+msgid "cm"
+msgstr "см"
 
-#: ../glade/bbcalc.glade:51
-msgid "_Calculators"
-msgstr "_Калькуляторы"
+#: ../lib/utils/__init__.py:16
+msgid "in"
+msgstr "''"
 
-#: ../glade/bbcalc.glade:61
-msgid "_Body Building"
-msgstr "_Бодибилдинг"
-
-#: ../glade/bbcalc.glade:71
-msgid "Body_fat Estimator"
-msgstr "Оценщик телесного _жира"
-
-#: ../glade/bbcalc.glade:81
-msgid "_Ideal Body Measurements"
-msgstr "_Идеальные размеры тела"
-
-#: ../glade/bbcalc.glade:93
-msgid "_One-Rep Max"
-msgstr "_Одноповторный максимум"
-
-#: ../glade/bbcalc.glade:112
-msgid "_Help"
-msgstr "_Справка"
-
-#: ../glade/bbcalc.glade:122
-msgid "gtk-about"
-msgstr ""
-
-#: ../glade/bbcalc.glade:196
-#, fuzzy
+#: ../glade/one_rep_max.glade:33
 msgid "Weight lifted:"
 msgstr "Поднятый вес:"
 
-#: ../glade/bbcalc.glade:204
-#, fuzzy
+#: ../glade/one_rep_max.glade:40
 msgid "Number of reps:"
 msgstr "Число повторений:"
 
-#: ../glade/bbcalc.glade:216
-#, fuzzy
+#: ../glade/one_rep_max.glade:51
 msgid "Predicted one-rep max:"
 msgstr "Одноповторный максимум:"
 
-#: ../glade/bbcalc.glade:295 ../glade/bbcalc.glade:705
+#: ../glade/one_rep_max.glade:123 ../glade/bodyfat.glade:266
 msgid ""
 "Pounds\n"
 "Kilogramms"
@@ -97,7 +95,71 @@ msgstr ""
 "Фунты\n"
 "Килограммы"
 
-#: ../glade/bbcalc.glade:470 ../glade/bbcalc.glade:691
+#: ../glade/prefs.glade:7
+msgid "Preferences"
+msgstr "Параметры"
+
+#: ../glade/prefs.glade:39
+msgid "Metric"
+msgstr "Метрическая"
+
+#: ../glade/prefs.glade:50
+msgid "Imperial"
+msgstr "Имперская"
+
+#: ../glade/prefs.glade:68
+msgid "<b>Measurement System</b>"
+msgstr "<b>Система измерения</b>"
+
+#: ../glade/prefs.glade:97
+msgid "Male"
+msgstr "Мужчина"
+
+#: ../glade/prefs.glade:108
+msgid "Female"
+msgstr "Женщина"
+
+#: ../glade/prefs.glade:126
+msgid "<b>Default Gender</b>"
+msgstr "<b>Пол по-умолчанию</b>"
+
+#: ../glade/bodyfat.glade:36
+msgid "Classification:"
+msgstr ""
+
+#: ../glade/bodyfat.glade:76
+msgid "calories"
+msgstr "калорий"
+
+#: ../glade/bodyfat.glade:130
+msgid "Resting metabolic rate:"
+msgstr "Метаболический темп:"
+
+#: ../glade/bodyfat.glade:141
+msgid "Lean weight:"
+msgstr "Чистый вес:"
+
+#: ../glade/bodyfat.glade:152
+msgid "Fat weight:"
+msgstr "Вес жира:"
+
+#: ../glade/bodyfat.glade:163
+msgid "Percent bodyfat:"
+msgstr "Процент жира:"
+
+#: ../glade/bodyfat.glade:174
+msgid "Gender:"
+msgstr "Пол:"
+
+#: ../glade/bodyfat.glade:185
+msgid "Weight:"
+msgstr "Вес:"
+
+#: ../glade/bodyfat.glade:196 ../glade/ideal_body.glade:261
+msgid "Waist size:"
+msgstr "Талия:"
+
+#: ../glade/bodyfat.glade:281 ../glade/ideal_body.glade:157
 msgid ""
 "Inches\n"
 "Centimeters"
@@ -105,52 +167,7 @@ msgstr ""
 "Дюймы\n"
 "Сантиметры"
 
-#: ../glade/bbcalc.glade:503
-#, fuzzy
-msgid "Neck size:"
-msgstr "Шея:"
-
-#: ../glade/bbcalc.glade:517
-#, fuzzy
-msgid "Calve size:"
-msgstr "Голень:"
-
-#: ../glade/bbcalc.glade:531
-#, fuzzy
-msgid "Thigh size:"
-msgstr "Бедро:"
-
-#: ../glade/bbcalc.glade:545
-#, fuzzy
-msgid "Forearm size:"
-msgstr "Предплечье:"
-
-#: ../glade/bbcalc.glade:559
-#, fuzzy
-msgid "Bicep size:"
-msgstr "Бицепс:"
-
-#: ../glade/bbcalc.glade:571
-#, fuzzy
-msgid "Hip size:"
-msgstr "Бёдра:"
-
-#: ../glade/bbcalc.glade:583 ../glade/bbcalc.glade:790
-#, fuzzy
-msgid "Waist size:"
-msgstr "Талия:"
-
-#: ../glade/bbcalc.glade:595
-#, fuzzy
-msgid "Chest size:"
-msgstr "Грудь:"
-
-#: ../glade/bbcalc.glade:607
-#, fuzzy
-msgid "Wrist size:"
-msgstr "Запястье:"
-
-#: ../glade/bbcalc.glade:675
+#: ../glade/bodyfat.glade:294
 msgid ""
 "Male\n"
 "Female"
@@ -158,37 +175,107 @@ msgstr ""
 "Мужчина\n"
 "Женщина"
 
-#: ../glade/bbcalc.glade:798
-msgid "Weight:"
-msgstr "Вес:"
+#: ../glade/bbcalc.glade:7
+msgid "Body Building Calculators"
+msgstr ""
 
-#: ../glade/bbcalc.glade:810
-msgid "Gender:"
-msgstr "Пол:"
+#: ../glade/bbcalc.glade:23
+msgid "_File"
+msgstr "_Файл"
 
-#: ../glade/bbcalc.glade:822
+#: ../glade/bbcalc.glade:30
+msgid "Quit the application"
+msgstr "Выйти из программы"
+
+#: ../glade/bbcalc.glade:46
+msgid "_Edit"
+msgstr "_Правка"
+
+#: ../glade/bbcalc.glade:53
+msgid "Edit application preferences"
+msgstr ""
+
+#: ../glade/bbcalc.glade:69
+msgid "_Calculators"
+msgstr "_Калькуляторы"
+
+#: ../glade/bbcalc.glade:76
+msgid "_Body Building"
+msgstr "_Бодибилдинг"
+
+#: ../glade/bbcalc.glade:83
+msgid "Estimate your body fat percentage"
+msgstr ""
+
+#: ../glade/bbcalc.glade:84
+msgid "Body _Fat Estimator"
+msgstr "Оценка количества телесного _жира"
+
+#: ../glade/bbcalc.glade:94
 #, fuzzy
-msgid "Percent bodyfat:"
-msgstr "Процент жира:"
+msgid "Calculate your ideal body measurements (for men)"
+msgstr "Калькулятор идеальных размеров тела для мужчин"
 
-#: ../glade/bbcalc.glade:834
+#: ../glade/bbcalc.glade:95
+msgid "_Ideal Body Measurements"
+msgstr "_Идеальные размеры тела"
+
+#: ../glade/bbcalc.glade:107
 #, fuzzy
-msgid "Fat weight:"
-msgstr "Вес жира:"
+msgid "Predict your one-rep maximum weight"
+msgstr "Одноповторный максимум:"
 
-#: ../glade/bbcalc.glade:846
-#, fuzzy
-msgid "Lean weight:"
-msgstr "Чистый вес:"
+#: ../glade/bbcalc.glade:108
+msgid "_One-Rep Max"
+msgstr "_Одноповторный максимум"
 
-#: ../glade/bbcalc.glade:858
-#, fuzzy
-msgid "Resting metabolic rate:"
-msgstr "Метаболический темп:"
+#: ../glade/bbcalc.glade:127
+msgid "_Help"
+msgstr "_Справка"
 
-#: ../glade/bbcalc.glade:914
-msgid "calories"
-msgstr "калорий"
+#: ../glade/bbcalc.glade:134
+msgid "Display BBCalc help"
+msgstr ""
+
+#: ../glade/bbcalc.glade:135
+msgid "gtk-help"
+msgstr ""
+
+#: ../glade/bbcalc.glade:146
+msgid "Show information about the application"
+msgstr ""
+
+#: ../glade/ideal_body.glade:187
+msgid "Neck size:"
+msgstr "Шея:"
+
+#: ../glade/ideal_body.glade:200
+msgid "Calve size:"
+msgstr "Голень:"
+
+#: ../glade/ideal_body.glade:213
+msgid "Thigh size:"
+msgstr "Бедро:"
+
+#: ../glade/ideal_body.glade:226
+msgid "Forearm size:"
+msgstr "Предплечье:"
+
+#: ../glade/ideal_body.glade:239
+msgid "Bicep size:"
+msgstr "Бицепс:"
+
+#: ../glade/ideal_body.glade:250
+msgid "Hip size:"
+msgstr "Бёдра:"
+
+#: ../glade/ideal_body.glade:272
+msgid "Chest size:"
+msgstr "Грудь:"
+
+#: ../glade/ideal_body.glade:283
+msgid "Wrist size:"
+msgstr "Запястье:"
 
 #~ msgid "Put description here"
 #~ msgstr "Разместите описание тут"
@@ -198,12 +285,6 @@ msgstr "калорий"
 
 #~ msgid "Quits the program"
 #~ msgstr "Выйти из программы"
-
-#~ msgid "Ideal Body Measurements Calculator for men"
-#~ msgstr "Калькулятор идеальных размеров тела для мужчин"
-
-#~ msgid "One-Rep Max Calculator"
-#~ msgstr "Калькулятор одноповторного максимума"
 
 #~ msgid "&About"
 #~ msgstr "&О программе"
@@ -219,6 +300,3 @@ msgstr "калорий"
 
 #~ msgid "Pounds"
 #~ msgstr "Фунты"
-
-#~ msgid "Male"
-#~ msgstr "Мужчина"
