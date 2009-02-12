@@ -26,6 +26,7 @@ from lib.utils import METRIC, IMPERIAL
 class IdealBody(Component, Calculator):
 
     description = _(u'Ideal Body Measurements Calculator')
+    default_wrist = [6.89, 17.5]
     unit = None
 
     def __init__(self):
@@ -52,6 +53,8 @@ class IdealBody(Component, Calculator):
             self.unit_combobox.set_active(IMPERIAL)
         else:
             self.unit_combobox.set_active(METRIC)   
+        # Set default values
+        self.wrist_spinbutton.set_value(self.default_wrist[self.unit_combobox.get_active()])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""

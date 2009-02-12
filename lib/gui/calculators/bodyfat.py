@@ -29,6 +29,8 @@ from lib.utils import MALE, FEMALE
 class Bodyfat(Component, Calculator):
 
     description = _(u'Body Fat Estimator')
+    default_waist = [31.5, 80.0]
+    default_weight = [176.0, 80.0]
     unit1 = unit2 = None
     gender = None
 
@@ -58,7 +60,10 @@ class Bodyfat(Component, Calculator):
             self.unit2_combobox.set_active(IMPERIAL)
         else:
             self.unit1_combobox.set_active(METRIC)
-            self.unit2_combobox.set_active(METRIC)   
+            self.unit2_combobox.set_active(METRIC)  
+        # Set default values
+        self.waist_spinbutton.set_value(self.default_waist[self.unit1_combobox.get_active()])
+        self.weight_spinbutton.set_value(self.default_weight[self.unit2_combobox.get_active()])
 
         if DEFAULT_GENDER == GCONF_GENDER_MALE:
             self.gender_combobox.set_active(MALE)

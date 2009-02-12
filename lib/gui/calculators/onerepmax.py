@@ -26,6 +26,7 @@ from lib.utils import METRIC, IMPERIAL
 class OneRepMax(Component, Calculator):
 
     description = _(u'One-Rep Max Calculator')
+    default_weight = [220.0, 100.0]
     unit = None
 
     def __init__(self):
@@ -47,6 +48,8 @@ class OneRepMax(Component, Calculator):
             self.unit_combobox.set_active(IMPERIAL)
         else:
             self.unit_combobox.set_active(METRIC)
+        # Set default values
+        self.weight_spinbutton.set_value(self.default_weight[self.unit_combobox.get_active()])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
