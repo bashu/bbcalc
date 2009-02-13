@@ -4,6 +4,8 @@ import os
 import gtk.glade, gconf
 import gettext
 
+from lib.utils import IMPERIAL, METRIC, MALE, FEMALE
+
 
 APP_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -42,17 +44,23 @@ GCONF_DEFAULT_GENDER = GCONF_DIR + '/default_gender'
 GCONF_GENDER_MALE = 'Male'
 GCONF_GENDER_FEMALE = 'Female'
 
-GCONF_SYSTEM_METRIC = 'Metric'
 GCONF_SYSTEM_IMPERIAL = 'Imperial'
+GCONF_SYSTEM_METRIC = 'Metric'
 
 # Preload gconf directories
 GCONF_CLIENT.add_dir(GCONF_DIR, gconf.CLIENT_PRELOAD_RECURSIVE)
 
 # Set up default system of measurements
-DEFAULT_MEASUREMENT_SYSTEM = GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM)
+if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+    DEFAULT_MEASUREMENT_SYSTEM = IMPERIAL
+else:
+    DEFAULT_MEASUREMENT_SYSTEM = METRIC
 
 # Set up default gender
-DEFAULT_GENDER = GCONF_CLIENT.get_string(GCONF_DEFAULT_GENDER)
+if GCONF_CLIENT.get_string(GCONF_DEFAULT_GENDER) == GCONF_GENDER_MALE:
+    DEFAULT_GENDER = MALE
+else:
+    DEFAULT_GENDER = FEMALE
 
 # BBCalc help file
 HELP_CONTENTS = 'bbcalc.xml'
