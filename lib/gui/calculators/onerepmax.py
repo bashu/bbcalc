@@ -16,6 +16,7 @@ from gettext import gettext as _
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
+from lib.utils.gconf import GConf
 
 from lib.calculators.onerepmax import onerep_max_calc
 
@@ -23,7 +24,7 @@ from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYST
 from lib.utils import METRIC, IMPERIAL
 
 
-class OneRepMax(Component, Calculator):
+class OneRepMax(Component, Calculator, GConf):
 
     description = _(u'One-Rep Max Calculator')
     default_weight = [220.0, 100.0]
@@ -44,17 +45,14 @@ class OneRepMax(Component, Calculator):
     def load_gconf_defaults(self):
         """Load GConf defaults"""
         # Set active item for unit selection box
-        if DEFAULT_MEASUREMENT_SYSTEM == GCONF_SYSTEM_IMPERIAL:
-            self.unit_combobox.set_active(IMPERIAL)
-        else:
-            self.unit_combobox.set_active(METRIC)
+        self.unit_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
         # Set default values
-        self.weight_spinbutton.set_value(self.default_weight[self.unit_combobox.get_active()])
+        self.weight_spinbutton.set_value(self.default_weight[DEFAULT_MEASUREMENT_SYSTEM])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
-            lambda x, y, z, a: self.on_unit_combobox_changed(z.value))
+        self.unit_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
+                                           self.on_unit_combobox_changed)
 
     def on_onerep_max_calc(self, *args):
         # Perform unit conversion if needed

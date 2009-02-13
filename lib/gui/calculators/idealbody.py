@@ -16,6 +16,7 @@ from gettext import gettext as _
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
+from lib.utils.gconf import GConf
 
 from lib.calculators.idealbody import ideal_body_calc
 
@@ -23,7 +24,7 @@ from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYST
 from lib.utils import METRIC, IMPERIAL
 
 
-class IdealBody(Component, Calculator):
+class IdealBody(Component, Calculator, GConf):
 
     description = _(u'Ideal Body Measurements Calculator')
     default_wrist = [6.89, 17.5]
@@ -49,17 +50,14 @@ class IdealBody(Component, Calculator):
     def load_gconf_defaults(self):
         """Load GConf defaults"""
         # Set active item for unit selection box
-        if DEFAULT_MEASUREMENT_SYSTEM == GCONF_SYSTEM_IMPERIAL:
-            self.unit_combobox.set_active(IMPERIAL)
-        else:
-            self.unit_combobox.set_active(METRIC)   
+        self.unit_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)   
         # Set default values
-        self.wrist_spinbutton.set_value(self.default_wrist[self.unit_combobox.get_active()])
+        self.wrist_spinbutton.set_value(self.default_wrist[DEFAULT_MEASUREMENT_SYSTEM])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
-            lambda x, y, z, a: self.on_unit_combobox_changed(z.value))
+        self.unit_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
+                                           self.on_unit_combobox_changed)
 
     def on_ideal_body_calc(self, *args):
         # Perform unit conversion if needed

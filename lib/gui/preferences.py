@@ -19,9 +19,10 @@ from lib import GCONF_GENDER_MALE, GCONF_GENDER_FEMALE
 from lib import GCONF_SYSTEM_METRIC, GCONF_SYSTEM_IMPERIAL
 
 from lib.gui.glade import Component
+from lib.utils.gconf import GConf
 
 
-class PreferencesDialog(Component):
+class PreferencesDialog(Component, GConf):
     """Shows preferences modal dialog"""
     
     def __init__(self):
@@ -44,18 +45,17 @@ class PreferencesDialog(Component):
         else:
             self.gender2_radiobutton.set_active(True)
 
-    # TODO: Create more generic method if possible
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit1_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
-            lambda x, y, z, a: self.on_unit1_radiobutton_changed(z.value))
-        self.unit2_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
-            lambda x, y, z, a: self.on_unit2_radiobutton_changed(z.value))
+        self.unit1_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
+                                            self.on_unit1_radiobutton_changed)
+        self.unit2_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
+                                            self.on_unit2_radiobutton_changed)
 
-        self.gender1_notify = GCONF_CLIENT.notify_add(GCONF_DEFAULT_GENDER, \
-            lambda x, y, z, a: self.on_gender1_radiobutton_changed(z.value))
-        self.gender2_notify = GCONF_CLIENT.notify_add(GCONF_DEFAULT_GENDER, \
-            lambda x, y, z, a: self.on_gender2_radiobutton_changed(z.value))
+        self.gender1_notify = self.notify_add(GCONF_DEFAULT_GENDER, 
+                                              self.on_gender1_radiobutton_changed)
+        self.gender2_notify = self.notify_add(GCONF_DEFAULT_GENDER, 
+                                              self.on_gender2_radiobutton_changed)
 
     def show(self):
         self.widget.run()
@@ -89,16 +89,16 @@ class PreferencesDialog(Component):
             self.gender2_radiobutton.set_active(True)
       
     def on_unit1_radiobutton_toggled(self, toggle):
-        GCONF_CLIENT.set_string(GCONF_MEASUREMENT_SYSTEM, GCONF_SYSTEM_METRIC) # Metric
+        GCONF_CLIENT.set_string(GCONF_MEASUREMENT_SYSTEM, GCONF_SYSTEM_METRIC)
         
     def on_unit2_radiobutton_toggled(self, toggle):
-        GCONF_CLIENT.set_string(GCONF_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL) # Imperial
+        GCONF_CLIENT.set_string(GCONF_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL)
 
     def on_gender1_radiobutton_toggled(self, toggle):
-        GCONF_CLIENT.set_string(GCONF_DEFAULT_GENDER, GCONF_GENDER_MALE) # Male
+        GCONF_CLIENT.set_string(GCONF_DEFAULT_GENDER, GCONF_GENDER_MALE)
         
     def on_gender2_radiobutton_toggled(self, toggle):
-        GCONF_CLIENT.set_string(GCONF_DEFAULT_GENDER, GCONF_GENDER_FEMALE) # Female
+        GCONF_CLIENT.set_string(GCONF_DEFAULT_GENDER, GCONF_GENDER_FEMALE)
 
     def on_prefs_dialog_response(self, dialog, response):
         if response == gtk.RESPONSE_DELETE_EVENT or response == gtk.RESPONSE_CLOSE:

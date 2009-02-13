@@ -16,6 +16,7 @@ from gettext import gettext as _
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
+from lib.utils.gconf import GConf
 
 from lib.calculators.bodyfat import bodyfat_calc
 
@@ -26,9 +27,10 @@ from lib.utils import METRIC, IMPERIAL
 from lib.utils import MALE, FEMALE
 
 
-class Bodyfat(Component, Calculator):
+class Bodyfat(Component, Calculator, GConf):
 
     description = _(u'Body Fat Estimator')
+    # [0] - Imperial, [1] - Metric
     default_waist = [31.5, 80.0]
     default_weight = [176.0, 80.0]
     unit1 = unit2 = None
@@ -55,29 +57,22 @@ class Bodyfat(Component, Calculator):
     def load_gconf_defaults(self):
         """Load GConf defaults"""
         # Set active item for unit selection box
-        if DEFAULT_MEASUREMENT_SYSTEM == GCONF_SYSTEM_IMPERIAL:
-            self.unit1_combobox.set_active(IMPERIAL)
-            self.unit2_combobox.set_active(IMPERIAL)
-        else:
-            self.unit1_combobox.set_active(METRIC)
-            self.unit2_combobox.set_active(METRIC)  
+        self.unit1_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
+        self.unit2_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)  
         # Set default values
-        self.waist_spinbutton.set_value(self.default_waist[self.unit1_combobox.get_active()])
-        self.weight_spinbutton.set_value(self.default_weight[self.unit2_combobox.get_active()])
-
-        if DEFAULT_GENDER == GCONF_GENDER_MALE:
-            self.gender_combobox.set_active(MALE)
-        else:
-            self.gender_combobox.set_active(FEMALE)
+        self.waist_spinbutton.set_value(self.default_waist[DEFAULT_MEASUREMENT_SYSTEM])
+        self.weight_spinbutton.set_value(self.default_weight[DEFAULT_MEASUREMENT_SYSTEM])
+        # Set active item for gender selection box
+        self.gender_combobox.set_active(DEFAULT_GENDER)
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit1_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
-            lambda x, y, z, a: self.on_unit1_combobox_changed(z.value))
-        self.unit2_notify = GCONF_CLIENT.notify_add(GCONF_MEASUREMENT_SYSTEM, \
-            lambda x, y, z, a: self.on_unit2_combobox_changed(z.value))
-        self.gender_notify = GCONF_CLIENT.notify_add(GCONF_DEFAULT_GENDER, \
-            lambda x, y, z, a: self.on_gender_combobox_changed(z.value))
+        self.unit1_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
+                                            self.on_unit1_combobox_changed)
+        self.unit2_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
+                                            self.on_unit2_combobox_changed)
+        self.gender_notify = self.notify_add(GCONF_DEFAULT_GENDER, 
+                                             self.on_gender_combobox_changed)
 
     def on_bodyfat_calc(self, *args):
         # Perform unit conversion if needed
