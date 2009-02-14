@@ -22,7 +22,7 @@ from lib.calculators.idealbody import ideal_body_calc
 from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL
 from lib.utils import METRIC, IMPERIAL
 
-# Predefined values, used somewhere else
+# Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WRIST = (6.89, 17.5)
 
 

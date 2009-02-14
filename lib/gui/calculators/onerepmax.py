@@ -12,25 +12,25 @@ from lib import GLADE_DIR
 GLADE_FILE = os.path.join(GLADE_DIR, 'one_rep_max.glade')
 
 import gconf
-from gettext import gettext as _
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
-from lib.utils.gconf import GConf
+from lib.utils.gconfclass import GConf
 
 from lib.calculators.onerepmax import onerep_max_calc
 
 from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL
 from lib.utils import METRIC, IMPERIAL
 
+# Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
+DEFAULT_WEIGHT = (220.0, 100.0)
+
 
 class OneRepMax(Component, Calculator, GConf):
 
-    description = _(u'One-Rep Max Calculator')
-    default_weight = [220.0, 100.0]
     unit = None
 
-    def __init__(self):
+    def __init__(self, weight=1):
         Component.__init__(self, GLADE_FILE, 'one_rep_max_table')
 
         self.mass_widgets = {self.unit_combobox.name : [self.weight_spinbutton]}
@@ -42,12 +42,29 @@ class OneRepMax(Component, Calculator, GConf):
         # Creating GConf notification handlers
         self.create_gconf_notification()
 
+        # Default values
+        self.default_weight = weight
+
+    def __delattr__(self, name):
+        """Delete attributes method."""
+        nodelete = ( 'default_weight' )
+
+        if name in nodelete:
+            raise TypeError, name + " property cannot be deleted"
+        else:
+            del self.__dict__[name]
+
+    def __setattr__(self, name, value):
+        """Set attributes method."""
+        if name == 'default_weight':
+            self.weight_spinbutton.set_value(value)
+        else:
+            self.__dict__[name] = value
+
     def load_gconf_defaults(self):
         """Load GConf defaults"""
         # Set active item for unit selection box
         self.unit_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
-        # Set default values
-        self.weight_spinbutton.set_value(self.default_weight[DEFAULT_MEASUREMENT_SYSTEM])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""

@@ -12,31 +12,30 @@ from lib import GLADE_DIR
 GLADE_FILE = os.path.join(GLADE_DIR, 'bodyfat.glade')
 
 import gconf
-from gettext import gettext as _
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
-from lib.utils.gconf import GConf
+from lib.utils.gconfclass import GConf
 
 from lib.calculators.bodyfat import bodyfat_calc
 
 from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, GCONF_DEFAULT_GENDER
-from lib import DEFAULT_MEASUREMENT_SYSTEM, DEFAULT_GENDER
+from lib import DEFAULT_MEASUREMENT_SYSTEM
 from lib import GCONF_SYSTEM_IMPERIAL, GCONF_GENDER_MALE
 from lib.utils import METRIC, IMPERIAL
 from lib.utils import MALE, FEMALE
 
+# Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
+DEFAULT_WAIST = (31.5, 80.0)
+DEFAULT_WEIGHT = (176.0, 80.0)
+
 
 class Bodyfat(Component, Calculator, GConf):
 
-    description = _(u'Body Fat Estimator')
-    # [0] - Imperial, [1] - Metric
-    default_waist = [31.5, 80.0]
-    default_weight = [176.0, 80.0]
     unit1 = unit2 = None
     gender = None
 
-    def __init__(self):
+    def __init__(self, waist=1, weight=1, gender=MALE):
         Component.__init__(self, GLADE_FILE, 'bodyfat_table')
 
         self.length_widgets = {self.unit1_combobox.name :
@@ -53,17 +52,37 @@ class Bodyfat(Component, Calculator, GConf):
         self.load_gconf_defaults()
         # Creating GConf notification handlers
         self.create_gconf_notification()
+        
+        # Default values
+        self.default_weight = weight
+        self.default_waist = waist
+        self.default_gender = gender
+
+    def __delattr__(self, name):
+        """Delete attributes method."""
+        nodelete = ( 'default_waist', 'default_weight', 'default_gender' )
+
+        if name in nodelete:
+            raise TypeError, name + " property cannot be deleted"
+        else:
+            del self.__dict__[name]
+
+    def __setattr__(self, name, value):
+        """Set attributes method."""
+        if name == 'default_waist':
+            self.waist_spinbutton.set_value(value)
+        if name == 'default_weight':
+            self.weight_spinbutton.set_value(value)
+        if name == 'default_gender':
+            self.gender_combobox.set_active(value)
+        else:
+            self.__dict__[name] = value
 
     def load_gconf_defaults(self):
         """Load GConf defaults"""
         # Set active item for unit selection box
         self.unit1_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
         self.unit2_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)  
-        # Set default values
-        self.waist_spinbutton.set_value(self.default_waist[DEFAULT_MEASUREMENT_SYSTEM])
-        self.weight_spinbutton.set_value(self.default_weight[DEFAULT_MEASUREMENT_SYSTEM])
-        # Set active item for gender selection box
-        self.gender_combobox.set_active(DEFAULT_GENDER)
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
