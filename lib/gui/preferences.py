@@ -19,7 +19,7 @@ from lib import GCONF_GENDER_MALE, GCONF_GENDER_FEMALE
 from lib import GCONF_SYSTEM_METRIC, GCONF_SYSTEM_IMPERIAL
 
 from lib.gui.glade import Component
-from lib.utils.gconf import GConf
+from lib.utils.gconfclass import GConf
 
 
 class PreferencesDialog(Component, GConf):
