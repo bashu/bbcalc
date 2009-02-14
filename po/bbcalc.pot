@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 15:01+0600\n"
+"POT-Creation-Date: 2009-02-14 20:42+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,18 +34,6 @@ msgstr ""
 
 #: ../lib/calculators/bodyfat.py:62 ../lib/calculators/bodyfat.py:73
 msgid "Obese"
-msgstr ""
-
-#: ../lib/gui/calculators/onerepmax.py:28
-msgid "One-Rep Max Calculator"
-msgstr ""
-
-#: ../lib/gui/calculators/idealbody.py:28
-msgid "Ideal Body Measurements Calculator"
-msgstr ""
-
-#: ../lib/gui/calculators/bodyfat.py:31
-msgid "Body Fat Estimator"
 msgstr ""
 
 #: ../lib/gui/about.py:25
@@ -98,27 +86,27 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: ../glade/prefs.glade:39
+#: ../glade/prefs.glade:40
 msgid "Metric"
 msgstr ""
 
-#: ../glade/prefs.glade:50
+#: ../glade/prefs.glade:51
 msgid "Imperial"
 msgstr ""
 
-#: ../glade/prefs.glade:68
+#: ../glade/prefs.glade:69
 msgid "<b>Measurement System</b>"
 msgstr ""
 
-#: ../glade/prefs.glade:97
+#: ../glade/prefs.glade:98
 msgid "Male"
 msgstr ""
 
-#: ../glade/prefs.glade:108
+#: ../glade/prefs.glade:109
 msgid "Female"
 msgstr ""
 
-#: ../glade/prefs.glade:126
+#: ../glade/prefs.glade:127
 msgid "<b>Default Gender</b>"
 msgstr ""
 
@@ -206,11 +194,11 @@ msgstr ""
 msgid "Body _Fat Estimator"
 msgstr ""
 
-#: ../glade/bbcalc.glade:94
+#: ../glade/bbcalc.glade:95
 msgid "Calculate your ideal body measurements (for men)"
 msgstr ""
 
-#: ../glade/bbcalc.glade:95
+#: ../glade/bbcalc.glade:96
 msgid "_Ideal Body Measurements"
 msgstr ""
 
