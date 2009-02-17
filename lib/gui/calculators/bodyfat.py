@@ -26,8 +26,8 @@ from lib.utils import METRIC, IMPERIAL
 from lib.utils import MALE, FEMALE
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
-DEFAULT_WAIST = (31.5, 80.0)
-DEFAULT_WEIGHT = (176.0, 80.0)
+DEFAULT_WAIST = (32.0, 81.5)
+DEFAULT_WEIGHT = (220.0, 100.0)
 
 
 class Bodyfat(Component, Calculator, GConf):
