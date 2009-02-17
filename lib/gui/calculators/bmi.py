@@ -23,8 +23,8 @@ from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYST
 from lib.utils import METRIC, IMPERIAL
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
-DEFAULT_HEIGHT = (22.0, 10.0)
-DEFAULT_WEIGHT = (220.0, 100.0)
+DEFAULT_HEIGHT = (73.0, 185.0)
+DEFAULT_WEIGHT = (165.0, 75.0)
 
 
 class BMI(Component, Calculator, GConf):
