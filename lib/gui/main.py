@@ -32,6 +32,7 @@ from lib import DEFAULT_MEASUREMENT_SYSTEM, DEFAULT_GENDER
 import lib.gui.calculators.idealbody as idealbody
 import lib.gui.calculators.onerepmax as onerepmax
 import lib.gui.calculators.bodyfat as bodyfat
+import lib.gui.calculators.bmi as bmi
 
 
 class MainApp(Component):
@@ -68,7 +69,8 @@ class MainApp(Component):
                             'ideal_body' : idealbody.IdealBody(wrist=idealbody.DEFAULT_WRIST[DEFAULT_MEASUREMENT_SYSTEM]),
                             'bodyfat' : bodyfat.Bodyfat(waist=bodyfat.DEFAULT_WAIST[DEFAULT_MEASUREMENT_SYSTEM],
                                                         weight=bodyfat.DEFAULT_WEIGHT[DEFAULT_MEASUREMENT_SYSTEM],
-                                                        gender=DEFAULT_GENDER)}
+                                                        gender=DEFAULT_GENDER),
+                            'body_mass_index' : bmi.BMI(height=bmi.DEFAULT_HEIGHT[DEFAULT_MEASUREMENT_SYSTEM], weight=bmi.DEFAULT_WEIGHT[DEFAULT_MEASUREMENT_SYSTEM])}
         # Set default panel
         self.set_panel(self.calculators['bodyfat'])
 

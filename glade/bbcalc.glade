@@ -113,6 +113,18 @@
                                 <signal name="activate" handler="on_calculator_activate"/>
                               </widget>
                             </child>
+                            <child>
+                              <widget class="GtkRadioMenuItem" id="body_mass_index">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes">Body _Mass Index</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_as_radio">True</property>
+                                <property name="group">bodyfat</property>
+                                <signal name="select" handler="on_menuitem_select"/>
+                                <signal name="deselect" handler="on_menuitem_deselect"/>
+                                <signal name="activate" handler="on_calculator_activate"/>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
