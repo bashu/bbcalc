@@ -15,18 +15,18 @@ import gconf
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
-from lib.utils.gconfclass import GConf
+
+import lib.utils.config as config
 
 from lib.calculators.onerepmax import onerep_max_calc
 
-from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL
 from lib.utils import METRIC, IMPERIAL
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WEIGHT = (220.0, 100.0)
 
 
-class OneRepMax(Component, Calculator, GConf):
+class OneRepMax(Component, Calculator):
 
     unit = None
 
@@ -43,11 +43,11 @@ class OneRepMax(Component, Calculator, GConf):
         self.create_gconf_notification()
 
         # Default values
-        self.default_weight = weight
+        self.weight = weight
 
     def __delattr__(self, name):
         """Delete attributes method."""
-        nodelete = ( 'default_weight' )
+        nodelete = ( 'weight' )
 
         if name in nodelete:
             raise TypeError, name + " property cannot be deleted"
@@ -56,20 +56,20 @@ class OneRepMax(Component, Calculator, GConf):
 
     def __setattr__(self, name, value):
         """Set attributes method."""
-        if name == 'default_weight':
+        if name == 'weight':
             self.weight_spinbutton.set_value(value)
         else:
             self.__dict__[name] = value
 
     def load_gconf_defaults(self):
         """Load GConf defaults"""
+        self.config = config.Config()
         # Set active item for unit selection box
-        self.unit_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
+        self.unit_combobox.set_active(self.config.measurement_system)
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
-                                           self.on_unit_combobox_changed)
+        self.config.notify_add(config.GCONF_MEASUREMENT_SYSTEM, self.on_gconf_changed)
 
     def on_onerep_max_calc(self, *args):
         # Perform unit conversion if needed
@@ -82,10 +82,10 @@ class OneRepMax(Component, Calculator, GConf):
 
         self.result_entry.set_text(str(onerep_max_calc(weight, int(reps))))
 
-    def on_unit_combobox_changed(self, value):
+    def on_gconf_changed(self, value):
         if value is None or value.type != gconf.VALUE_STRING:
             return
-        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+        if value.get_string() == config.GCONF_SYSTEM_IMPERIAL:
             self.unit_combobox.set_active(IMPERIAL)
-        else:
+        if value.get_string() == config.GCONF_SYSTEM_METRIC:
             self.unit_combobox.set_active(METRIC)

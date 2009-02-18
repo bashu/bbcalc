@@ -15,18 +15,18 @@ import gconf
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
-from lib.utils.gconfclass import GConf
+
+import lib.utils.config as config
 
 from lib.calculators.idealbody import ideal_body_calc
 
-from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL
 from lib.utils import METRIC, IMPERIAL
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WRIST = (6.89, 17.5)
 
 
-class IdealBody(Component, Calculator, GConf):
+class IdealBody(Component, Calculator):
 
     unit = None
 
@@ -48,11 +48,11 @@ class IdealBody(Component, Calculator, GConf):
         self.create_gconf_notification()
         
         # Default values
-        self.default_wrist = wrist
+        self.wrist = wrist
 
     def __delattr__(self, name):
         """Delete attributes method."""
-        nodelete = ( 'default_wrist' )
+        nodelete = ( 'wrist' )
 
         if name in nodelete:
             raise TypeError, name + " property cannot be deleted"
@@ -61,20 +61,20 @@ class IdealBody(Component, Calculator, GConf):
 
     def __setattr__(self, name, value):
         """Set attributes method."""
-        if name == 'default_wrist':
+        if name == 'wrist':
             self.wrist_spinbutton.set_value(value)
         else:
             self.__dict__[name] = value
 
     def load_gconf_defaults(self):
         """Load GConf defaults"""
+        self.config = config.Config()
         # Set active item for unit selection box
-        self.unit_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
+        self.unit_combobox.set_active(self.config.measurement_system)
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
-                                           self.on_unit_combobox_changed)
+        self.config.notify_add(config.GCONF_MEASUREMENT_SYSTEM, self.on_gconf_changed)
 
     def on_ideal_body_calc(self, *args):
         # Perform unit conversion if needed
@@ -86,11 +86,11 @@ class IdealBody(Component, Calculator, GConf):
         for idx in xrange(1, len(self.results)):
             self.results[idx].set_text(str(results_array[idx]))
 
-    def on_unit_combobox_changed(self, value):
+    def on_gconf_changed(self, value):
         """Handle unit conversion"""
         if value is None or value.type != gconf.VALUE_STRING:
             return
-        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+        if value.get_string() == config.GCONF_SYSTEM_IMPERIAL:
             self.unit_combobox.set_active(IMPERIAL)
-        else:
+        if value.get_string() == config.GCONF_SYSTEM_METRIC:
             self.unit_combobox.set_active(METRIC)

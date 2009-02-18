@@ -15,11 +15,11 @@ import gconf
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
-from lib.utils.gconfclass import GConf
+
+import lib.utils.config as config
 
 from lib.calculators.bmi import bmi_calc
 
-from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, DEFAULT_MEASUREMENT_SYSTEM, GCONF_SYSTEM_IMPERIAL
 from lib.utils import METRIC, IMPERIAL
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
@@ -27,7 +27,7 @@ DEFAULT_HEIGHT = (73.0, 185.0)
 DEFAULT_WEIGHT = (165.0, 75.0)
 
 
-class BMI(Component, Calculator, GConf):
+class BMI(Component, Calculator):
 
     unit1 = unit2 = None
 
@@ -46,12 +46,12 @@ class BMI(Component, Calculator, GConf):
         self.create_gconf_notification()
 
         # Default values
-        self.default_height = height
-        self.default_weight = weight
+        self.height = height
+        self.weight = weight
 
     def __delattr__(self, name):
         """Delete attributes method."""
-        nodelete = ( 'default_height', 'default_weight' )
+        nodelete = ( 'height', 'weight' )
 
         if name in nodelete:
             raise TypeError, name + " property cannot be deleted"
@@ -60,26 +60,23 @@ class BMI(Component, Calculator, GConf):
 
     def __setattr__(self, name, value):
         """Set attributes method."""
-        if name == 'default_height':
+        if name == 'height':
             self.height_spinbutton.set_value(value)
-        if name == 'default_weight':
+        if name == 'weight':
             self.weight_spinbutton.set_value(value)
         else:
             self.__dict__[name] = value
 
     def load_gconf_defaults(self):
         """Load GConf defaults"""
+        self.config = config.Config()
         # Set active item for unit selection box
-        self.unit1_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
-        self.unit2_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
+        self.unit1_combobox.set_active(self.config.measurement_system)
+        self.unit2_combobox.set_active(self.config.measurement_system)
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit1_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
-                                           self.on_unit1_combobox_changed)
-
-        self.unit2_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
-                                           self.on_unit2_combobox_changed)
+        self.config.notify_add(config.GCONF_MEASUREMENT_SYSTEM, self.on_gconf_changed)
 
     def on_bmi_calc(self, *args):
         # Perform unit conversion if needed
@@ -102,18 +99,12 @@ class BMI(Component, Calculator, GConf):
         
         self.result2_label.set_text(str(result['status']))
 
-    def on_unit1_combobox_changed(self, value):
+    def on_gconf_changed(self, value):
         if value is None or value.type != gconf.VALUE_STRING:
             return
-        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+        if value.get_string() == config.GCONF_SYSTEM_IMPERIAL:
             self.unit1_combobox.set_active(IMPERIAL)
-        else:
-            self.unit1_combobox.set_active(METRIC)
-
-    def on_unit2_combobox_changed(self, value):
-        if value is None or value.type != gconf.VALUE_STRING:
-            return
-        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
             self.unit2_combobox.set_active(IMPERIAL)
-        else:
+        if value.get_string() == config.GCONF_SYSTEM_METRIC:
+            self.unit1_combobox.set_active(METRIC)
             self.unit2_combobox.set_active(METRIC)

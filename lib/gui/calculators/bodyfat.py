@@ -15,22 +15,19 @@ import gconf
 
 from lib.gui.glade import Component
 from lib.gui.calculators.calculator import Calculator
-from lib.utils.gconfclass import GConf
+
+import lib.utils.config as config
 
 from lib.calculators.bodyfat import bodyfat_calc
 
-from lib import GCONF_CLIENT, GCONF_MEASUREMENT_SYSTEM, GCONF_DEFAULT_GENDER
-from lib import DEFAULT_MEASUREMENT_SYSTEM
-from lib import GCONF_SYSTEM_IMPERIAL, GCONF_GENDER_MALE
-from lib.utils import METRIC, IMPERIAL
-from lib.utils import MALE, FEMALE
+from lib.utils import METRIC, IMPERIAL, MALE, FEMALE
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WAIST = (32.0, 81.5)
 DEFAULT_WEIGHT = (220.0, 100.0)
 
 
-class Bodyfat(Component, Calculator, GConf):
+class Bodyfat(Component, Calculator):
 
     unit1 = unit2 = None
     gender = None
@@ -52,15 +49,15 @@ class Bodyfat(Component, Calculator, GConf):
         self.load_gconf_defaults()
         # Creating GConf notification handlers
         self.create_gconf_notification()
-        
+
         # Default values
-        self.default_weight = weight
-        self.default_waist = waist
-        self.default_gender = gender
+        self.waist = waist
+        self.weight = weight
+        self.gender = gender
 
     def __delattr__(self, name):
         """Delete attributes method."""
-        nodelete = ( 'default_waist', 'default_weight', 'default_gender' )
+        nodelete = ( 'waist', 'weight', 'gender' )
 
         if name in nodelete:
             raise TypeError, name + " property cannot be deleted"
@@ -69,29 +66,27 @@ class Bodyfat(Component, Calculator, GConf):
 
     def __setattr__(self, name, value):
         """Set attributes method."""
-        if name == 'default_waist':
+        if name == 'waist':
             self.waist_spinbutton.set_value(value)
-        if name == 'default_weight':
+        if name == 'weight':
             self.weight_spinbutton.set_value(value)
-        if name == 'default_gender':
+        if name == 'gender':
             self.gender_combobox.set_active(value)
         else:
             self.__dict__[name] = value
 
     def load_gconf_defaults(self):
         """Load GConf defaults"""
+        self.config = config.Config()
         # Set active item for unit selection box
-        self.unit1_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)
-        self.unit2_combobox.set_active(DEFAULT_MEASUREMENT_SYSTEM)  
+        self.unit1_combobox.set_active(self.config.measurement_system)
+        self.unit2_combobox.set_active(self.config.measurement_system)
+        self.gender_combobox.set_active(self.config.default_gender)  
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
-        self.unit1_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
-                                            self.on_unit1_combobox_changed)
-        self.unit2_notify = self.notify_add(GCONF_MEASUREMENT_SYSTEM, 
-                                            self.on_unit2_combobox_changed)
-        self.gender_notify = self.notify_add(GCONF_DEFAULT_GENDER, 
-                                             self.on_gender_combobox_changed)
+        self.config.notify_add(config.GCONF_MEASUREMENT_SYSTEM, self.on_gconf_changed)
+        self.config.notify_add(config.GCONF_DEFAULT_GENDER, self.on_gconf_changed)
 
     def on_bodyfat_calc(self, *args):
         # Perform unit conversion if needed
@@ -115,33 +110,21 @@ class Bodyfat(Component, Calculator, GConf):
         self.fat_entry.set_text(str(result['fatweight']))
         self.lean_entry.set_text(str(result['lbm']))
         self.calories_entry.set_text(str(result['calories']))
-        
+
         # Set classification
         self.result3_label.set_text(result['classification'])
 
-    def on_unit1_combobox_changed(self, value):
+    def on_gconf_changed(self, value):
         """Handle unit conversion"""
         if value is None or value.type != gconf.VALUE_STRING:
             return
-        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
+        if value.get_string() == config.GCONF_SYSTEM_IMPERIAL:
             self.unit1_combobox.set_active(IMPERIAL)
-        else:
-            self.unit1_combobox.set_active(METRIC)
-
-    def on_unit2_combobox_changed(self, value):
-        """Handle unit conversion"""
-        if value is None or value.type != gconf.VALUE_STRING:
-            return
-        if GCONF_CLIENT.get_string(GCONF_MEASUREMENT_SYSTEM) == GCONF_SYSTEM_IMPERIAL:
             self.unit2_combobox.set_active(IMPERIAL)
-        else:
+        if value.get_string() == config.GCONF_SYSTEM_METRIC:
+            self.unit1_combobox.set_active(METRIC)
             self.unit2_combobox.set_active(METRIC)
-
-    def on_gender_combobox_changed(self, value):
-        """Handle gender changing"""
-        if value is None or value.type != gconf.VALUE_STRING:
-            return
-        if GCONF_CLIENT.get_string(GCONF_DEFAULT_GENDER) == GCONF_GENDER_MALE:
+        if value.get_string() == config.GCONF_GENDER_MALE:
             self.gender_combobox.set_active(MALE)
-        else:
+        if value.get_string() == config.GCONF_GENDER_FEMALE:
             self.gender_combobox.set_active(FEMALE)
