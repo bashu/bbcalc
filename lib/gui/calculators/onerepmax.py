@@ -30,7 +30,7 @@ class OneRepMax(Component, Calculator):
 
     unit = None
 
-    def __init__(self, weight=1):
+    def __init__(self):
         Component.__init__(self, GLADE_FILE, 'one_rep_max_table')
 
         self.mass_widgets = {self.unit_combobox.name : [self.weight_spinbutton]}
@@ -41,9 +41,6 @@ class OneRepMax(Component, Calculator):
         self.load_gconf_defaults()
         # Creating GConf notification handlers
         self.create_gconf_notification()
-
-        # Default values
-        self.weight = weight
 
     def __delattr__(self, name):
         """Delete attributes method."""

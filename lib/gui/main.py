@@ -27,7 +27,7 @@ GLADE_FILE = os.path.join(GLADE_DIR, 'bbcalc.glade')
 
 from lib.gui.glade import Component
 
-from lib import DEFAULT_MEASUREMENT_SYSTEM, DEFAULT_GENDER
+import lib.utils.config as config
 
 import lib.gui.calculators.idealbody as idealbody
 import lib.gui.calculators.onerepmax as onerepmax
@@ -43,6 +43,8 @@ class MainApp(Component):
 
     def __init__(self):
         Component.__init__(self, GLADE_FILE, 'main_window')
+
+        self.config = config.Config()
 
         # Create calculators tables
         self.create_tables()
@@ -64,13 +66,24 @@ class MainApp(Component):
     def create_tables(self):
         """Create calculators tables and set default panel"""
         # Create dictionary of calculators
-        # TODO: Clean this shit
-        self.calculators = {'onerep_max' : onerepmax.OneRepMax(weight=onerepmax.DEFAULT_WEIGHT[DEFAULT_MEASUREMENT_SYSTEM]),
-                            'ideal_body' : idealbody.IdealBody(wrist=idealbody.DEFAULT_WRIST[DEFAULT_MEASUREMENT_SYSTEM]),
-                            'bodyfat' : bodyfat.Bodyfat(waist=bodyfat.DEFAULT_WAIST[DEFAULT_MEASUREMENT_SYSTEM],
-                                                        weight=bodyfat.DEFAULT_WEIGHT[DEFAULT_MEASUREMENT_SYSTEM],
-                                                        gender=DEFAULT_GENDER),
-                            'body_mass_index' : bmi.BMI(height=bmi.DEFAULT_HEIGHT[DEFAULT_MEASUREMENT_SYSTEM], weight=bmi.DEFAULT_WEIGHT[DEFAULT_MEASUREMENT_SYSTEM])}
+        onerep_max_calc = onerepmax.OneRepMax()
+        onerep_max_calc.weight = onerepmax.DEFAULT_WEIGHT[self.config.measurement_system]
+
+        idealbody_calc = idealbody.IdealBody()
+        idealbody_calc.wrist = idealbody.DEFAULT_WRIST[self.config.measurement_system]
+
+        bodyfat_calc = bodyfat.Bodyfat()
+        bodyfat_calc.waist = bodyfat.DEFAULT_WAIST[self.config.measurement_system]
+        bodyfat_calc.weight = bodyfat.DEFAULT_WEIGHT[self.config.measurement_system]
+
+        bmi_calc = bmi.BMI() 
+        bmi_calc.height = bmi.DEFAULT_HEIGHT[self.config.measurement_system]
+        bmi_calc.weight = bmi.DEFAULT_WEIGHT[self.config.measurement_system]
+
+        self.calculators = {'onerep_max' : onerep_max_calc,
+                            'ideal_body' : idealbody_calc,
+                            'bodyfat' : bodyfat_calc,
+                            'body_mass_index' : bmi_calc}
         # Set default panel
         self.set_panel(self.calculators['bodyfat'])
 

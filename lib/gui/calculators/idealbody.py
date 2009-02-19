@@ -30,7 +30,7 @@ class IdealBody(Component, Calculator):
 
     unit = None
 
-    def __init__(self, wrist=1):
+    def __init__(self):
         Component.__init__(self, GLADE_FILE, 'ideal_body_table')
         
         # List of results
@@ -46,9 +46,6 @@ class IdealBody(Component, Calculator):
         self.load_gconf_defaults()
         # Creating GConf notification handlers
         self.create_gconf_notification()
-        
-        # Default values
-        self.wrist = wrist
 
     def __delattr__(self, name):
         """Delete attributes method."""

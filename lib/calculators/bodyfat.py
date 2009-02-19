@@ -25,6 +25,7 @@ WEIGHTCOEF = 1.082
 CALORIESCOEF = 13.83
 
 def bodyfat_calc(waist, weight, waist_unit=METRIC, weight_unit=METRIC, gender=MALE, precision=2):
+    """Body Fat calculator"""
     if waist_unit == METRIC:
         waist = cm2in(float(waist))
     if weight_unit == METRIC:

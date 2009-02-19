@@ -31,7 +31,7 @@ class BMI(Component, Calculator):
 
     unit1 = unit2 = None
 
-    def __init__(self, height=1, weight=1):
+    def __init__(self):
         Component.__init__(self, GLADE_FILE, 'bmi_table')
 
         self.length_widgets = {self.unit1_combobox.name : [self.height_spinbutton]}
@@ -44,10 +44,6 @@ class BMI(Component, Calculator):
         self.load_gconf_defaults()
         # Creating GConf notification handlers
         self.create_gconf_notification()
-
-        # Default values
-        self.height = height
-        self.weight = weight
 
     def __delattr__(self, name):
         """Delete attributes method."""

@@ -32,7 +32,7 @@ class Bodyfat(Component, Calculator):
     unit1 = unit2 = None
     gender = None
 
-    def __init__(self, waist=1, weight=1, gender=MALE):
+    def __init__(self):
         Component.__init__(self, GLADE_FILE, 'bodyfat_table')
 
         self.length_widgets = {self.unit1_combobox.name :
@@ -49,11 +49,6 @@ class Bodyfat(Component, Calculator):
         self.load_gconf_defaults()
         # Creating GConf notification handlers
         self.create_gconf_notification()
-
-        # Default values
-        self.waist = waist
-        self.weight = weight
-        self.gender = gender
 
     def __delattr__(self, name):
         """Delete attributes method."""

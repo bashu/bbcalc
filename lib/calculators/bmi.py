@@ -14,6 +14,7 @@ from lib.utils.unitconvertor import lb2kg, in2cm
 
 
 def bmi_calc(height, weight, height_unit=METRIC, weight_unit=METRIC, precision=1):
+    """Body Mass Index (for adults) calculator"""
     if height_unit == IMPERIAL:
         height = in2cm(float(height))
     if weight_unit == IMPERIAL:
