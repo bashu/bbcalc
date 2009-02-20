@@ -78,24 +78,11 @@
                         <child>
                           <widget class="GtkMenu" id="menuitem5_menu">
                             <child>
-                              <widget class="GtkRadioMenuItem" id="bodyfat">
-                                <property name="visible">True</property>
-                                <property name="tooltip" translatable="yes" context="yes">Estimate your body fat percentage</property>
-                                <property name="label" translatable="yes" context="yes">Body _Fat Estimator</property>
-                                <property name="use_underline">True</property>
-                                <property name="active">True</property>
-                                <signal name="select" handler="on_menuitem_select"/>
-                                <signal name="deselect" handler="on_menuitem_deselect"/>
-                                <signal name="activate" handler="on_calculator_activate"/>
-                              </widget>
-                            </child>
-                            <child>
                               <widget class="GtkRadioMenuItem" id="ideal_body">
                                 <property name="visible">True</property>
                                 <property name="tooltip" translatable="yes" context="yes">Calculate your ideal body measurements (for men)</property>
                                 <property name="label" translatable="yes" context="yes">_Ideal Body Measurements</property>
                                 <property name="use_underline">True</property>
-                                <property name="group">bodyfat</property>
                                 <signal name="select" handler="on_menuitem_select"/>
                                 <signal name="deselect" handler="on_menuitem_deselect"/>
                                 <signal name="activate" handler="on_calculator_activate"/>
@@ -107,7 +94,32 @@
                                 <property name="tooltip" translatable="yes" context="yes">Predict your one-rep maximum weight</property>
                                 <property name="label" translatable="yes" context="yes">_One-Rep Max</property>
                                 <property name="use_underline">True</property>
-                                <property name="group">bodyfat</property>
+                                <property name="group">ideal_body</property>
+                                <signal name="select" handler="on_menuitem_select"/>
+                                <signal name="deselect" handler="on_menuitem_deselect"/>
+                                <signal name="activate" handler="on_calculator_activate"/>
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="menuitem6">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes" context="yes">_Fitness</property>
+                        <property name="use_underline">True</property>
+                        <child>
+                          <widget class="GtkMenu" id="menu1">
+                            <property name="visible">True</property>
+                            <child>
+                              <widget class="GtkRadioMenuItem" id="bodyfat">
+                                <property name="visible">True</property>
+                                <property name="tooltip" translatable="yes" context="yes">Estimate your body fat percentage</property>
+                                <property name="label" translatable="yes" context="yes">Body _Fat Estimator</property>
+                                <property name="use_underline">True</property>
+                                <property name="active">True</property>
+                                <property name="group">ideal_body</property>
                                 <signal name="select" handler="on_menuitem_select"/>
                                 <signal name="deselect" handler="on_menuitem_deselect"/>
                                 <signal name="activate" handler="on_calculator_activate"/>
@@ -116,12 +128,34 @@
                             <child>
                               <widget class="GtkRadioMenuItem" id="body_mass_index">
                                 <property name="visible">True</property>
-                                <property name="label" translatable="yes">Body _Mass Index</property>
+                                <property name="label" translatable="yes" context="yes">Body _Mass Index</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_as_radio">True</property>
-                                <property name="group">bodyfat</property>
+                                <property name="group">ideal_body</property>
                                 <signal name="select" handler="on_menuitem_select"/>
                                 <signal name="deselect" handler="on_menuitem_deselect"/>
+                                <signal name="activate" handler="on_calculator_activate"/>
+                              </widget>
+                            </child>
+                          </widget>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="GtkMenuItem" id="menuitem7">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes" context="yes">_Calories Burning</property>
+                        <property name="use_underline">True</property>
+                        <child>
+                          <widget class="GtkMenu" id="menu2">
+                            <property name="visible">True</property>
+                            <child>
+                              <widget class="GtkRadioMenuItem" id="running">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes" context="yes">_Running</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_as_radio">True</property>
+                                <property name="group">ideal_body</property>
                                 <signal name="activate" handler="on_calculator_activate"/>
                               </widget>
                             </child>
