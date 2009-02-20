@@ -33,6 +33,7 @@ import lib.gui.calculators.idealbody as idealbody
 import lib.gui.calculators.onerepmax as onerepmax
 import lib.gui.calculators.bodyfat as bodyfat
 import lib.gui.calculators.bmi as bmi
+import lib.gui.calculators.running as running
 
 
 class MainApp(Component):
@@ -79,11 +80,16 @@ class MainApp(Component):
         bmi_calc = bmi.BMI() 
         bmi_calc.height = bmi.DEFAULT_HEIGHT[self.config.measurement_system]
         bmi_calc.weight = bmi.DEFAULT_WEIGHT[self.config.measurement_system]
+        
+        running_calc = running.Running()
+        running_calc.weight = running.DEFAULT_WEIGHT[self.config.measurement_system]
+        running_calc.distance = running.DEFAULT_DISTANCE[self.config.measurement_system]
 
         self.calculators = {'onerep_max' : onerep_max_calc,
                             'ideal_body' : idealbody_calc,
                             'bodyfat' : bodyfat_calc,
-                            'body_mass_index' : bmi_calc}
+                            'body_mass_index' : bmi_calc,
+                            'running' : running_calc}
         # Set default panel
         self.set_panel(self.calculators['bodyfat'])
 
