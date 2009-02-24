@@ -137,6 +137,21 @@
                                 <signal name="activate" handler="on_calculator_activate"/>
                               </widget>
                             </child>
+                            <child>
+                              <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
+                                <property name="visible">True</property>
+                              </widget>
+                            </child>
+                            <child>
+                              <widget class="GtkRadioMenuItem" id="running">
+                                <property name="visible">True</property>
+                                <property name="label" translatable="yes" context="yes">Calories Burning: _Running</property>
+                                <property name="use_underline">True</property>
+                                <property name="draw_as_radio">True</property>
+                                <property name="group">ideal_body</property>
+                                <signal name="activate" handler="on_calculator_activate"/>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                       </widget>
@@ -144,15 +159,15 @@
                     <child>
                       <widget class="GtkMenuItem" id="menuitem7">
                         <property name="visible">True</property>
-                        <property name="label" translatable="yes" context="yes">_Calories Burning</property>
+                        <property name="label" translatable="yes" context="yes">_Miscellaneous</property>
                         <property name="use_underline">True</property>
                         <child>
                           <widget class="GtkMenu" id="menu2">
                             <property name="visible">True</property>
                             <child>
-                              <widget class="GtkRadioMenuItem" id="running">
+                              <widget class="GtkRadioMenuItem" id="weightunits">
                                 <property name="visible">True</property>
-                                <property name="label" translatable="yes" context="yes">_Running</property>
+                                <property name="label" translatable="yes" context="yes">Weight Units Converter</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_as_radio">True</property>
                                 <property name="group">ideal_body</property>
