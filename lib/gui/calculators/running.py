@@ -91,9 +91,7 @@ class Running(Component, Calculator):
 
         result = running_calc(weight, distance, weight_unit, distance_unit)
 
-        self.result1_entry.set_text(str(result))
-#        
-#        self.result2_label.set_text(str(result['status']))
+        self.result_entry.set_text(str(result))
 
     def on_gconf_changed(self, value):
         if value is None or value.type != gconf.VALUE_STRING:
