@@ -264,7 +264,7 @@
           <widget class="GtkComboBox" id="unit2_combobox">
             <property name="visible">True</property>
             <property name="items" translatable="yes" context="yes">Pounds
-Kilogramms</property>
+Kilograms</property>
             <signal name="changed" handler="on_bodyfat_calc"/>
           </widget>
           <packing>

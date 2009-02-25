@@ -9,11 +9,11 @@ $Id$
 from lib.utils import POUNDS, INCHES, MILES
 
 def kg2lb(kg, precision=2):
-    """Convert kilogramms to pounds"""
+    """Convert kilograms to pounds"""
     return round(kg * POUNDS, precision)
 
 def lb2kg(lb, precision=2):
-    """Convert pounds to kilogramms"""
+    """Convert pounds to kilograms"""
     return round(lb / POUNDS, precision)
 
 def cm2in(cm, precision=2):

@@ -10,7 +10,7 @@ $Id$
 
 from gettext import gettext as _
 
-from lib.utils import KILOGRAMMS, POUNDS, MALE, FEMALE
+from lib.utils import KILOGRAMS, POUNDS, MALE, FEMALE
 from lib.utils import METRIC
 
 from lib.utils.unitconvertor import kg2lb, cm2in
@@ -42,7 +42,7 @@ def bodyfat_calc(waist, weight, waist_unit=METRIC, weight_unit=METRIC, gender=MA
     if weight_unit == METRIC:
         factor = POUNDS
     else:
-        factor = KILOGRAMMS
+        factor = KILOGRAMS
 
     bodyfat = round(bodyfat, precision)
     fatweight = round(fatweight / factor, precision)

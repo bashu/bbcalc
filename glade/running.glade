@@ -70,7 +70,7 @@ Kilometers</property>
           <widget class="GtkComboBox" id="unit1_combobox">
             <property name="visible">True</property>
             <property name="items" translatable="yes" context="yes">Pounds
-Kilogramms</property>
+Kilograms</property>
             <signal name="changed" handler="on_calculation"/>
           </widget>
           <packing>

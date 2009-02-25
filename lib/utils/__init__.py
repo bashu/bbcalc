@@ -5,7 +5,7 @@ from gettext import gettext as _
 CENTIMETERS = 1
 INCHES = 2.54
 
-KILOGRAMMS = 1
+KILOGRAMS = 1
 POUNDS = 2.2
 
 KILOMETERS = 1

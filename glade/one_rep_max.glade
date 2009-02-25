@@ -121,7 +121,7 @@
           <widget class="GtkComboBox" id="unit_combobox">
             <property name="visible">True</property>
             <property name="items" translatable="yes" context="yes">Pounds
-Kilogramms</property>
+Kilograms</property>
             <signal name="changed" handler="on_onerep_max_calc"/>
           </widget>
           <packing>
