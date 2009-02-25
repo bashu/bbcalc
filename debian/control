@@ -1,7 +1,7 @@
 Source: bbcalc
 Section: universe/gnome
 Priority: optional
-Maintainer: Basil Shubin (Lone Loner) <basil.shubin@gmail.com>
+Maintainer: Basil Shubin <basil.shubin@gmail.com>
 Build-Depends: debhelper (>= 5), python-central (>= 0.5.8), python (>= 2.3), python-gtk2 (>= 2.8.6-1), python-glade2 (>= 2.8.6-1)
 Standards-Version: 3.7.2
 
