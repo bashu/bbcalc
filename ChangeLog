@@ -5,7 +5,7 @@ Major changes:
 
 	* Application has been completely rewritten from wxPython to PyGTK
 	
-	* All source code went through the refactoring
+	* All source code went through a big refactoring
 	
 	* License has been upgraded to GPL version 3
 
