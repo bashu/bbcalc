@@ -7,33 +7,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BBCalc 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-14 20:42+0600\n"
-"PO-Revision-Date: 2009-02-14 20:42+0600\n"
+"POT-Creation-Date: 2009-02-25 11:20+0600\n"
+"PO-Revision-Date: 2009-02-25 11:37+0600\n"
 "Last-Translator: Basil Shubin <basil.shubin@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
-#: ../lib/calculators/bodyfat.py:54 ../lib/calculators/bodyfat.py:65
+#: ../lib/calculators/bodyfat.py:55 ../lib/calculators/bodyfat.py:66
 msgid "Essential Fat"
 msgstr ""
 
-#: ../lib/calculators/bodyfat.py:56 ../lib/calculators/bodyfat.py:67
+#: ../lib/calculators/bodyfat.py:57 ../lib/calculators/bodyfat.py:68
 msgid "Athletes"
-msgstr ""
+msgstr "Атлетичный"
 
-#: ../lib/calculators/bodyfat.py:58 ../lib/calculators/bodyfat.py:69
+#: ../lib/calculators/bodyfat.py:59 ../lib/calculators/bodyfat.py:70
 msgid "Fitness"
 msgstr ""
 
-#: ../lib/calculators/bodyfat.py:60 ../lib/calculators/bodyfat.py:71
+#: ../lib/calculators/bodyfat.py:61 ../lib/calculators/bodyfat.py:72
 msgid "Acceptable"
 msgstr ""
 
-#: ../lib/calculators/bodyfat.py:62 ../lib/calculators/bodyfat.py:73
+#: ../lib/calculators/bodyfat.py:63 ../lib/calculators/bodyfat.py:74
+#: ../lib/calculators/bmi.py:36
 msgid "Obese"
+msgstr "Тучный"
+
+#: ../lib/calculators/bmi.py:30
+msgid "Underweight"
+msgstr "Слишком малый вес"
+
+#: ../lib/calculators/bmi.py:32
+msgid "Normal"
 msgstr ""
+
+#: ../lib/calculators/bmi.py:34
+msgid "Overweight "
+msgstr "Избыточный вес"
 
 #: ../lib/gui/about.py:25
 #, python-format
@@ -46,22 +59,30 @@ msgid ""
 "related to body building and fitness topics."
 msgstr ""
 
-#: ../lib/utils/__init__.py:12 ../glade/bodyfat.glade:89
+#: ../lib/utils/__init__.py:15 ../glade/bodyfat.glade:89
 #: ../glade/bodyfat.glade:103
 msgid "kg"
 msgstr "кг"
 
-#: ../lib/utils/__init__.py:13 ../glade/one_rep_max.glade:62
+#: ../lib/utils/__init__.py:16 ../glade/one_rep_max.glade:62
 msgid "lbs"
 msgstr "фунт"
 
-#: ../lib/utils/__init__.py:15
+#: ../lib/utils/__init__.py:18
 msgid "cm"
 msgstr "см"
 
-#: ../lib/utils/__init__.py:16
+#: ../lib/utils/__init__.py:19
 msgid "in"
 msgstr "''"
+
+#: ../lib/utils/__init__.py:21
+msgid "km"
+msgstr "км"
+
+#: ../lib/utils/__init__.py:22
+msgid "mi"
+msgstr "ми"
 
 #: ../glade/one_rep_max.glade:33
 msgid "Weight lifted:"
@@ -76,9 +97,11 @@ msgid "Predicted one-rep max:"
 msgstr "Одноповторный максимум:"
 
 #: ../glade/one_rep_max.glade:123 ../glade/bodyfat.glade:266
+#: ../glade/bmi.glade:94 ../glade/running.glade:72
+#: ../glade/weightunits.glade:25 ../glade/weightunits.glade:89
 msgid ""
 "Pounds\n"
-"Kilogramms"
+"Kilograms"
 msgstr ""
 "Фунты\n"
 "Килограммы"
@@ -88,12 +111,12 @@ msgid "Preferences"
 msgstr "Параметры"
 
 #: ../glade/prefs.glade:40
-msgid "Metric"
-msgstr "Метрическая"
-
-#: ../glade/prefs.glade:51
 msgid "Imperial"
 msgstr "Имперская"
+
+#: ../glade/prefs.glade:51
+msgid "Metric"
+msgstr "Метрическая"
 
 #: ../glade/prefs.glade:69
 msgid "<b>Measurement System</b>"
@@ -139,7 +162,8 @@ msgstr "Процент жира:"
 msgid "Gender:"
 msgstr "Пол:"
 
-#: ../glade/bodyfat.glade:185
+#: ../glade/bodyfat.glade:185 ../glade/bmi.glade:77 ../glade/running.glade:51
+#: ../glade/weightunits.glade:19
 msgid "Weight:"
 msgstr "Вес:"
 
@@ -147,7 +171,8 @@ msgstr "Вес:"
 msgid "Waist size:"
 msgstr "Талия:"
 
-#: ../glade/bodyfat.glade:281 ../glade/ideal_body.glade:157
+#: ../glade/bodyfat.glade:281 ../glade/bmi.glade:109
+#: ../glade/ideal_body.glade:157
 msgid ""
 "Inches\n"
 "Centimeters"
@@ -181,7 +206,7 @@ msgstr "_Правка"
 
 #: ../glade/bbcalc.glade:53
 msgid "Edit application preferences"
-msgstr ""
+msgstr "Изменить настройки приложения"
 
 #: ../glade/bbcalc.glade:69
 msgid "_Calculators"
@@ -192,43 +217,95 @@ msgid "_Body Building"
 msgstr "_Бодибилдинг"
 
 #: ../glade/bbcalc.glade:83
-msgid "Estimate your body fat percentage"
-msgstr ""
-
-#: ../glade/bbcalc.glade:84
-msgid "Body _Fat Estimator"
-msgstr ""
-
-#: ../glade/bbcalc.glade:95
 msgid "Calculate your ideal body measurements (for men)"
 msgstr ""
 
-#: ../glade/bbcalc.glade:96
+#: ../glade/bbcalc.glade:84
 msgid "_Ideal Body Measurements"
 msgstr "_Идеальные размеры тела"
 
-#: ../glade/bbcalc.glade:107
+#: ../glade/bbcalc.glade:94
 msgid "Predict your one-rep maximum weight"
 msgstr ""
 
-#: ../glade/bbcalc.glade:108
+#: ../glade/bbcalc.glade:95
 msgid "_One-Rep Max"
 msgstr "_Одноповторный максимум"
 
-#: ../glade/bbcalc.glade:127
+#: ../glade/bbcalc.glade:110
+msgid "_Fitness"
+msgstr "_Фитнес"
+
+#: ../glade/bbcalc.glade:118
+msgid "Estimate your body fat percentage"
+msgstr ""
+
+#: ../glade/bbcalc.glade:119
+msgid "Body _Fat Estimator"
+msgstr ""
+
+#: ../glade/bbcalc.glade:131
+msgid "Body _Mass Index"
+msgstr ""
+
+#: ../glade/bbcalc.glade:148
+msgid "Calories Burning: _Running"
+msgstr ""
+
+#: ../glade/bbcalc.glade:162
+msgid "_Miscellaneous"
+msgstr ""
+
+#: ../glade/bbcalc.glade:170
+msgid "Weight Units Converter"
+msgstr ""
+
+#: ../glade/bbcalc.glade:188
 msgid "_Help"
 msgstr "_Справка"
 
-#: ../glade/bbcalc.glade:134
+#: ../glade/bbcalc.glade:195
 msgid "Display BBCalc help"
-msgstr ""
+msgstr "Показать справку"
 
-#: ../glade/bbcalc.glade:135
+#: ../glade/bbcalc.glade:196
 msgid "gtk-help"
 msgstr ""
 
-#: ../glade/bbcalc.glade:146
+#: ../glade/bbcalc.glade:207
 msgid "Show information about the application"
+msgstr "Показать информацию о программе"
+
+#: ../glade/bmi.glade:48
+#, fuzzy
+msgid "Weight status:"
+msgstr "Вес:"
+
+#: ../glade/bmi.glade:88
+msgid "Height:"
+msgstr "Рост:"
+
+#: ../glade/bmi.glade:164
+msgid "Body Mass Index:"
+msgstr ""
+
+#: ../glade/running.glade:40
+msgid "Miles Run:"
+msgstr ""
+
+#: ../glade/running.glade:57
+msgid ""
+"Miles\n"
+"Kilometers"
+msgstr "Мили\n"
+"Километры"
+
+#: ../glade/running.glade:126
+msgid "Calories Burned:"
+msgstr ""
+
+#: ../glade/weightunits.glade:79
+msgid "Equivalent:"
 msgstr ""
 
 #: ../glade/ideal_body.glade:187
