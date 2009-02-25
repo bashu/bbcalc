@@ -1,0 +1,30 @@
+BBCalc 0.8
+==========
+
+Major changes:
+
+	* Application has been completely rewritten from wxPython to PyGTK
+	
+	* All source code went through the refactoring
+	
+	* License has been upgraded to GPL version 3
+
+
+New features:
+
+	* Preferences dialog box (support GConf), allow to select default 'system of
+	measurement' and 'gender'
+
+	* Generic help system (Gnome)
+	
+	* New calculators: BMI, Calorie Burning: Running, Weight Units Converter
+	
+
+Translation changes:
+  
+  	* updated: Russian
+
+
+Minor changes:
+
+	* A lot of other small changes... :)
