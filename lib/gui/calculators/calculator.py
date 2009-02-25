@@ -27,11 +27,11 @@ class Calculator:
     def unit_conversion(self, widgets, labels, units, metric, imperial, metric_str, imperial_str, key, value):
         """Generic method for unit conversion
         
-        widgets - dictionary of widgets,
-        labels - dictionary of labels,
-        units - dictionary of units,
+        widgets - dictionary of input widgets,
+        labels - dictionary of labels widgets,
+        units - dictionary of units selection widgets,
         metric - function for imperial to metric conversion,
-        imperial - function from metric to imperial conversion,
+        imperial - function for metric to imperial conversion,
         metric_str - unicode string for metric,
         imperial_str - unicode string for imperial,
         key - unique key for widgets, labels and units,

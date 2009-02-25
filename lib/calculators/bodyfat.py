@@ -53,24 +53,24 @@ def bodyfat_calc(waist, weight, waist_unit=METRIC, weight_unit=METRIC, gender=MA
     if gender == MALE:
         if bodyfat < 5.0:
             classification = (_('Essential Fat'))
-        if bodyfat > 5.0 and bodyfat < 14.0:
+        elif bodyfat > 5.0 and bodyfat < 14.0:
             classification = (_('Athletes'))
-        if bodyfat > 14.0 and bodyfat < 18.0:
+        elif bodyfat > 14.0 and bodyfat < 18.0:
             classification = (_('Fitness'))
-        if bodyfat > 18.0 and bodyfat < 25.0:
+        elif bodyfat > 18.0 and bodyfat < 25.0:
             classification = (_('Acceptable'))
-        if bodyfat > 25.0:
+        elif bodyfat > 25.0:
             classification = (_('Obese'))
     else:
         if bodyfat < 14.0:
             classification = (_('Essential Fat'))
-        if bodyfat > 14.0 and bodyfat < 21.0:
+        elif bodyfat > 14.0 and bodyfat < 21.0:
             classification = (_('Athletes'))
-        if bodyfat > 21.0 and bodyfat < 25.0:
+        elif bodyfat > 21.0 and bodyfat < 25.0:
             classification = (_('Fitness'))
-        if bodyfat > 25.0 and bodyfat < 32.0:
+        elif bodyfat > 25.0 and bodyfat < 32.0:
             classification = (_('Acceptable'))
-        if bodyfat > 32.0:
+        elif bodyfat > 32.0:
             classification = (_('Obese'))              
 
     return {'bodyfat' : bodyfat, 'fatweight' : fatweight, 'lbm' : lbm, 

@@ -27,12 +27,14 @@ def bmi_calc(height, weight, height_unit=METRIC, weight_unit=METRIC, precision=1
 
     # TODO: Code refactoring
     if bmi < 18.5:
-            status = (_('Underweight'))
-    if bmi > 18.5 and bmi < 24.9:
-            status = (_('Normal'))
-    if bmi > 24.9 and bmi < 30.0:
-            status = (_('Overweight '))
-    if bmi > 30.0:
-            status = (_('Obese'))              
+        status = (_('Underweight'))
+    elif bmi > 18.5 and bmi < 24.9:
+        status = (_('Normal'))
+    elif bmi > 24.9 and bmi < 30.0:
+        status = (_('Overweight '))
+    elif bmi > 30.0:
+        status = (_('Obese'))
+    else:
+        status = unicode()
 
     return {'bmi' : bmi, 'status' : status}
