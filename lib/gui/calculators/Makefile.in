@@ -30,7 +30,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-subdir = glade
+subdir = lib/gui/calculators
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.in
@@ -46,9 +46,9 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(gladedir)"
-gladeDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(glade_DATA)
+am__installdirs = "$(DESTDIR)$(calculatorsdir)"
+calculatorsDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(calculators_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 ACLOCAL_AMFLAGS = @ACLOCAL_AMFLAGS@
@@ -196,13 +196,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-
-# ******************************************************************************
-# Glade Files
-# ******************************************************************************
-gladedir = $(datadir)/bbcalc/glade
-glade_DATA = *.glade bbcalc.png
-EXTRA_DIST = $(glade_DATA)
+calculatorsdir = $(datadir)/bbcalc/lib/gui/calculators
+calculators_DATA = *.py
+EXTRA_DIST = $(calculators_DATA)
 all: all-am
 
 .SUFFIXES:
@@ -215,9 +211,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  glade/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  lib/gui/calculators/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu  glade/Makefile
+	  $(AUTOMAKE) --gnu  lib/gui/calculators/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -235,22 +231,22 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-gladeDATA: $(glade_DATA)
+install-calculatorsDATA: $(calculators_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(gladedir)" || $(MKDIR_P) "$(DESTDIR)$(gladedir)"
-	@list='$(glade_DATA)'; for p in $$list; do \
+	test -z "$(calculatorsdir)" || $(MKDIR_P) "$(DESTDIR)$(calculatorsdir)"
+	@list='$(calculators_DATA)'; for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  f=$(am__strip_dir) \
-	  echo " $(gladeDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(gladedir)/$$f'"; \
-	  $(gladeDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(gladedir)/$$f"; \
+	  echo " $(calculatorsDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(calculatorsdir)/$$f'"; \
+	  $(calculatorsDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(calculatorsdir)/$$f"; \
 	done
 
-uninstall-gladeDATA:
+uninstall-calculatorsDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(glade_DATA)'; for p in $$list; do \
+	@list='$(calculators_DATA)'; for p in $$list; do \
 	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(gladedir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(gladedir)/$$f"; \
+	  echo " rm -f '$(DESTDIR)$(calculatorsdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(calculatorsdir)/$$f"; \
 	done
 tags: TAGS
 TAGS:
@@ -289,7 +285,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(gladedir)"; do \
+	for dir in "$(DESTDIR)$(calculatorsdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -334,7 +330,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-gladeDATA
+install-data-am: install-calculatorsDATA
 
 install-dvi: install-dvi-am
 
@@ -368,20 +364,21 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-gladeDATA
+uninstall-am: uninstall-calculatorsDATA
 
 .MAKE: install-am install-strip
 
 .PHONY: all all-am check check-am clean clean-generic distclean \
 	distclean-generic distdir dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am install-dvi \
-	install-dvi-am install-exec install-exec-am install-gladeDATA \
-	install-html install-html-am install-info install-info-am \
-	install-man install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am uninstall \
-	uninstall-am uninstall-gladeDATA
+	install install-am install-calculatorsDATA install-data \
+	install-data-am install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am uninstall uninstall-am \
+	uninstall-calculatorsDATA
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
