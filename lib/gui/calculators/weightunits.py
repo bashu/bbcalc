@@ -24,7 +24,7 @@ from lib.utils import METRIC, IMPERIAL
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WEIGHT = (165.0, 75.0)
-#WEIGHT_UNITS = (u'Ounces', u'Pounds', u'Milligrams', u'Grams' u'Kilograms')
+
 
 class WeightUnitsConverter(Component, Calculator):
 
@@ -89,7 +89,7 @@ class WeightUnitsConverter(Component, Calculator):
             if self.unit2_combobox.get_active() == IMPERIAL:
                 result = kg2lb(weight)
             else:
-                result =  weight
+                result = weight
 
         self.result_entry.set_text(str(result))
 
