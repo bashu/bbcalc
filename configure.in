@@ -1,0 +1,36 @@
+AC_INIT(bbcalc, 0.8, bashu@users.sourceforge.net)
+
+AM_INIT_AUTOMAKE(bbcalc, 0.8)
+GNOME_COMMON_INIT
+
+AM_MAINTAINER_MODE
+
+dnl ****************************************************************************
+dnl * Translation & i18n
+dnl ****************************************************************************
+
+GETTEXT_PACKAGE="bbcalc"
+IT_PROG_INTLTOOL([0.35.0])
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The gettext package])
+AM_GLIB_GNU_GETTEXT
+AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
+
+dnl ****************************************************************************
+dnl * GConf support
+dnl ****************************************************************************
+AC_PATH_PROG(GCONFTOOL, gconftool-2)
+AM_GCONF_SOURCE_2
+
+dnl ****************************************************************************
+dnl * Python 2.4
+dnl ****************************************************************************
+AM_PATH_PYTHON(2.4)
+
+AC_CONFIG_FILES([
+Makefile
+data/Makefile
+glade/Makefile
+po/Makefile.in])
+
+AC_OUTPUT
