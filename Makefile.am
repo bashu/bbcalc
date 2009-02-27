@@ -1,14 +1,17 @@
-SUBDIRS = data glade po
+SUBDIRS = data glade help images po
+
+DISTCHECK_CONFIGURE_FLAGS = --disable-scrollkeeper
 
 bin_SCRIPTS = bbcalc
 
 DISTCLEANFILES =		\
 	intltool-extract	\
 	intltool-merge		\
-	intltool-update	
+	intltool-update		\
+	gnome-doc-utils.make
 
 EXTRA_DIST =			\
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in	\
-	$(bin_SCRIPTS)
+	gnome-doc-utils.make

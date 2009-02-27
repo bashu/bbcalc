@@ -744,6 +744,15 @@ GCONF_SCHEMA_CONFIG_SOURCE
 GCONF_SCHEMA_FILE_DIR
 GCONF_SCHEMAS_INSTALL_TRUE
 GCONF_SCHEMAS_INSTALL_FALSE
+PKG_CONFIG
+HELP_DIR
+OMF_DIR
+DOC_USER_FORMATS
+ENABLE_SK_TRUE
+ENABLE_SK_FALSE
+DISTCHECK_CONFIGURE_FLAGS
+HAVE_GNOME_DOC_UTILS_TRUE
+HAVE_GNOME_DOC_UTILS_FALSE
 PYTHON
 PYTHON_VERSION
 PYTHON_PREFIX
@@ -764,7 +773,8 @@ CFLAGS
 LDFLAGS
 LIBS
 CPPFLAGS
-CPP'
+CPP
+PKG_CONFIG'
 
 
 # Initialize some variables set by options.
@@ -1346,6 +1356,7 @@ Optional Features:
   --disable-dependency-tracking  speeds up one-time build
   --enable-dependency-tracking   do not reject slow dependency extractors
   --disable-schemas-install	Disable the schemas installation
+  --disable-scrollkeeper  do not make updates to the scrollkeeper database
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -1354,6 +1365,10 @@ Optional Packages:
                           Config database for installing schema files.
   --with-gconf-schema-file-dir=dir
                           Directory for installing schema files.
+  --with-help-dir=DIR     path to help docs
+  --with-omf-dir=DIR      path to OMF files
+  --with-help-formats=FORMATS
+                          list of formats
 
 Some influential environment variables:
   CC          C compiler command
@@ -1364,6 +1379,7 @@ Some influential environment variables:
   CPPFLAGS    C/C++/Objective C preprocessor flags, e.g. -I<include dir> if
               you have headers in a nonstandard directory <include dir>
   CPP         C preprocessor
+  PKG_CONFIG  path to pkg-config utility
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -6268,6 +6284,212 @@ fi
 
 
 
+if test "x$ac_cv_env_PKG_CONFIG_set" != "xset"; then
+	if test -n "$ac_tool_prefix"; then
+  # Extract the first word of "${ac_tool_prefix}pkg-config", so it can be a program name with args.
+set dummy ${ac_tool_prefix}pkg-config; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_PKG_CONFIG+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $PKG_CONFIG in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_PKG_CONFIG="$PKG_CONFIG" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_PKG_CONFIG="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  ;;
+esac
+fi
+PKG_CONFIG=$ac_cv_path_PKG_CONFIG
+if test -n "$PKG_CONFIG"; then
+  { echo "$as_me:$LINENO: result: $PKG_CONFIG" >&5
+echo "${ECHO_T}$PKG_CONFIG" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+fi
+if test -z "$ac_cv_path_PKG_CONFIG"; then
+  ac_pt_PKG_CONFIG=$PKG_CONFIG
+  # Extract the first word of "pkg-config", so it can be a program name with args.
+set dummy pkg-config; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_ac_pt_PKG_CONFIG+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $ac_pt_PKG_CONFIG in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_ac_pt_PKG_CONFIG="$ac_pt_PKG_CONFIG" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_ac_pt_PKG_CONFIG="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  ;;
+esac
+fi
+ac_pt_PKG_CONFIG=$ac_cv_path_ac_pt_PKG_CONFIG
+if test -n "$ac_pt_PKG_CONFIG"; then
+  { echo "$as_me:$LINENO: result: $ac_pt_PKG_CONFIG" >&5
+echo "${ECHO_T}$ac_pt_PKG_CONFIG" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+  if test "x$ac_pt_PKG_CONFIG" = x; then
+    PKG_CONFIG=""
+  else
+    case $cross_compiling:$ac_tool_warned in
+yes:)
+{ echo "$as_me:$LINENO: WARNING: In the future, Autoconf will not detect cross-tools
+whose name does not start with the host triplet.  If you think this
+configuration is useful to you, please write to autoconf@gnu.org." >&5
+echo "$as_me: WARNING: In the future, Autoconf will not detect cross-tools
+whose name does not start with the host triplet.  If you think this
+configuration is useful to you, please write to autoconf@gnu.org." >&2;}
+ac_tool_warned=yes ;;
+esac
+    PKG_CONFIG=$ac_pt_PKG_CONFIG
+  fi
+else
+  PKG_CONFIG="$ac_cv_path_PKG_CONFIG"
+fi
+
+fi
+if test -n "$PKG_CONFIG"; then
+	_pkg_min_version=0.9.0
+	{ echo "$as_me:$LINENO: checking pkg-config is at least version $_pkg_min_version" >&5
+echo $ECHO_N "checking pkg-config is at least version $_pkg_min_version... $ECHO_C" >&6; }
+	if $PKG_CONFIG --atleast-pkgconfig-version $_pkg_min_version; then
+		{ echo "$as_me:$LINENO: result: yes" >&5
+echo "${ECHO_T}yes" >&6; }
+	else
+		{ echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+		PKG_CONFIG=""
+	fi
+
+fi
+
+gdu_cv_version_required=0.3.2
+
+if test -n "$PKG_CONFIG" && \
+    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"gnome-doc-utils >= \$gdu_cv_version_required\"") >&5
+  ($PKG_CONFIG --exists --print-errors "gnome-doc-utils >= $gdu_cv_version_required") 2>&5
+  ac_status=$?
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); }; then
+  gdu_cv_have_gdu=yes
+else
+  gdu_cv_have_gdu=no
+fi
+
+if test "$gdu_cv_have_gdu" = "yes"; then
+	:
+else
+	{ { echo "$as_me:$LINENO: error: gnome-doc-utils >= $gdu_cv_version_required not found" >&5
+echo "$as_me: error: gnome-doc-utils >= $gdu_cv_version_required not found" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+
+
+# Check whether --with-help-dir was given.
+if test "${with_help_dir+set}" = set; then
+  withval=$with_help_dir;
+else
+  with_help_dir='${datadir}/gnome/help'
+fi
+
+HELP_DIR="$with_help_dir"
+
+
+
+# Check whether --with-omf-dir was given.
+if test "${with_omf_dir+set}" = set; then
+  withval=$with_omf_dir;
+else
+  with_omf_dir='${datadir}/omf'
+fi
+
+OMF_DIR="$with_omf_dir"
+
+
+
+# Check whether --with-help-formats was given.
+if test "${with_help_formats+set}" = set; then
+  withval=$with_help_formats;
+else
+  with_help_formats=''
+fi
+
+DOC_USER_FORMATS="$with_help_formats"
+
+
+# Check whether --enable-scrollkeeper was given.
+if test "${enable_scrollkeeper+set}" = set; then
+  enableval=$enable_scrollkeeper;
+else
+  enable_scrollkeeper=yes
+fi
+
+ if test "$gdu_cv_have_gdu" = "yes" -a "$enable_scrollkeeper" = "yes"; then
+  ENABLE_SK_TRUE=
+  ENABLE_SK_FALSE='#'
+else
+  ENABLE_SK_TRUE='#'
+  ENABLE_SK_FALSE=
+fi
+
+
+DISTCHECK_CONFIGURE_FLAGS="--disable-scrollkeeper $DISTCHECK_CONFIGURE_FLAGS"
+
+
+ if test "$gdu_cv_have_gdu" = "yes"; then
+  HAVE_GNOME_DOC_UTILS_TRUE=
+  HAVE_GNOME_DOC_UTILS_FALSE='#'
+else
+  HAVE_GNOME_DOC_UTILS_TRUE='#'
+  HAVE_GNOME_DOC_UTILS_FALSE=
+fi
+
+
+
+
+
+
 
 
         if test -n "$PYTHON"; then
@@ -6453,7 +6675,7 @@ echo "${ECHO_T}$am_cv_python_pyexecdir" >&6; }
 
 
 
-ac_config_files="$ac_config_files Makefile data/Makefile glade/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile data/Makefile glade/Makefile help/Makefile images/Makefile po/Makefile.in"
 
 
 cat >confcache <<\_ACEOF
@@ -6611,6 +6833,20 @@ if test -z "${GCONF_SCHEMAS_INSTALL_TRUE}" && test -z "${GCONF_SCHEMAS_INSTALL_F
   { { echo "$as_me:$LINENO: error: conditional \"GCONF_SCHEMAS_INSTALL\" was never defined.
 Usually this means the macro was only invoked conditionally." >&5
 echo "$as_me: error: conditional \"GCONF_SCHEMAS_INSTALL\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${ENABLE_SK_TRUE}" && test -z "${ENABLE_SK_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"ENABLE_SK\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"ENABLE_SK\" was never defined.
+Usually this means the macro was only invoked conditionally." >&2;}
+   { (exit 1); exit 1; }; }
+fi
+if test -z "${HAVE_GNOME_DOC_UTILS_TRUE}" && test -z "${HAVE_GNOME_DOC_UTILS_FALSE}"; then
+  { { echo "$as_me:$LINENO: error: conditional \"HAVE_GNOME_DOC_UTILS\" was never defined.
+Usually this means the macro was only invoked conditionally." >&5
+echo "$as_me: error: conditional \"HAVE_GNOME_DOC_UTILS\" was never defined.
 Usually this means the macro was only invoked conditionally." >&2;}
    { (exit 1); exit 1; }; }
 fi
@@ -7072,6 +7308,8 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "data/Makefile") CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
     "glade/Makefile") CONFIG_FILES="$CONFIG_FILES glade/Makefile" ;;
+    "help/Makefile") CONFIG_FILES="$CONFIG_FILES help/Makefile" ;;
+    "images/Makefile") CONFIG_FILES="$CONFIG_FILES images/Makefile" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
     "po/stamp-it") CONFIG_COMMANDS="$CONFIG_COMMANDS po/stamp-it" ;;
 
@@ -7306,6 +7544,15 @@ GCONF_SCHEMA_CONFIG_SOURCE!$GCONF_SCHEMA_CONFIG_SOURCE$ac_delim
 GCONF_SCHEMA_FILE_DIR!$GCONF_SCHEMA_FILE_DIR$ac_delim
 GCONF_SCHEMAS_INSTALL_TRUE!$GCONF_SCHEMAS_INSTALL_TRUE$ac_delim
 GCONF_SCHEMAS_INSTALL_FALSE!$GCONF_SCHEMAS_INSTALL_FALSE$ac_delim
+PKG_CONFIG!$PKG_CONFIG$ac_delim
+HELP_DIR!$HELP_DIR$ac_delim
+OMF_DIR!$OMF_DIR$ac_delim
+DOC_USER_FORMATS!$DOC_USER_FORMATS$ac_delim
+ENABLE_SK_TRUE!$ENABLE_SK_TRUE$ac_delim
+ENABLE_SK_FALSE!$ENABLE_SK_FALSE$ac_delim
+DISTCHECK_CONFIGURE_FLAGS!$DISTCHECK_CONFIGURE_FLAGS$ac_delim
+HAVE_GNOME_DOC_UTILS_TRUE!$HAVE_GNOME_DOC_UTILS_TRUE$ac_delim
+HAVE_GNOME_DOC_UTILS_FALSE!$HAVE_GNOME_DOC_UTILS_FALSE$ac_delim
 PYTHON!$PYTHON$ac_delim
 PYTHON_VERSION!$PYTHON_VERSION$ac_delim
 PYTHON_PREFIX!$PYTHON_PREFIX$ac_delim
@@ -7319,7 +7566,7 @@ LIBOBJS!$LIBOBJS$ac_delim
 LTLIBOBJS!$LTLIBOBJS$ac_delim
 _ACEOF
 
-  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 44; then
+  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 53; then
     break
   elif $ac_last_try; then
     { { echo "$as_me:$LINENO: error: could not make $CONFIG_STATUS" >&5

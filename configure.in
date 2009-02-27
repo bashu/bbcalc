@@ -23,6 +23,11 @@ AC_PATH_PROG(GCONFTOOL, gconftool-2)
 AM_GCONF_SOURCE_2
 
 dnl ****************************************************************************
+dnl * Gnome Doc Utils
+dnl ****************************************************************************
+GNOME_DOC_INIT
+
+dnl ****************************************************************************
 dnl * Python 2.4
 dnl ****************************************************************************
 AM_PATH_PYTHON(2.4)
@@ -31,6 +36,8 @@ AC_CONFIG_FILES([
 Makefile
 data/Makefile
 glade/Makefile
+help/Makefile
+images/Makefile
 po/Makefile.in])
 
 AC_OUTPUT
