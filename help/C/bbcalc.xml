@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+	"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version "2.4">
+	<!ENTITY appversion "0.8">
+	<!ENTITY manrevision "0.1">
+	<!ENTITY date "2009-02-10">
+	<!ENTITY app "<application>BBCalc</application>">
+	<!ENTITY appname "BBCalc">
+]>
+
+<!-- =============Document Header ============================= -->
+
+<article id="index" lang="en"> 
+<!-- please do not change the id; for translations -->
+
+	<articleinfo>
+
+		<title>BBCalc Manual</title>
+
+		<abstract role="description">
+			<para>BBCalc (Body Building Calculators) is a set of calculators related to body building and fitness topics.</para>
+		</abstract>
+
+		<copyright>
+			<year>2009</year>
+			<holder>Basil Shubin</holder>
+		</copyright>
+
+		<publisher> 
+			<publishername>Basil Shubin</publishername> 
+		</publisher> 
+
+		<authorgroup>
+			<author role="maintainer">
+				<firstname>Basil</firstname>
+				<surname>Shubin</surname>
+			</author>
+		</authorgroup>
+    
+		<revhistory>
+			<revision> 
+				<revnumber>&appname; Manual V0.01</revnumber> 
+				<date>2009-02-11</date> 
+				<revdescription> 
+					<para role="author">Basil Shubin</para>
+					<para role="publisher">Basil Shubin</para>
+				</revdescription> 
+			</revision> 
+		</revhistory> 
+
+		<releaseinfo>This manual describes version &appversion; of &appname;.</releaseinfo>
+
+		<legalnotice> 
+			<title>Feedback</title> 
+			<para>
+				To report a bug or make a suggestion regarding the &app; application or
+				this manual, follow the directions in the <ulink url="http://bbcalc.sourceforge.net"
+				type="help">BBCalc project page</ulink>. 
+			</para>
+			<!-- Translators may also add here feedback address for translations -->
+		</legalnotice> 
+
+	</articleinfo>
+
+	<indexterm zone="index"> 
+		<primary>BBCalc</primary> 
+	</indexterm>
+
+ <!-- ============= Document Body ============================= -->
+
+ <!-- ============= Introduction ============================== -->
+ <sect1 id="intro">
+  <title>Introduction</title>
+
+ </sect1>
+
+
+ <!-- ================ Usage ================================ -->
+ <!-- This section should describe basic usage of the application. -->
+
+  <sect1 id="usage">
+    <title>Usage</title>
+
+  </sect1>
+
+  <sect1 id="preferences">
+    <title>Preferences</title>
+
+  </sect1>
+
+  <sect1 id="legalm">
+    <title>Legal</title>
+
+	<sect2 id="bbcalc-legal">
+		<title>BBCalc Licence</title>
+		<para>
+			<application>BBCalc</application> is licenced under the GPL3, see the <application>BBCalc</application> about box for details.
+		</para>
+	</sect2>
+
+	<sect2 id="bbcalc-doc-legal">
+		<title>BBCalc Documentation Licence</title>
+	<para>
+	  Permission is granted to copy, distribute and/or modify this
+	  document under the terms of the GNU Free Documentation
+	  License (GFDL), Version 1.1 or any later version published
+	  by the Free Software Foundation with no Invariant Sections,
+	  no Front-Cover Texts, and no Back-Cover Texts.  You can find
+	  a copy of the GFDL at this <ulink type="help"
+	  url="ghelp:fdl">link</ulink>.
+         </para>
+
+	<para>
+	  DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED
+	  UNDER  THE TERMS OF THE GNU FREE DOCUMENTATION LICENSE
+	  WITH THE FURTHER UNDERSTANDING THAT:
+
+	  <orderedlist>
+		<listitem>
+		  <para>DOCUMENT IS PROVIDED ON AN "AS IS" BASIS,
+                    WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+                    IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES
+                    THAT THE DOCUMENT OR MODIFIED VERSION OF THE
+                    DOCUMENT IS FREE OF DEFECTS MERCHANTABLE, FIT FOR
+                    A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE
+                    RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE
+                    OF THE DOCUMENT OR MODIFIED VERSION OF THE
+                    DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR
+                    MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT,
+                    YOU (NOT THE INITIAL WRITER, AUTHOR OR ANY
+                    CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY
+                    SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER
+                    OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS
+                    LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED
+                    VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER
+                    EXCEPT UNDER THIS DISCLAIMER; AND
+		  </para>
+		</listitem>
+		<listitem>
+		  <para>UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL
+                       THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE),
+                       CONTRACT, OR OTHERWISE, SHALL THE AUTHOR,
+                       INITIAL WRITER, ANY CONTRIBUTOR, OR ANY
+                       DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION
+                       OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH
+                       PARTIES, BE LIABLE TO ANY PERSON FOR ANY
+                       DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR
+                       CONSEQUENTIAL DAMAGES OF ANY CHARACTER
+                       INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS
+                       OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR
+                       MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR
+                       LOSSES ARISING OUT OF OR RELATING TO USE OF THE
+                       DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT,
+                       EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF
+                       THE POSSIBILITY OF SUCH DAMAGES.
+		  </para>
+		</listitem>
+	  </orderedlist>
+	</para>
+	</sect2>
+
+  </sect1>
+</article>

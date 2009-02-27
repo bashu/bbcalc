@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<omf>
+  <resource>
+    <date>$MYDATE</date>
+    <subject category="GNOME|Applications"/>
+    <type>user's guide</type>
+    <relation seriesid="$MYSERIESID"/>
+    <rights type="GNU FDL" license.version="1.1" holder="Basil Shubin"/>
+  </resource>
+</omf>
