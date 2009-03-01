@@ -1,0 +1,8 @@
+#!/bin/sh
+
+prefix=@prefix@
+PACKAGE=@PACKAGE@
+
+export BBCALCDIR=@datadir@/@PACKAGE@
+
+exec @PYTHON@ $BBCALCDIR/bbcalc "$@"
