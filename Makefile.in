@@ -42,9 +42,9 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_CLEAN_FILES =
-am__installdirs = "$(DESTDIR)$(bindir)"
-binSCRIPT_INSTALL = $(INSTALL_SCRIPT)
-SCRIPTS = $(bin_SCRIPTS)
+am__installdirs = "$(DESTDIR)$(bbcalcdir)"
+bbcalcSCRIPT_INSTALL = $(INSTALL_SCRIPT)
+SCRIPTS = $(bbcalc_SCRIPTS)
 SOURCES =
 DIST_SOURCES =
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
@@ -216,8 +216,9 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = data glade help images po
-bin_SCRIPTS = bbcalc
+SUBDIRS = data glade help images lib po scripts
+bbcalcdir = $(datadir)/bbcalc
+bbcalc_SCRIPTS = bbcalc	
 DISTCLEANFILES = \
 	intltool-extract	\
 	intltool-merge		\
@@ -228,6 +229,7 @@ EXTRA_DIST = \
 	intltool-extract.in	\
 	intltool-merge.in	\
 	intltool-update.in	\
+	$(bbcalc_SCRIPTS)	\
 	gnome-doc-utils.make
 
 all: all-recursive
@@ -266,24 +268,24 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(srcdir) && $(AUTOCONF)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
-install-binSCRIPTS: $(bin_SCRIPTS)
+install-bbcalcSCRIPTS: $(bbcalc_SCRIPTS)
 	@$(NORMAL_INSTALL)
-	test -z "$(bindir)" || $(MKDIR_P) "$(DESTDIR)$(bindir)"
-	@list='$(bin_SCRIPTS)'; for p in $$list; do \
+	test -z "$(bbcalcdir)" || $(MKDIR_P) "$(DESTDIR)$(bbcalcdir)"
+	@list='$(bbcalc_SCRIPTS)'; for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  if test -f $$d$$p; then \
 	    f=`echo "$$p" | sed 's|^.*/||;$(transform)'`; \
-	    echo " $(binSCRIPT_INSTALL) '$$d$$p' '$(DESTDIR)$(bindir)/$$f'"; \
-	    $(binSCRIPT_INSTALL) "$$d$$p" "$(DESTDIR)$(bindir)/$$f"; \
+	    echo " $(bbcalcSCRIPT_INSTALL) '$$d$$p' '$(DESTDIR)$(bbcalcdir)/$$f'"; \
+	    $(bbcalcSCRIPT_INSTALL) "$$d$$p" "$(DESTDIR)$(bbcalcdir)/$$f"; \
 	  else :; fi; \
 	done
 
-uninstall-binSCRIPTS:
+uninstall-bbcalcSCRIPTS:
 	@$(NORMAL_UNINSTALL)
-	@list='$(bin_SCRIPTS)'; for p in $$list; do \
+	@list='$(bbcalc_SCRIPTS)'; for p in $$list; do \
 	  f=`echo "$$p" | sed 's|^.*/||;$(transform)'`; \
-	  echo " rm -f '$(DESTDIR)$(bindir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(bindir)/$$f"; \
+	  echo " rm -f '$(DESTDIR)$(bbcalcdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(bbcalcdir)/$$f"; \
 	done
 
 # This directory's subdirectories are mostly independent; you can cd
@@ -569,7 +571,7 @@ check: check-recursive
 all-am: Makefile $(SCRIPTS)
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)"; do \
+	for dir in "$(DESTDIR)$(bbcalcdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -616,11 +618,11 @@ info: info-recursive
 
 info-am:
 
-install-data-am:
+install-data-am: install-bbcalcSCRIPTS
 
 install-dvi: install-dvi-recursive
 
-install-exec-am: install-binSCRIPTS
+install-exec-am:
 
 install-html: install-html-recursive
 
@@ -652,7 +654,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binSCRIPTS
+uninstall-am: uninstall-bbcalcSCRIPTS
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) install-am \
 	install-strip
@@ -663,7 +665,7 @@ uninstall-am: uninstall-binSCRIPTS
 	dist-lzma dist-shar dist-tarZ dist-zip distcheck distclean \
 	distclean-generic distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binSCRIPTS install-data \
+	install install-am install-bbcalcSCRIPTS install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
 	install-info-am install-man install-pdf install-pdf-am \
@@ -671,7 +673,7 @@ uninstall-am: uninstall-binSCRIPTS
 	installcheck-am installdirs installdirs-am maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
 	pdf-am ps ps-am tags tags-recursive uninstall uninstall-am \
-	uninstall-binSCRIPTS
+	uninstall-bbcalcSCRIPTS
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

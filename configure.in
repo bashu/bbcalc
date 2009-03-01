@@ -38,6 +38,12 @@ data/Makefile
 glade/Makefile
 help/Makefile
 images/Makefile
-po/Makefile.in])
+lib/Makefile
+lib/calculators/Makefile
+lib/gui/Makefile
+lib/gui/calculators/Makefile
+lib/utils/Makefile
+po/Makefile.in
+scripts/Makefile])
 
 AC_OUTPUT

@@ -6675,7 +6675,7 @@ echo "${ECHO_T}$am_cv_python_pyexecdir" >&6; }
 
 
 
-ac_config_files="$ac_config_files Makefile data/Makefile glade/Makefile help/Makefile images/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile data/Makefile glade/Makefile help/Makefile images/Makefile lib/Makefile lib/calculators/Makefile lib/gui/Makefile lib/gui/calculators/Makefile lib/utils/Makefile po/Makefile.in scripts/Makefile"
 
 
 cat >confcache <<\_ACEOF
@@ -7310,7 +7310,13 @@ do
     "glade/Makefile") CONFIG_FILES="$CONFIG_FILES glade/Makefile" ;;
     "help/Makefile") CONFIG_FILES="$CONFIG_FILES help/Makefile" ;;
     "images/Makefile") CONFIG_FILES="$CONFIG_FILES images/Makefile" ;;
+    "lib/Makefile") CONFIG_FILES="$CONFIG_FILES lib/Makefile" ;;
+    "lib/calculators/Makefile") CONFIG_FILES="$CONFIG_FILES lib/calculators/Makefile" ;;
+    "lib/gui/Makefile") CONFIG_FILES="$CONFIG_FILES lib/gui/Makefile" ;;
+    "lib/gui/calculators/Makefile") CONFIG_FILES="$CONFIG_FILES lib/gui/calculators/Makefile" ;;
+    "lib/utils/Makefile") CONFIG_FILES="$CONFIG_FILES lib/utils/Makefile" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
+    "scripts/Makefile") CONFIG_FILES="$CONFIG_FILES scripts/Makefile" ;;
     "po/stamp-it") CONFIG_COMMANDS="$CONFIG_COMMANDS po/stamp-it" ;;
 
   *) { { echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
