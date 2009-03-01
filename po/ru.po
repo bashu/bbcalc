@@ -1,11 +1,11 @@
 # Russian translations for BBCalc package.
-# Copyright (C) 2007 Basil Shubin
+# Copyright (C) 2007-2009 Basil Shubin
 # This file is distributed under the same license as the BBCalc package.
-# Basil Shubin <bashu@yandex.ru>, 2007.
+# Basil Shubin <bashu@yandex.ru>, 2007-2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: BBCalc 0.7\n"
+"Project-Id-Version: BBCalc 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-26 10:16+0600\n"
 "PO-Revision-Date: 2009-02-25 11:37+0600\n"
