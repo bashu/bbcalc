@@ -1,3 +1,9 @@
+bbcalc (0.8) intrepid; urgency=low
+
+  * New upstream release
+
+ -- Basil Shubin <bashu@users.sourceforge.net>  Sun, 01 Mar 2009 17:08:57 +0600
+
 bbcalc (0.7-1) unstable; urgency=low
 
   * Initial release

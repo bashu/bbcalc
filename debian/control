@@ -2,12 +2,12 @@ Source: bbcalc
 Section: universe/gnome
 Priority: optional
 Maintainer: Basil Shubin <basil.shubin@gmail.com>
-Build-Depends: debhelper (>= 5), python-central (>= 0.5.8), python (>= 2.3), python-gtk2 (>= 2.8.6-1), python-glade2 (>= 2.8.6-1)
+Build-Depends: debhelper (>= 5.0.51), python-support (>= 0.7), python-dev, python-gnome2-dev, gnome-doc-utils, libxml-parser-perl
 Standards-Version: 3.7.2
 
 Package: bbcalc
 Architecture: all
-Depends: python (>= 2.3), python-gtk2 (>= 2.8.6-1), python-glade2 (>= 2.8.6-1)
+Depends: ${python:Depends}, python-gnome2, gconf2
 Description: body building calculators
  BBCalc (Body Building Calculators) is a set of calculators related to
  bodybuilding and fitness topics.

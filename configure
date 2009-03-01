@@ -6675,7 +6675,7 @@ echo "${ECHO_T}$am_cv_python_pyexecdir" >&6; }
 
 
 
-ac_config_files="$ac_config_files Makefile data/Makefile glade/Makefile help/Makefile images/Makefile lib/Makefile lib/calculators/Makefile lib/gui/Makefile lib/gui/calculators/Makefile lib/utils/Makefile po/Makefile.in scripts/Makefile"
+ac_config_files="$ac_config_files Makefile data/Makefile glade/Makefile help/Makefile images/Makefile lib/Makefile lib/calculators/Makefile lib/gui/Makefile lib/gui/calculators/Makefile lib/utils/Makefile po/Makefile.in scripts/bbcalc.sh scripts/Makefile"
 
 
 cat >confcache <<\_ACEOF
@@ -7316,6 +7316,7 @@ do
     "lib/gui/calculators/Makefile") CONFIG_FILES="$CONFIG_FILES lib/gui/calculators/Makefile" ;;
     "lib/utils/Makefile") CONFIG_FILES="$CONFIG_FILES lib/utils/Makefile" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
+    "scripts/bbcalc.sh") CONFIG_FILES="$CONFIG_FILES scripts/bbcalc.sh" ;;
     "scripts/Makefile") CONFIG_FILES="$CONFIG_FILES scripts/Makefile" ;;
     "po/stamp-it") CONFIG_COMMANDS="$CONFIG_COMMANDS po/stamp-it" ;;
 

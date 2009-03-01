@@ -44,6 +44,7 @@ lib/gui/Makefile
 lib/gui/calculators/Makefile
 lib/utils/Makefile
 po/Makefile.in
+scripts/bbcalc.sh
 scripts/Makefile])
 
 AC_OUTPUT

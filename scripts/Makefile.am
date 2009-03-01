@@ -1,4 +1,4 @@
 bin_SCRIPTS = bbcalc
 
-bbcalc:
-	ln -sf $(datadir)/bbcalc/bbcalc $(prefix)/bin/bbcalc
+bbcalc: bbcalc.sh
+	cp bbcalc.sh bbcalc
