@@ -9,7 +9,7 @@ import bbcalc.utils.config as config
 from bbcalc.calculators.onerepmax import onerep_max_calc
 
 from bbcalc.utils import METRIC, IMPERIAL
-from bbcalc.utils.unitconvertor import lb2kg, kg2lb
+from bbcalc.utils.unitconvertor import convert_mass
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WEIGHT = (220.0, 100.0)
@@ -31,10 +31,8 @@ class OneRepMax(SlaveDelegate):
         self.config = config.Config()
         # Set active item for unit selection box
         self.unit_combobox.set_active(self.config.measurement_system)
-        if self.config.measurement_system == IMPERIAL:
-            self.weight_spinbutton.set_value(DEFAULT_WEIGHT[IMPERIAL])
-        else:
-            self.weight_spinbutton.set_value(DEFAULT_WEIGHT[METRIC])
+        # Set default value(s)
+        self.weight_spinbutton.set_value(DEFAULT_WEIGHT[self.config.measurement_system])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
@@ -45,10 +43,7 @@ class OneRepMax(SlaveDelegate):
     def after_unit_combobox__changed(self, entry, *args):
         active = entry.get_active()
         weight = self.weight_spinbutton.get_value()
-        if active == IMPERIAL:
-            self.weight_spinbutton.set_value(kg2lb(weight))
-        else:
-            self.weight_spinbutton.set_value(lb2kg(weight))
+        self.weight_spinbutton.set_value(convert_mass(weight, active))
 
     # TODO: Re-factore this methods
     def after_weight_spinbutton__changed(self, entry, *args):

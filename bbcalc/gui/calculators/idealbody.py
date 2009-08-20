@@ -10,7 +10,7 @@ import bbcalc.utils.config as config
 from bbcalc.calculators.idealbody import ideal_body_calc
 
 from bbcalc.utils import METRIC, IMPERIAL
-from bbcalc.utils.unitconvertor import in2cm, cm2in
+from bbcalc.utils.unitconvertor import convert_length
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WRIST = (6.89, 17.5)
@@ -37,10 +37,8 @@ class IdealBody(SlaveDelegate):
         self.config = config.Config()
         # Set active item for unit selection box
         self.unit_combobox.set_active(self.config.measurement_system)
-        if self.config.measurement_system == IMPERIAL:
-            self.wrist_spinbutton.set_value(DEFAULT_WRIST[IMPERIAL])
-        else:
-            self.wrist_spinbutton.set_value(DEFAULT_WRIST[METRIC])
+        # Set default value(s)
+        self.wrist_spinbutton.set_value(DEFAULT_WRIST[self.config.measurement_system])
 
     def create_gconf_notification(self):
         """Bind GConf notification handlers"""
@@ -51,12 +49,10 @@ class IdealBody(SlaveDelegate):
     def after_unit_combobox__changed(self, entry, *args):
         active = entry.get_active()
         wrist = self.wrist_spinbutton.get_value()
-        if active == IMPERIAL:
-            self.wrist_spinbutton.set_value(cm2in(wrist))
-        else:
-            self.wrist_spinbutton.set_value(in2cm(wrist))
+        self.wrist_spinbutton.set_value(convert_length(wrist, active))
 
     def after_wrist_spinbutton__changed(self, entry, *args):
+        # Result calculation
         wrist = entry.get_value() or None
         results = ideal_body_calc(wrist)
 
