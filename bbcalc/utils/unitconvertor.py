@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from bbcalc.utils import POUNDS, INCHES, MILES
+from bbcalc.utils import IMPERIAL, METRIC
 
 def kg2lb(kg, precision=2):
     """Convert kilograms to pounds"""
@@ -25,3 +26,21 @@ def km2mi(km, precision=2):
 def mi2km(miles, precision=2):
     """Convert miles to kilometers"""
     return round(miles * MILES, precision)
+
+def convert_mass(value, system=METRIC, precision=2):
+    """Convert mass from one measurement system to another"""
+    if system == METRIC:
+        return lb2kg(value, precision)
+    elif system == IMPERIAL:
+        return kg2lb(value, precision)
+    else:
+        return None
+
+def convert_length(value, system=METRIC, precision=2):
+    """Convert length from one measurement system to another"""
+    if system == METRIC:
+        return in2cm(value, precision)
+    elif system == IMPERIAL:
+        return cm2in(value, precision)
+    else:
+        return None
