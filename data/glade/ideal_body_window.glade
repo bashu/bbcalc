@@ -1,303 +1,304 @@
-<?xml version="1.0"?>
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://gazpacho.sicem.biz/gazpacho-0.1.dtd">
 <glade-interface>
-  <!-- interface-requires gtk+ 2.16 -->
-  <!-- interface-naming-policy toplevel-contextual -->
-  <widget class="GtkWindow" id="ideal_body_window">
-    <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-    <child>
-      <widget class="GtkTable" id="ideal_body_table">
-        <property name="visible">True</property>
-        <property name="border_width">6</property>
-        <property name="n_rows">6</property>
-        <property name="n_columns">4</property>
-        <property name="column_spacing">6</property>
-        <property name="row_spacing">6</property>
+    <widget class="GtkWindow" id="ideal_body_window">
         <child>
-          <widget class="GtkEntry" id="neck_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">8</property>
-          </widget>
-          <packing>
-            <property name="left_attach">3</property>
-            <property name="right_attach">4</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
+            <widget class="GtkTable" id="ideal_body_table">
+                <property name="border_width">6</property>
+                <property name="column_spacing">6</property>
+                <property name="n_columns">4</property>
+                <property name="n_rows">6</property>
+                <property name="row_spacing">6</property>
+                <property name="visible">True</property>
+                <child>
+                    <widget class="GtkLabel" id="label4">
+                        <property name="label" context="yes" translatable="yes">Wrist size:</property>
+                        <property name="mnemonic_widget">wrist_spinbutton</property>
+                        <property name="use_underline">True</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">0</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                </child>
+                <child>
+                    <placeholder/>
+                    <packing/>
+                </child>
+                <child>
+                    <widget class="GtkHSeparator" id="hseparator2">
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">2</property>
+                        <property name="right_attach">4</property>
+                        <property name="top_attach">1</property>
+                        <property name="y_padding">6</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label5">
+                        <property name="label" context="yes" translatable="yes">Chest size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">3</property>
+                        <property name="top_attach">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label6">
+                        <property name="label" context="yes" translatable="yes">Waist size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">4</property>
+                        <property name="top_attach">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label7">
+                        <property name="label" context="yes" translatable="yes">Hip size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">5</property>
+                        <property name="top_attach">4</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label8">
+                        <property name="label" context="yes" translatable="yes">Bicep size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">6</property>
+                        <property name="top_attach">5</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxySpinButton" id="wrist_spinbutton">
+                        <property name="adjustment">1 1 100 1 10 0</property>
+                        <property name="data_type">float</property>
+                        <property name="digits">2</property>
+                        <property name="is_focus">True</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">wrist_spinbutton</property>
+                        <property name="numeric">True</property>
+                        <property name="text" context="yes" translatable="yes">1.00</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">7</property>
+                    </widget>
+                    <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="chest_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">chest_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">3</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="waist_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">waist_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">4</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="hip_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">hip_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">5</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">4</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="bicep_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">bicep_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">6</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">5</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyComboBox" id="unit_combobox">
+                        <property name="data_type">int</property>
+                        <property name="model_attribute">unit_combobox</property>
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="y_options"></property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label9">
+                        <property name="label" context="yes" translatable="yes">Forearm size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">3</property>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label10">
+                        <property name="label" context="yes" translatable="yes">Thigh size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">4</property>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label11">
+                        <property name="label" context="yes" translatable="yes">Calve size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">5</property>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">4</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label12">
+                        <property name="label" context="yes" translatable="yes">Neck size:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">6</property>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">5</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="forearm_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">forearm_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">3</property>
+                        <property name="left_attach">3</property>
+                        <property name="right_attach">4</property>
+                        <property name="top_attach">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="thigh_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="is_focus">True</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">thigh_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">4</property>
+                        <property name="left_attach">3</property>
+                        <property name="right_attach">4</property>
+                        <property name="top_attach">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="calve_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">calve_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">5</property>
+                        <property name="left_attach">3</property>
+                        <property name="right_attach">4</property>
+                        <property name="top_attach">4</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="neck_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="max_length">6</property>
+                        <property name="model_attribute">neck_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">6</property>
+                        <property name="left_attach">3</property>
+                        <property name="right_attach">4</property>
+                        <property name="top_attach">5</property>
+                    </packing>
+                </child>
+            </widget>
         </child>
-        <child>
-          <widget class="GtkEntry" id="calve_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">8</property>
-          </widget>
-          <packing>
-            <property name="left_attach">3</property>
-            <property name="right_attach">4</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="thigh_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">8</property>
-          </widget>
-          <packing>
-            <property name="left_attach">3</property>
-            <property name="right_attach">4</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="forearm_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">8</property>
-          </widget>
-          <packing>
-            <property name="left_attach">3</property>
-            <property name="right_attach">4</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="bicep_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">7</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="hip_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">7</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="waist_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">7</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkEntry" id="chest_entry">
-            <property name="width_request">75</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="editable">False</property>
-            <property name="max_length">6</property>
-            <property name="width_chars">7</property>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkComboBox" id="unit_combobox">
-            <property name="visible">True</property>
-            <property name="items" translatable="yes" context="yes">Inches
-Centimeters</property>
-            <signal name="changed" handler="on_ideal_body_calc"/>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="y_options"></property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkSpinButton" id="wrist_spinbutton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-            <property name="adjustment">17 1 100 1 10 0</property>
-            <property name="climb_rate">1</property>
-            <property name="digits">2</property>
-            <property name="numeric">True</property>
-            <signal name="value_changed" handler="on_ideal_body_calc"/>
-          </widget>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label12">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Neck size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label11">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Calve size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label10">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Thigh size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label9">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Forearm size:</property>
-          </widget>
-          <packing>
-            <property name="left_attach">2</property>
-            <property name="right_attach">3</property>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label8">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Bicep size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label7">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Hip size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label6">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Waist size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label5">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Chest size:</property>
-          </widget>
-          <packing>
-            <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="GtkLabel" id="label4">
-            <property name="visible">True</property>
-            <property name="xalign">1</property>
-            <property name="label" translatable="yes" context="yes">Wrist size:</property>
-            <property name="use_underline">True</property>
-            <property name="mnemonic_widget">wrist_spinbutton</property>
-            <property name="width_chars">0</property>
-          </widget>
-        </child>
-        <child>
-          <widget class="GtkHSeparator" id="hseparator2">
-            <property name="visible">True</property>
-          </widget>
-          <packing>
-            <property name="right_attach">4</property>
-            <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-            <property name="y_padding">6</property>
-          </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </widget>
-    </child>
-  </widget>
+    </widget>
 </glade-interface>

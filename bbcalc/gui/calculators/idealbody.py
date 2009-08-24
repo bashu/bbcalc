@@ -1,70 +1,96 @@
 ## -*- coding: utf-8 -*-
 
-
-import gconf
-
-from kiwi.ui.delegates import SlaveDelegate
-
-import bbcalc.utils.config as config
-
+from bbcalc.gui.calculators.baseclass import BaseModel, BaseClass
 from bbcalc.calculators.idealbody import ideal_body_calc
 
-from bbcalc.utils import METRIC, IMPERIAL
 from bbcalc.utils.unitconvertor import convert_length
 
 # Predefined values, used somewhere else. [0] - Imperial, [1] - Metric
 DEFAULT_WRIST = (6.89, 17.5)
 
 
-class IdealBody(SlaveDelegate):
+class CustomModel(BaseModel):
+
+    wrist_spinbutton = float()
+    unit_combobox = int()
+    chest_entry = float()
+    hip_entry = float()
+    waist_entry = float()
+    thigh_entry = float()
+    neck_entry = float()
+    bicep_entry = float()
+    calve_entry = float()
+    forearm_entry = float()
+
+    # List of result entries
+    result_entries = ['wrist_spinbutton',
+                      'chest_entry',
+                      'hip_entry',
+                      'waist_entry',
+                      'thigh_entry',
+                      'neck_entry',
+                      'bicep_entry',
+                      'calve_entry',
+                      'forearm_entry']
+
+    def set_unit_combobox(self, value):
+        self.wrist_spinbutton = convert_length(self.wrist_spinbutton, value)
+        self.unit_combobox = value
+
+    def set_wrist_spinbutton(self, value):
+        self.wrist_spinbutton = value
+        # Result calculation
+        results = ideal_body_calc(value, precision=1)
+
+        for idx in xrange(1, len(self.result_entries)):
+            if hasattr(self, self.result_entries[idx]):
+                setattr(self, self.result_entries[idx], results[idx])
+
+
+class IdealBody(BaseClass):
+
     gladefile = 'ideal_body_window'
+    model = CustomModel()
+    widgets = ('wrist_spinbutton',
+               'chest_entry',
+               'waist_entry',
+               'hip_entry',
+               'bicep_entry',
+               'forearm_entry',
+               'thigh_entry',
+               'calve_entry',
+               'neck_entry' )
+    proxy_widgets = ('unit_combobox',
+                     'wrist_spinbutton',
+                     'chest_entry',
+                     'waist_entry',
+                     'hip_entry',
+                     'bicep_entry',
+                     'forearm_entry',
+                     'thigh_entry',
+                     'calve_entry',
+                     'neck_entry' )
+    measurement_system_widgets = ('unit_combobox', )
 
     def __init__(self):
-        SlaveDelegate.__init__(self)
+        BaseClass.__init__(self)
 
-        # List of result widgets
-        self.results = [self.wrist_spinbutton, self.chest_entry, self.hip_entry,
-                        self.waist_entry, self.thigh_entry, self.neck_entry,
-                        self.bicep_entry, self.calve_entry, self.forearm_entry]
-
-        # Loading default values from GConf
-        self.load_gconf_defaults()
-        # Creating GConf notification handlers
-        self.create_gconf_notification()
-
-    def load_gconf_defaults(self):
-        """Load GConf defaults"""
-        self.config = config.Config()
-        # Set active item for unit selection box
-        self.unit_combobox.set_active(self.config.measurement_system)
-        # Set default value(s)
-        self.wrist_spinbutton.set_value(DEFAULT_WRIST[self.config.measurement_system])
-
-    def create_gconf_notification(self):
-        """Bind GConf notification handlers"""
-        self.config.notify_add(config.GCONF_MEASUREMENT_SYSTEM, self.on_gconf_changed)
+    def _setup_widgets(self):
+        self.unit_combobox.prefill([(value, key)
+                for key, value in self.model.length_types.items()])
+        self.model.wrist_spinbutton = DEFAULT_WRIST[self.config.measurement_system]
 
     # Signal handlers
 
     def after_unit_combobox__changed(self, entry, *args):
-        active = entry.get_active()
-        wrist = self.wrist_spinbutton.get_value()
-        self.wrist_spinbutton.set_value(convert_length(wrist, active))
+        self.proxy.update_many((self.widgets))
 
     def after_wrist_spinbutton__changed(self, entry, *args):
-        # Result calculation
-        wrist = entry.get_value() or None
-        results = ideal_body_calc(wrist)
-
-        # Exclude first widget in self.results
-        for idx in xrange(1, len(self.results)):
-            self.results[idx].set_text(str(results[idx]))
-
-    def on_gconf_changed(self, value):
-        """Handle unit conversion"""
-        if value is None or value.type != gconf.VALUE_STRING:
-            return
-        if value.get_string() == config.GCONF_SYSTEM_IMPERIAL:
-            self.unit_combobox.set_active(IMPERIAL)
-        if value.get_string() == config.GCONF_SYSTEM_METRIC:
-            self.unit_combobox.set_active(METRIC)
+        self.proxy.update_many(('chest_entry',
+                                'waist_entry',
+                                'hip_entry',
+                                'bicep_entry',
+                                'forearm_entry',
+                                'thigh_entry',
+                                'calve_entry',
+                                'neck_entry'))
