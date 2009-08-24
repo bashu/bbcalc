@@ -12,9 +12,14 @@ class BaseModel:
     weight_types = {IMPERIAL : _(u'Pounds'),
                     METRIC : _(u'Kilograms')}
 
+    length_types = {IMPERIAL : _(u'Inches'),
+                    METRIC : _(u'Centimeters')}
+
     weight_abbr = {IMPERIAL : _(u'lbs'),
                    METRIC : _(u'kg')}
 
+    length_abbr = {IMPERIAL : _(u'in'),
+                   METRIC : _(u'cm')}
 
 class BaseClass(ProxySlaveDelegate):
 
