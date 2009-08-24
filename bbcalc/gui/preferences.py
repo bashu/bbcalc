@@ -60,18 +60,14 @@ class PreferencesDialog(Delegate):
         if value.get_string() == config.GCONF_GENDER_FEMALE:
             self.gender2_radiobutton.set_active(True)
 
-    def on_unit1_radiobutton_toggled(self, toggle):
+    def after_unit1_radiobutton__toggled(self, *args):
         self.config.measurement_system = IMPERIAL
 
-    def on_unit2_radiobutton_toggled(self, toggle):
+    def after_unit2_radiobutton__toggled(self, *args):
         self.config.measurement_system = METRIC
 
-    def on_gender1_radiobutton_toggled(self, toggle):
+    def on_gender1_radiobutton__toggled(self, *args):
         self.config.default_gender = MALE
 
-    def on_gender2_radiobutton_toggled(self, toggle):
+    def on_gender2_radiobutton__toggled(self, *args):
         self.config.default_gender = FEMALE
-
-#    def on_prefs_dialog_response(self, dialog, response):
-#        if response == gtk.RESPONSE_DELETE_EVENT or response == gtk.RESPONSE_CLOSE:
-#            dialog.destroy()
