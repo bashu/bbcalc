@@ -32,8 +32,14 @@ class OneRepMax(BaseClass):
 
     gladefile = 'one_rep_max_window'
     model = CustomModel()
-    widgets = ('result_entry', 'result_label', 'weight_spinbutton', )
-    proxy_widgets = ('result_entry', 'result_label', 'unit_combobox', 'weight_spinbutton', 'reps_spinbutton', )
+    widgets = ('result_entry',
+               'result_label',
+               'weight_spinbutton', )
+    proxy_widgets = ('result_entry',
+                     'result_label',
+                     'unit_combobox',
+                     'weight_spinbutton',
+                     'reps_spinbutton', )
     measurement_system_widgets = ('unit_combobox', )
 
     def __init__(self):

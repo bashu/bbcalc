@@ -14,15 +14,15 @@
                 <property name="row_spacing">6</property>
                 <property name="visible">True</property>
                 <child>
-                    <placeholder/>
-                    <packing/>
-                </child>
-                <child>
                     <object class="GtkLabel" id="label1">
                         <property name="label" translatable="yes">Weight lifted:</property>
                         <property name="visible">True</property>
                         <property name="xalign">1.0</property>
                     </object>
+                </child>
+                <child>
+                    <placeholder/>
+                    <packing/>
                 </child>
                 <child>
                     <object class="GtkLabel" id="label2">
@@ -58,10 +58,10 @@
                 </child>
                 <child>
                     <object class="ProxySpinButton" id="weight_spinbutton">
-                        <property name="adjustment">0 1 1000 1 10 0</property>
+                        <property name="adjustment">0 1 10000 1 10 0</property>
                         <property name="data_type">float</property>
                         <property name="digits">2</property>
-                        <property name="max_length">6</property>
+                        <property name="max_length">7</property>
                         <property name="model_attribute">weight_spinbutton</property>
                         <property name="numeric">True</property>
                         <property name="text" translatable="yes">0.00</property>
@@ -130,7 +130,7 @@
                 <child>
                     <object class="ProxyLabel" id="result_label">
                         <property name="data_type">unicode</property>
-                        <property name="model_attribute"></property>
+                        <property name="model_attribute">result_label</property>
                         <property name="visible">True</property>
                         <property name="xalign">0.0</property>
                     </object>
