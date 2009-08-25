@@ -1,0 +1,175 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://gazpacho.sicem.biz/gazpacho-0.1.dtd">
+<glade-interface>
+    <widget class="GtkWindow" id="bmi_window">
+        <child>
+            <widget class="GtkTable" id="bmi_table">
+                <property name="border_width">6</property>
+                <property name="column_spacing">6</property>
+                <property name="n_columns">3</property>
+                <property name="n_rows">6</property>
+                <property name="row_spacing">6</property>
+                <property name="visible">True</property>
+                <child>
+                    <widget class="GtkLabel" id="label13">
+                        <property name="label" context="yes" translatable="yes">Height:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                </child>
+                <child>
+                    <placeholder/>
+                    <packing/>
+                </child>
+                <child>
+                    <placeholder/>
+                    <packing/>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label14">
+                        <property name="label" context="yes" translatable="yes">Weight:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">2</property>
+                        <property name="top_attach">1</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkHSeparator" id="hseparator1">
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">3</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">2</property>
+                        <property name="y_padding">6</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label1">
+                        <property name="label" context="yes" translatable="yes">Body Mass Index:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">4</property>
+                        <property name="top_attach">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkHSeparator" id="hseparator2">
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">5</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">4</property>
+                        <property name="y_padding">6</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="GtkLabel" id="label2">
+                        <property name="label" context="yes" translatable="yes">Weight status:</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">6</property>
+                        <property name="top_attach">5</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxySpinButton" id="height_spinbutton">
+                        <property name="adjustment">0 1 250 1 10 0</property>
+                        <property name="data_type">float</property>
+                        <property name="digits">2</property>
+                        <property name="model_attribute">height_spinbutton</property>
+                        <property name="text" context="yes" translatable="yes">0.00</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                    </widget>
+                    <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxySpinButton" id="weight_spinbutton">
+                        <property name="adjustment">1 1 1000 1 10 0</property>
+                        <property name="data_type">float</property>
+                        <property name="is_focus">True</property>
+                        <property name="model_attribute">weight_spinbutton</property>
+                        <property name="text" context="yes" translatable="yes">1</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">2</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">1</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyEntry" id="result_entry">
+                        <property name="data_type">float</property>
+                        <property name="editable">False</property>
+                        <property name="model_attribute">result_entry</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                        <property name="xalign">1.0</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">4</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">3</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyLabel" id="result_label">
+                        <property name="data_type">unicode</property>
+                        <property name="justify">center</property>
+                        <property name="model_attribute">result_label</property>
+                        <property name="visible">True</property>
+                        <property name="width_chars">8</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">6</property>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">5</property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyComboBox" id="unit1_combobox">
+                        <property name="data_type">int</property>
+                        <property name="model_attribute">unit1_combobox</property>
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="y_options"></property>
+                    </packing>
+                </child>
+                <child>
+                    <widget class="ProxyComboBox" id="unit2_combobox">
+                        <property name="data_type">int</property>
+                        <property name="model_attribute">unit2_combobox</property>
+                        <property name="visible">True</property>
+                    </widget>
+                    <packing>
+                        <property name="bottom_attach">2</property>
+                        <property name="left_attach">2</property>
+                        <property name="right_attach">3</property>
+                        <property name="top_attach">1</property>
+                        <property name="y_options"></property>
+                    </packing>
+                </child>
+            </widget>
+        </child>
+    </widget>
+</glade-interface>
