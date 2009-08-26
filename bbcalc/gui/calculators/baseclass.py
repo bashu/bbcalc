@@ -4,7 +4,7 @@ from gettext import gettext as _
 from kiwi.ui.delegates import ProxySlaveDelegate
 
 import bbcalc.utils.config as config
-from bbcalc.utils import METRIC, IMPERIAL
+from bbcalc.utils import METRIC, IMPERIAL, MALE, FEMALE
 
 
 class BaseModel(object):
@@ -17,6 +17,9 @@ class BaseModel(object):
 
     distance_types = {IMPERIAL : _(u'Miles'),
                     METRIC : _(u'Kilometers')}
+
+    gender_types = {MALE : _(u'Male'),
+                    FEMALE : _(u'Female')}
 
     weight_abbr = {IMPERIAL : _(u'lbs'),
                    METRIC : _(u'kg')}
@@ -60,6 +63,9 @@ class BaseClass(ProxySlaveDelegate):
         # Set active item for measurement system selection widgets
         self._update_defaults(self.measurement_system_widgets,
                               self.config.measurement_system)
+        # Set active item for gender selection widgets
+        self._update_defaults(self.gender_widgets,
+                              self.config.default_gender)
 
     def _setup_gconf_notification(self):
         """Bind GConf notification handlers"""
@@ -84,3 +90,7 @@ class BaseClass(ProxySlaveDelegate):
                 value.get_string() == config.GCONF_SYSTEM_METRIC:
             self._update_defaults(self.measurement_system_widgets,
                                   self.config.measurement_system)
+        if value.get_string() == config.GCONF_GENDER_MALE or \
+                value.get_string() == config.GCONF_GENDER_FEMALE:
+            self._update_defaults(self.gender_widgets,
+                                  self.config.default_gender)
