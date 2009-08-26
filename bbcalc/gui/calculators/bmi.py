@@ -28,7 +28,7 @@ class CustomModel(BaseModel):
         self.unit2_combobox = value
 
     def get_result_entry(self):
-        if self.height_spinbutton !=0 and self.weight_spinbutton !=0:
+        if self.height_spinbutton != 0 and self.weight_spinbutton != 0:
             result = bmi_calc(self.height_spinbutton,
                               self.weight_spinbutton,
                               self.unit1_combobox,
