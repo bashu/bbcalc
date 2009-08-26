@@ -7,7 +7,7 @@ import bbcalc.utils.config as config
 from bbcalc.utils import METRIC, IMPERIAL
 
 
-class BaseModel:
+class BaseModel(object):
     # Predefined types
     weight_types = {IMPERIAL : _(u'Pounds'),
                     METRIC : _(u'Kilograms')}
@@ -15,16 +15,23 @@ class BaseModel:
     length_types = {IMPERIAL : _(u'Inches'),
                     METRIC : _(u'Centimeters')}
 
+    distance_types = {IMPERIAL : _(u'Miles'),
+                    METRIC : _(u'Kilometers')}
+
     weight_abbr = {IMPERIAL : _(u'lbs'),
                    METRIC : _(u'kg')}
 
     length_abbr = {IMPERIAL : _(u'in'),
                    METRIC : _(u'cm')}
 
+    distance_abbr = {IMPERIAL : _(u'mi'),
+                   METRIC : _(u'km')}
+
+
 class BaseClass(ProxySlaveDelegate):
 
     gladefile = None
-    model = None
+    model = BaseModel()
     proxy_widgets = []
     measurement_system_widgets = [] # measurement system selection widgets
     gender_widgets = [] # gender selection widgets
