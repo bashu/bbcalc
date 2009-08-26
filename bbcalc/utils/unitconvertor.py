@@ -44,3 +44,12 @@ def convert_length(value, system=METRIC, precision=2):
         return cm2in(value, precision)
     else:
         return None
+
+def convert_distance(value, system=METRIC, precision=2):
+    """Convert distance from one measurement system to another"""
+    if system == METRIC:
+        return mi2km(value, precision)
+    elif system == IMPERIAL:
+        return km2mi(value, precision)
+    else:
+        return None
