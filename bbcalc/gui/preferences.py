@@ -53,21 +53,25 @@ class PreferencesDialog(Delegate):
             return
         if value.get_string() == config.GCONF_SYSTEM_IMPERIAL:
             self.unit1_radiobutton.set_active(True)
-        if value.get_string() == config.GCONF_SYSTEM_METRIC:
+        elif value.get_string() == config.GCONF_SYSTEM_METRIC:
             self.unit2_radiobutton.set_active(True)
         if value.get_string() == config.GCONF_GENDER_MALE:
             self.gender1_radiobutton.set_active(True)
-        if value.get_string() == config.GCONF_GENDER_FEMALE:
+        elif value.get_string() == config.GCONF_GENDER_FEMALE:
             self.gender2_radiobutton.set_active(True)
 
     def after_unit1_radiobutton__toggled(self, *args):
-        self.config.measurement_system = IMPERIAL
+        if self.config.measurement_system != IMPERIAL:
+            self.config.measurement_system = IMPERIAL
 
     def after_unit2_radiobutton__toggled(self, *args):
-        self.config.measurement_system = METRIC
+        if self.config.measurement_system != METRIC:
+            self.config.measurement_system = METRIC
 
     def on_gender1_radiobutton__toggled(self, *args):
-        self.config.default_gender = MALE
+        if self.config.default_gender != MALE:
+            self.config.default_gender = MALE
 
     def on_gender2_radiobutton__toggled(self, *args):
-        self.config.default_gender = FEMALE
+        if self.config.default_gender != FEMALE:
+            self.config.default_gender = FEMALE
